@@ -12,7 +12,7 @@ public class patientEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Integer patientid;
+	 private Integer patientId;
 	 private String firstname;
 	 private String middlename;
 	 private String lastname;
@@ -32,16 +32,11 @@ public class patientEntity {
 	 private String diabeties;
 	 private String Registrationtype;
 	 private String docType;
-	 private Integer role;
+	 private Integer roleid;
 	 
 	 
 	 
-	public Integer getUserid() {
-		return patientid;
-	}
-	public void setUserid(Integer userid) {
-		this.patientid = userid;
-	}
+	
 	public String getFirstname() {
 		return firstname;
 	}
@@ -97,11 +92,12 @@ public class patientEntity {
 		this.state = state;
 	}
 	
-	public Integer getPatientid() {
-		return patientid;
+	
+	public Integer getPatientId() {
+		return patientId;
 	}
-	public void setPatientid(Integer patientid) {
-		this.patientid = patientid;
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
 	}
 	public String getMiddlename() {
 		return middlename;
@@ -163,6 +159,13 @@ public class patientEntity {
 	public void setDocType(String docType) {
 		this.docType = docType;
 	}
+	public Integer getRoleid() {
+		return roleid;
+	}
+	public void setRoleid(Integer roleid) {
+		this.roleid = roleid;
+	}
 	 
+	
 
 }

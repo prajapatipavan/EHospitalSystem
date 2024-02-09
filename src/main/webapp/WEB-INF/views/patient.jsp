@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-      <form action="Home" method="post">
+      <form action="savepatient" method="post">
          
                  firstName:<input type="text" name="firstname">	<br><br>				
                  middleName:<input type="text" name="middlename"><br><br>					
@@ -29,7 +29,7 @@
                  diabeties:<input type="text" name="diabeties"><br><br>
                   RegistrationType	:<input type="text" name="Registrationtype"><br><br>		
                   docType	:<input type="text" name="docType">	<br><br>
-                  role:<input type="text" name="role">	<br><br> 	
+                  role:<input type="text" name="roleid">	<br><br> 	
                   
                <input type="submit" >
               </form>

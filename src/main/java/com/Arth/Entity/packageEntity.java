@@ -13,18 +13,19 @@ public class packageEntity {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer pacid;
+    private Integer packageId;
     private String name;
     private Integer amount;
-    private Integer rateType;
+    private Integer  ratetypeId;
     private String packageType;
     
 	
-	public Integer getPacid() {
-		return pacid;
+	
+	public Integer getPackageId() {
+		return packageId;
 	}
-	public void setPacid(Integer pacid) {
-		this.pacid = pacid;
+	public void setPackageId(Integer packageId) {
+		this.packageId = packageId;
 	}
 	public String getName() {
 		return name;
@@ -38,11 +39,12 @@ public class packageEntity {
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
-	public Integer getRateType() {
-		return rateType;
+	
+	public Integer getRatetypeId() {
+		return ratetypeId;
 	}
-	public void setRateType(Integer rateType) {
-		this.rateType = rateType;
+	public void setRatetypeId(Integer ratetypeId) {
+		this.ratetypeId = ratetypeId;
 	}
 	public String getPackageType() {
 		return packageType;

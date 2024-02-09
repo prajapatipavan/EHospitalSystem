@@ -1,7 +1,10 @@
 package com.Arth.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -19,10 +22,18 @@ public class RoleController {
 		return "/role";
 	}
 	
-	@PostMapping("/home")
-	public String home(RoleEntity role) {
+	@PostMapping("/rolelists")
+	public String rolelits(RoleEntity role) {
 		repositry.save(role);
-		return "/welcome";
+		return "redirect:/rolelist";
+	}
+	
+	@GetMapping("/rolelist")
+	public String rolelist(Model model) {
+		 List<RoleEntity> roles = repositry.findAll();
+		 model.addAttribute("roles",roles);
+		
+		return "/rolelist";
 	}
 	
 	

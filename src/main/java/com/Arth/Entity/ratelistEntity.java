@@ -14,23 +14,23 @@ public class ratelistEntity {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ratelistid;
+    private Integer ratelistId;
     private String name;
     private float amount;
-    private Integer rateType;
-    private String department;
+    private Integer ratetypeId;
+    private Integer departmentid;
 
 
 
 
-	public Integer getRatelistid() {
-		return ratelistid;
+	public Integer getRatelistId() {
+		return ratelistId;
 	}
 
 
 
-	public void setRatelistid(Integer ratelistid) {
-		this.ratelistid = ratelistid;
+	public void setRatelistId(Integer ratelistId) {
+		this.ratelistId = ratelistId;
 	}
 
 
@@ -59,27 +59,31 @@ public class ratelistEntity {
 
 
 
-	public Integer getRateType() {
-		return rateType;
+	public Integer getRatetypeId() {
+		return ratetypeId;
 	}
 
 
 
-	public void setRateType(Integer rateType) {
-		this.rateType = rateType;
+	public void setRatetypeId(Integer ratetypeId) {
+		this.ratetypeId = ratetypeId;
 	}
 
 
 
-	public String getDepartment() {
-		return department;
+	public Integer getDepartmentid() {
+		return departmentid;
 	}
 
 
 
-	public void setDepartment(String department) {
-		this.department = department;
+	public void setDepartmentid(Integer departmentid) {
+		this.departmentid = departmentid;
 	}
+
+
+
+
 
    
     

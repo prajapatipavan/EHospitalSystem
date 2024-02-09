@@ -13,17 +13,20 @@ public class DepartmentEntity {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-    private Integer depid;
+    private Integer departmentId;
     private String name;
     private boolean active;
     
     
 	
-	public Integer getDepid() {
-		return depid;
+	
+	
+	
+	public Integer getDepartmentId() {
+		return departmentId;
 	}
-	public void setDepid(Integer depid) {
-		this.depid = depid;
+	public void setDepartmentId(Integer departmentId) {
+		this.departmentId = departmentId;
 	}
 	public String getName() {
 		return name;

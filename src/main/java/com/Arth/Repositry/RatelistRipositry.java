@@ -1,5 +1,11 @@
 package com.Arth.Repositry;
 
-public interface RatelistRipositry {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.Arth.Entity.ratelistEntity;
+
+@Repository
+public interface RatelistRipositry extends JpaRepository<ratelistEntity, Integer> {
 
 }

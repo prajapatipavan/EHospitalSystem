@@ -12,15 +12,16 @@ public class RoleEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Integer roleid;
+     private Integer roleId;
 	  private String rolename;
 	  
 	 	  
-	public Integer getRoleid() {
-		return roleid;
+	
+	public Integer getRoleId() {
+		return roleId;
 	}
-	public void setRoleid(Integer roleid) {
-		this.roleid = roleid;
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
 	}
 	public String getRolename() {
 		return rolename;

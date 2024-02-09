@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-              <form action="home" method="post">
+              <form action="rolelists" method="post">
               
                   Role:<input type="text" name="rolename">
               
                <input type="submit" >
+               
               </form>
 </body>
 </html>

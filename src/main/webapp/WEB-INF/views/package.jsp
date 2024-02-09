@@ -12,7 +12,7 @@
     <form action="savePackage" method="post">
         Package Name: <input type="text" name="packageName"><br>
         Amount:<input type="text" name="amount"><br>
-        Rate Type ID: <input type="text" name="rateTypeId"><br>
+        Rate Type: <input type="text" name="rateTypeId"><br>
         Package Type: <input type="text" name="packageType"><br>
         <input type="submit" value="Submit">
     </form>

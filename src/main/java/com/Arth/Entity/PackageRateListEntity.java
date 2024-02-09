@@ -1,0 +1,40 @@
+package com.Arth.Entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name = "packageiteam")
+public class PackageRateListEntity {
+	
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		
+	    private Integer packageId;
+	    private Integer ratelistId;
+	    
+	    
+		public Integer getPackageId() {
+			return packageId;
+		}
+		public void setPackageId(Integer packageId) {
+			this.packageId = packageId;
+		}
+		public Integer getRatelistId() {
+			return ratelistId;
+		}
+		public void setRatelistId(Integer ratelistId) {
+			this.ratelistId = ratelistId;
+		}
+	    
+	    
+		
+	    
+	    
+	      		
+
+}

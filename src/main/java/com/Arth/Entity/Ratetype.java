@@ -13,16 +13,16 @@ public class Ratetype {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-      private Integer rateid;
+      private Integer ratetypeId;
       private String type;
       
-      
-	public Integer getRateid() {
-		return rateid;
+  
+	public Integer getRatetypeId() {
+		return ratetypeId;
 	}
 
-	public void setRateid(Integer rateid) {
-		this.rateid = rateid;
+	public void setRatetypeId(Integer ratetypeId) {
+		this.ratetypeId = ratetypeId;
 	}
 
 	public String getType() {
