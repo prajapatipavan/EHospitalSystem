@@ -24,7 +24,7 @@ public class Departmentcontroller {
 	}
 	
 	@PostMapping("/saveDepartment")
-	public String home(DepartmentEntity department) {
+	public String saveDepartment (DepartmentEntity department) {
 		repositry.save(department);
 		return "redirect:/departmentlist";
 	}
@@ -34,7 +34,6 @@ public class Departmentcontroller {
 	public String departmentlist(Model model) {
 		List<DepartmentEntity> depart = repositry.findAll();
 		 model.addAttribute("depart",depart);
-		
 		return "/departmentlist";
 	}
 	

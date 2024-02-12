@@ -1,12 +1,20 @@
 package com.Arth.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Appoinment")
 public class AppoinmentEntity {
 	
+	  @Id
+	  @GeneratedValue(strategy = GenerationType.IDENTITY)
+	  private Integer appoinmentId;
+	  
 	  private Integer doctorId;
 	  private Integer patientId;
 	  private Integer ratelistId;
@@ -16,6 +24,15 @@ public class AppoinmentEntity {
 	  private Integer appoinmentStatusId;
 	  
 	 
+	  
+	  
+	  
+	public Integer getAppoinmentId() {
+		return appoinmentId;
+	}
+	public void setAppoinmentId(Integer appoinmentId) {
+		this.appoinmentId = appoinmentId;
+	}
 	public Integer getDoctorId() {
 		return doctorId;
 	}

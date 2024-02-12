@@ -25,16 +25,16 @@ public class AppoinmentStatusController {
 	}
 	
 	@PostMapping("/saveappoimentstatus")
-	public String home(AppointmentStatusEntity department) {
-		repositry.save(department);
-		return "redirect:/AppoinmentStauslist";
+	public String home(AppointmentStatusEntity appoinment) {
+		repositry.save(appoinment);
+		return "redirect:/AppoinmentStatuslist";
 	}
 	
 
 	@GetMapping("/AppoinmentStatuslist")
 	public String departmentlist(Model model) {
 		List<AppointmentStatusEntity> apstatus = repositry.findAll();
-		 model.addAttribute("apstatus ",apstatus);
+		 model.addAttribute("apstatus",apstatus);
 		
 		return "/AppoinmentStauslist";
 	}

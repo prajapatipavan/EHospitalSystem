@@ -10,11 +10,24 @@ import jakarta.persistence.Table;
 @Table(name ="packageiteam")
 public class PackageIteamEntity {
 	
-	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 private Integer packageiteamId;
    
     private Integer packageId;
     
     private Integer itemId;
+    
+    
+    
+
+	public Integer getPackageiteamId() {
+		return packageiteamId;
+	}
+
+	public void setPackageiteamId(Integer packageiteamId) {
+		this.packageiteamId = packageiteamId;
+	}
 
 	public Integer getPackageId() {
 		return packageId;

@@ -25,6 +25,7 @@ public class Doctorcontroller {
 		return "/doctor";
 	}
 	
+	
 	@PostMapping("/addDoctor")
 	public String addDoctor(DoctorEntity doctor) {
 		repositry.save(doctor);

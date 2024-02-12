@@ -3,6 +3,7 @@ package com.Arth.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,8 @@ import com.Arth.Repositry.MaterialRepositry;
 import com.Arth.Repositry.PackageRateListRepositry;
 import com.Arth.Repositry.PackageiteamRepositry;
 
+
+@Controller
 public class PackageRateListController {
 	
 	
@@ -33,8 +36,8 @@ public class PackageRateListController {
 
 	@GetMapping("/packageratelist")
 	public String packageratelist(Model model) {
-		List<PackageRateListEntity> material = repositry.findAll();
-		 model.addAttribute("material",material);
+		List<PackageRateListEntity> packagerlist = repositry.findAll();
+		 model.addAttribute("packagerlist",packagerlist);
 		return "/packageRatelist";
 	}
 

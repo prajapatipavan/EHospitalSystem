@@ -9,15 +9,15 @@
 <body>
          <h1>Add Item</h1>
     <form action="addItem" method="post">
-        <input type="text" name="materialGroupName" value="PHARMACY"><br>
-        <input type="text" name="materialId"><br>
-        <input type="text" name="itemCode" value="ITEM_06930"><br>
-        <input type="text" name="itemName" value="OLOPAT MAX Eye Drop"><br>
-        <input type="text" name="alternateName"><br>
-        <input type="text" name="shortName" value="Olopatadine 0.7"><br>
-        <input type="text" name="gstRate" value="0%"><br>
-        <input type="text" name="hsnCode" value="30042039"><br>
-        <input type="text" name="price" value="1000"><br>
+      MaterialGroupName:  <input type="text" name="materialGroupName"><br>
+      MaterialId:  <input type="text" name="materialId"><br>
+       ItemCode: <input type="text" name="itemCode" ><br>
+      ItemName:  <input type="text" name="itemName" ><br>
+       AlternateName: <input type="text" name="alternateName"><br>
+      ShortName:  <input type="text" name="shortName" ><br>
+      GstRate:  <input type="text" name="gstRate" ><br>
+      HsnCode : <input type="text" name="hsnCode" ><br>
+       Price: <input type="text" name="price"><br>
         <input type="submit" value="Submit">
     </form>
 </body>

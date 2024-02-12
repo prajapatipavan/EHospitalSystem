@@ -19,7 +19,7 @@ public class DoctorEntity {
     private String firstName;
 
     private String lastName;
-
+  
     private String titleName;
 
     private String qualification;
@@ -42,11 +42,6 @@ public class DoctorEntity {
     private Integer serviceType;
 
     
-
-	
-
-
-	
 
 
 	public Integer getDoctorId() {

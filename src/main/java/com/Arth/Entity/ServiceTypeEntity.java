@@ -15,7 +15,7 @@ public class ServiceTypeEntity {
     private Integer serviceTypeId;
     private String type;
    
-   
+    
 
 public Integer getServiceTypeId() {
 	return serviceTypeId;

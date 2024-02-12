@@ -15,7 +15,7 @@ public class Ratetype {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
       private Integer ratetypeId;
       private String type;
-      
+       
   
 	public Integer getRatetypeId() {
 		return ratetypeId;

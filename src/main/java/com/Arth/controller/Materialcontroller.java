@@ -24,7 +24,7 @@ public class Materialcontroller {
 		return "/material";
 	}
 	
-	@PostMapping("/savematerial")
+	@PostMapping("/addmeterial")
 	public String savematerial(MaterialEntity material) {
 		mrepositry.save(material);
 		return "redirect:/materiallist";

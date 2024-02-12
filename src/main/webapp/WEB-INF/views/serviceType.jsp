@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+        <form action="servicetype" method="post">
+              
+                  TYpe:<input type="text" name="type">
+              
+               <input type="submit" >
+               
+              </form>
 </body>
 </html>

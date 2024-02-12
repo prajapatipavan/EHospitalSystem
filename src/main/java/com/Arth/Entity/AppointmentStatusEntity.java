@@ -15,7 +15,7 @@ public class AppointmentStatusEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	
         private Integer appoinmentStatusId;
-	
+	  
 	    private String statusName;
 
 		public String getStatusName() {

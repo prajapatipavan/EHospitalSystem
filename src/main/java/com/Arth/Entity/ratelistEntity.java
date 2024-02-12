@@ -19,14 +19,13 @@ public class ratelistEntity {
     private float amount;
     private Integer ratetypeId;
     private Integer departmentid;
-
-
-
-
+ 
+ 
 	public Integer getRatelistId() {
 		return ratelistId;
 	}
 
+	
 
 
 	public void setRatelistId(Integer ratelistId) {

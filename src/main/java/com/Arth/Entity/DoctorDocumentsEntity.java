@@ -15,7 +15,7 @@ public class DoctorDocumentsEntity {
 	    private Integer doctorDocumentsId;
 	    private String documentName;
 	    private Integer doctorId;
-
+ 
 	    private String documentPath;
 	    
 	    

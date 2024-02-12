@@ -10,47 +10,49 @@
                   <h2>Employee Registration</h2>
 
 <form action="saveEmployee" method="post">
-    <input type="text" name="firstName" placeholder="First Name" required>
+   First Name: <input type="text" name="firstName" placeholder="First Name" required>
     <br><br>
 
-    <input type="text" name="lastName" placeholder="Last Name" required>
+ Last Name:  <input type="text" name="lastName" placeholder="Last Name" required>
     <br><br>
 
-    <input type="text" name="titleName" placeholder="Title">
+  Title:  <input type="text" name="titleName" placeholder="Title">
     <br><br>
 
-    <input type="text" name="gender" placeholder="Gender">
+  Gender:  <input type="text" name="gender" placeholder="Gender">
     <br><br>
 
-    <input type="email" name="email" placeholder="Email" required>
+   Email: <input type="email" name="email" placeholder="Email" required>
     <br><br>
 
-    <input type="password" name="password" placeholder="Password" required>
+   Password: <input type="password" name="password" placeholder="Password" required>
     <br><br>
 
-    <input type="date" name="dateOfJoining" placeholder="Date of Joining">
+  Date of Joining:  <input type="date" name="dateOfJoining" placeholder="Date of Joining">
     <br><br>
 
-    <input type="text" name="qualification" placeholder="Qualification">
+  Qualification:  <input type="text" name="qualification" placeholder="Qualification">
     <br><br>
 
-   <input type="text" name="roleId" placeholder="role">
+   Role:<input type="text" name="roleId" placeholder="role">
     <br><br>
 
-    <input type="text" name="aadharCardPath" placeholder="Aadhar Card Path">
+  Aadhar Card Path:  <input type="text" name="aadharCardPath" placeholder="Aadhar Card Path">
     <br><br>
 
-    <input type="text" name="panCardPath" placeholder="Pan Card Path">
+   Pan Card Path: <input type="text" name="panCardPath" placeholder="Pan Card Path">
     <br><br>
 
-    <input type="text" name="qualificationDocPath" placeholder="Qualification Doc Path">
+   Qualification Doc Path: <input type="text" name="qualificationDocPath" placeholder="Qualification Doc Path">
+    <br><br>
+    
+  Contact Number:  <input type="text" name="contactNum" placeholder="Contact Number"><br><br>
+
+  activeInd:<input type="checkbox" name="activeInd" value="true">
     <br><br>
 
-    <input type="checkbox" name="activeInd" value="true">
-    <br><br>
-
-    <input type="text" name="contactNum" placeholder="Contact Number">
-    <br><br>
+    
+    
 
     <input type="submit" value="Submit">
 </form>

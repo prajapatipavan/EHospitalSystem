@@ -14,25 +14,22 @@ public class DepartmentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	
     private Integer departmentId;
-    private String name;
+    private String departmentName;
     private boolean active;
-    
-    
-	
-	
-	
-	
+     
+   
 	public Integer getDepartmentId() {
 		return departmentId;
 	}
 	public void setDepartmentId(Integer departmentId) {
 		this.departmentId = departmentId;
 	}
-	public String getName() {
-		return name;
+	
+	public String getDepartmentName() {
+		return departmentName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
 	}
 	public boolean isActive() {
 		return active;

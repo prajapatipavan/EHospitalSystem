@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-       ${apstatus  }
+        <table border="1">
+   
+   
+    <tr>
+        
+       
+        <td>  appoinmentStatusId </td>
+        <td>  statusName </td>
+         
+        
+        
+        </tr>
+   
+        <c:forEach items="${apstatus}" var="p">
+        
+              <tr>
+        
+        <td> ${p.appoinmentStatusId } </td>
+        <td> ${p.statusName } </td>
+        
+        
+        </tr>
+        
+        </c:forEach>
+     
+     </table>
 </body>
 </html>
