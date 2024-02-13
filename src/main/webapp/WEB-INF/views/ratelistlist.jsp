@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +25,11 @@
        <c:forEach items="${ratelist}" var="p">
         
         <tr>
-        <td>p.ratelistId</td>
-        <td>p.name</td>
-        <td>p.amount</td>
-        <td>p.ratetypeId</td>
-        <td>p.departmentid</td>
+        <td>${ p.ratelistId}</td>
+        <td> ${p.name}</td>
+        <td>${p.amount}</td>
+        <td>${ p.ratetypeId}</td>
+        
           
            
         

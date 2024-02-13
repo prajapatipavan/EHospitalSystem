@@ -13,10 +13,9 @@ public class MaterialEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer materialId ; 
-	
-	private String materialName ;
-	private String description ;
+	private Integer materialId; 
+	private String materialName;
+	private String description;
 	
 	
 	public Integer getMaterialId() {

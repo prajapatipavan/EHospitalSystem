@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,22 @@
      Gender:   <input type="text" name="gender" placeholder="Gender"><br>
       Active Indicator:  <input type="text" name="activeInd" placeholder="Active Indicator"><br>
       Join Date:  <input type="text" name="joinDate" placeholder="Join Date"><br>
-     Service Type:   <input type="text" name="serviceTypeId" placeholder="Service Type"><br>
+     Service Type:   
+      
+              <select name="serviceTypeId">
+        
+                <option value="-1">----select Service Type----</option>
+                
+                 <c:forEach items="${servicetype}" var="r">
+                           
+                           <option value="${r.serviceTypeId}"> ${r.type} <option>
+                           
+                           </c:forEach>  
+        
+        
+                </select><br><br>
+              
+     
         <input type="submit" value="Submit">
     </form>
 </body>

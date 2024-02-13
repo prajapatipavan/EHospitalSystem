@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.Arth.Entity.DepartmentEntity;
+import com.Arth.Entity.Ratetype;
 import com.Arth.Entity.packageEntity;
 import com.Arth.Entity.ratelistEntity;
 import com.Arth.Repositry.PackageRepositry;
 import com.Arth.Repositry.RatelistRipositry;
+import com.Arth.Repositry.RatetypeRipositry;
 
 @Controller
 public class Ratelistcontroller {
@@ -20,13 +22,20 @@ public class Ratelistcontroller {
 	@Autowired
 	RatelistRipositry repositry;
 	
+	@Autowired
+	RatetypeRipositry raterepo;
+	
 	@GetMapping("/ratelist")
-	public String ratelist() {
+	public String ratelist(Model model) {
+		
+	List<Ratetype> ratetype =	raterepo.findAll();
+	model.addAttribute("ratetype", ratetype);
+		 
 		return "/ratelist";
 		
 	}
 	
-	@PostMapping("/saveratelist")
+	@PostMapping("/ratelists")
 	public String saveratelist(ratelistEntity ratelist) {
 		repositry.save(ratelist);
 		return "redirect:/ratelistlist";

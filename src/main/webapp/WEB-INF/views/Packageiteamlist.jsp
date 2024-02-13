@@ -17,11 +17,11 @@
    
     <tr>
         
-        <td>  packageiteamId </td>
+        <td>packageiteamId</td>
          <td> packageId </td>
          <td>itemId </td>
         
-        </tr>
+   </tr>
    
        <c:forEach items="${piteam}" var="p">
         

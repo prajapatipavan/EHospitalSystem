@@ -26,8 +26,6 @@ public class ratelistEntity {
 	}
 
 	
-
-
 	public void setRatelistId(Integer ratelistId) {
 		this.ratelistId = ratelistId;
 	}

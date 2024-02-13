@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 import com.Arth.Entity.IteamEntity;
-
+import com.Arth.Entity.MaterialEntity;
 import com.Arth.Repositry.IteamRepositry;
+import com.Arth.Repositry.MaterialRepositry;
 
 @Controller
 public class Iteamcontroller {
@@ -19,8 +20,13 @@ public class Iteamcontroller {
 	@Autowired
 	IteamRepositry repositry;
 	
+	@Autowired
+	MaterialRepositry mRepositry;
+	
 	@GetMapping("/iteampage")
-	public String department() {
+	public String iteamPage(Model model) {
+	List<MaterialEntity> materialName =	mRepositry.findAll();
+	model.addAttribute("materialName", materialName);
 		return "/iteam";
 	}
 	

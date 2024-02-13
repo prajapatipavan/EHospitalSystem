@@ -1,5 +1,6 @@
 package com.Arth.Entity;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,21 +11,24 @@ import jakarta.persistence.Table;
 @Table(name ="packageiteam")
 public class PackageIteamEntity {
 	
+	
+	 
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Integer packageiteamId;
+	 private Integer packageIteamId;
+	 
      private Integer packageId; 
      private Integer itemId;
     
-     
-    
+        
+	
 
-	public Integer getPackageiteamId() {
-		return packageiteamId;
+	public Integer getPackageIteamId() {
+		return packageIteamId;
 	}
 
-	public void setPackageiteamId(Integer packageiteamId) {
-		this.packageiteamId = packageiteamId;
+	public void setPackageIteamId(Integer packageIteamId) {
+		this.packageIteamId = packageIteamId;
 	}
 
 	public Integer getPackageId() {

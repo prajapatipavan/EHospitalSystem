@@ -9,18 +9,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.Arth.Entity.DepartmentEntity;
+import com.Arth.Entity.Ratetype;
 import com.Arth.Entity.packageEntity;
 import com.Arth.Repositry.DepartmentRepositry;
 import com.Arth.Repositry.PackageRepositry;
+import com.Arth.Repositry.RatetypeRipositry;
 
 @Controller
 public class packagecontroller {
 	
 	@Autowired
 	PackageRepositry repositry;
+	@Autowired
+	 RatetypeRipositry raterepositry;
 	
 	@GetMapping("/package")
-	public String packagee() {
+	public String packagee(Model model) {
+		
+	List<Ratetype> ratetyep	= raterepositry.findAll();
+	model.addAttribute("ratetype",ratetyep);
 		return "/package";
 		
 	}

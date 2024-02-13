@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 import com.Arth.Entity.EmployeeEntity;
-
+import com.Arth.Entity.Ratetype;
+import com.Arth.Entity.RoleEntity;
 import com.Arth.Repositry.EmployeeRepositry;
+import com.Arth.Repositry.RoleRepositry;
 
 
 @Controller
@@ -21,8 +23,16 @@ public class EmployeeController {
 	@Autowired
 	EmployeeRepositry repositry;
 	
+	@Autowired
+	RoleRepositry roleRepositry;
+	
 	@GetMapping("/Employee")
-	public String Employee() {
+	public String Employee(Model model) {
+		
+		List<RoleEntity> rolename	= roleRepositry.findAll();
+		model.addAttribute("rolename",rolename);
+			
+		
 		return "/Employee";
 	}
 	

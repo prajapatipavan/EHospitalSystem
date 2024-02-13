@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "packageiteam")
+@Table(name = "packagerate")
 public class PackageRateListEntity {
 	
 		@Id

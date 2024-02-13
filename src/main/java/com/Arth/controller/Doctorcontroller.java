@@ -8,9 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.Arth.Entity.DoctorEntity;
-
+import com.Arth.Entity.DoctorEntity;import com.Arth.Entity.ServiceTypeEntity;
 import com.Arth.Repositry.DoctorRepositry;
+import com.Arth.Repositry.ServiceTypeRepositry;
 
 @Controller
 public class Doctorcontroller {
@@ -20,8 +20,15 @@ public class Doctorcontroller {
 	@Autowired
 	DoctorRepositry repositry;
 	
+	@Autowired
+	ServiceTypeRepositry serviceTypeRepositry;
+	
 	@GetMapping("/doctorpage")
-	public String department() {
+	public String doctorpage(Model model) {
+		
+	     List<ServiceTypeEntity> servicetype =	serviceTypeRepositry.findAll();
+	     model.addAttribute("servicetype",servicetype);
+		
 		return "/doctor";
 	}
 	

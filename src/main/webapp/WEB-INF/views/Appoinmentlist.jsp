@@ -34,12 +34,12 @@
         <td> ${p.appoinmentId } </td>
          <td> ${p.doctorId } </td>
           <td> ${p.patientId } </td>
-          
            <td> ${p.ratelistId} </td>
             <td> ${p.appoinmentDate} </td>
              <td> ${p.createdDate} </td>
              <td> ${p.employeeId} </td>
              <td> ${p.appoinmentStatusId} </td>
+            
         
         </tr>
         
