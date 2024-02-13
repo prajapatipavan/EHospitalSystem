@@ -24,8 +24,8 @@
        <c:forEach items="${packagerlist}" var="p">
         
         <tr>
-        <td> ${p.packageId } </td>
-         <td> ${p. ratelistId } </td>
+        <td> ${p.packageId} </td>
+         <td> ${p.ratelistId} </td>
           
           
            

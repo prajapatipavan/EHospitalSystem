@@ -8,11 +8,6 @@
 </head>
 <body>
 
-          <h1>Add Department</h1>
-    <form action="saveratelist" method="post">
-        Department Name: <input type="text" name="departmentName"><br>
-        Active:<input type="checkbox" name="active"><br>
-        <input type="submit" value="Submit">
-    </form>
+                   
 </body>
 </html>

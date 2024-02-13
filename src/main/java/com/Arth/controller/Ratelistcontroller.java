@@ -27,12 +27,12 @@ public class Ratelistcontroller {
 	}
 	
 	@PostMapping("/saveratelist")
-	public String home(ratelistEntity ratelist) {
+	public String saveratelist(ratelistEntity ratelist) {
 		repositry.save(ratelist);
 		return "redirect:/ratelistlist";
 	}
 	
-	@GetMapping("/ralelist")
+	@GetMapping("/ratelistlist")
 	public String ratelistlist(Model model) {
 		List<ratelistEntity> ratelistlist = repositry.findAll();
 		 model.addAttribute("ratelist",ratelistlist);

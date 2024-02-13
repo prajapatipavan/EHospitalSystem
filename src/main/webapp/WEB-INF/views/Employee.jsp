@@ -19,9 +19,10 @@
   Title:  <input type="text" name="titleName" placeholder="Title">
     <br><br>
 
-  Gender:  <input type="text" name="gender" placeholder="Gender">
+  Gender: MALE <input type="radio" name="gender" value="male">
+         FEMALE <input type="radio" name="gender" value="female">
     <br><br>
-
+ 
    Email: <input type="email" name="email" placeholder="Email" required>
     <br><br>
 

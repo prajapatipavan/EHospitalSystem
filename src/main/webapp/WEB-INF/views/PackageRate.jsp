@@ -10,11 +10,13 @@
 
          <form action="savepackageratelist" method="post">
       
-         package:<input type="text" name="packageid">
+         package:<input type="text" name="packageId">
         
-         rateList:<input type="text" name="ratelistid"> 
+         rateList:<input type="text" name="ratelistId"> 
+         
+         <input type="submit">
       
       
       </form>
 </body>
-</html>
+</html> 

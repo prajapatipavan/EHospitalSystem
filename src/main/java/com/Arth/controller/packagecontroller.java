@@ -20,7 +20,7 @@ public class packagecontroller {
 	PackageRepositry repositry;
 	
 	@GetMapping("/package")
-	public String department() {
+	public String packagee() {
 		return "/package";
 		
 	}
@@ -34,7 +34,7 @@ public class packagecontroller {
 	@GetMapping("/packagelist")
 	public String departmentlist(Model model) {
 		List<packageEntity> packagee = repositry.findAll();
-		 model.addAttribute("package",packagee);
+		 model.addAttribute("packagee",packagee);
 		
 		return "/packagelist";
 	}

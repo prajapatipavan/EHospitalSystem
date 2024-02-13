@@ -11,7 +11,7 @@
 
         <h1>Add Rate Type</h1>
        <form action="saveRateType" method="post">
-        Type Name: <input type="text" name="typeName"><br>
+        Type Name: <input type="text" name="type"><br>
         <input type="submit" value="Submit">
     </form>
 </body>

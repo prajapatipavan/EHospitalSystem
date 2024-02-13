@@ -16,7 +16,7 @@ public class packageEntity {
     private Integer packageId;
     private String name;
     private Integer amount;
-    private Integer  ratetypeId;
+    private Integer ratetypeId;
     private String packageType;
     
 	

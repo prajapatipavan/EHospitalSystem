@@ -13,41 +13,52 @@ public class patientEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Integer patientId;
-	 private String firstname;
-	 private String middlename;
-	 private String lastname;
+	 private String firstName;
+	 private String middleName;
+	 private String lastName;
 	 private String email;
 	 private String password;
 	 private String gender;
-	 private String dateOfBirth;
+	 private String dob;
 	 private String contactNum;
-	 private String bloodgrp;
+	 private String bloodGrp;
+	 private String maritialStatus;
 	 private String address;
 	 private String refferdBy;
 	 private String country;
 	 private String city;
 	 private String state;
 	 private String pincode;
-	 private String Diseases;
-	 private String diabeties;
-	 private String Registrationtype;
+	 private String diseases;
+	 private String registrationType;
 	 private String docType;
-	 private Integer roleid;
+	 private String remark;
+	 private String docPath;
+	 private Integer roleId;
 	 
-	 
-	 
-	
-	public String getFirstname() {
-		return firstname;
+	public Integer getPatientId() {
+		return patientId;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
 	}
-	public String getLastname() {
-		return lastname;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getMiddleName() {
+		return middleName;
+	}
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getEmail() {
 		return email;
@@ -55,11 +66,23 @@ public class patientEntity {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
 	}
 	public String getContactNum() {
 		return contactNum;
@@ -67,55 +90,23 @@ public class patientEntity {
 	public void setContactNum(String contactNum) {
 		this.contactNum = contactNum;
 	}
-	public String getDateOfBirth() {
-		return dateOfBirth;
+	public String getBloodGrp() {
+		return bloodGrp;
 	}
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setBloodGrp(String bloodGrp) {
+		this.bloodGrp = bloodGrp;
+	}
+	public String getMaritialStatus() {
+		return maritialStatus;
+	}
+	public void setMaritialStatus(String maritialStatus) {
+		this.maritialStatus = maritialStatus;
 	}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	
-	
-	public Integer getPatientId() {
-		return patientId;
-	}
-	public void setPatientId(Integer patientId) {
-		this.patientId = patientId;
-	}
-	public String getMiddlename() {
-		return middlename;
-	}
-	public void setMiddlename(String middlename) {
-		this.middlename = middlename;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getBloodgrp() {
-		return bloodgrp;
-	}
-	public void setBloodgrp(String bloodgrp) {
-		this.bloodgrp = bloodgrp;
 	}
 	public String getRefferdBy() {
 		return refferdBy;
@@ -129,6 +120,18 @@ public class patientEntity {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public String getPincode() {
 		return pincode;
 	}
@@ -136,35 +139,48 @@ public class patientEntity {
 		this.pincode = pincode;
 	}
 	public String getDiseases() {
-		return Diseases;
+		return diseases;
 	}
 	public void setDiseases(String diseases) {
-		Diseases = diseases;
+		this.diseases = diseases;
 	}
-	public String getDiabeties() {
-		return diabeties;
+	public String getRegistrationType() {
+		return registrationType;
 	}
-	public void setDiabeties(String diabeties) {
-		this.diabeties = diabeties;
+	public void setRegistrationType(String registrationType) {
+		this.registrationType = registrationType;
 	}
-	public String getRegistrationtype() {
-		return Registrationtype;
-	}
-	public void setRegistrationtype(String registrationtype) {
-		Registrationtype = registrationtype;
-	}
-	public String getDocType(){
+	public String getDocType() {
 		return docType;
 	}
 	public void setDocType(String docType) {
 		this.docType = docType;
 	}
-	public Integer getRoleid() {
-		return roleid;
+	public String getRemark() {
+		return remark;
 	}
-	public void setRoleid(Integer roleid) {
-		this.roleid = roleid;
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
+	public Integer getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
+	}
+	public String getDocPath() {
+		return docPath;
+	}
+	public void setDocPath(String docPath) {
+		this.docPath = docPath;
+	}
+	
+	
+	 
+	  
+	  
+	
+	
 	 
 	
 

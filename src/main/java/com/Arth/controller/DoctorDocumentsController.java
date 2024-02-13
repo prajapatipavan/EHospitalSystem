@@ -27,14 +27,14 @@ public class DoctorDocumentsController {
 	@PostMapping("/addDoctorDocument")
 	public String adddocdoctor(DoctorDocumentsEntity docdoctor) {
 		repositry.save(docdoctor);
-		return "redirect:/departmentlist";
+		return "redirect:/DoctorDocumentslist";
 	}
 	
 
-	@GetMapping("/docdocumentlist")
+	@GetMapping("/DoctorDocumentslist")
 	public String docdoctor(Model model) {
 		List<DoctorDocumentsEntity> docdoctor = repositry.findAll();
-		 model.addAttribute(" docdoctor", docdoctor);
+		 model.addAttribute("docdoctor", docdoctor);
 		
 		return "/DoctorDocumentslist";
 	}

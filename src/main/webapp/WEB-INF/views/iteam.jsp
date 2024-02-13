@@ -9,7 +9,7 @@
 <body>
          <h1>Add Item</h1>
     <form action="addItem" method="post">
-      MaterialGroupName:  <input type="text" name="materialGroupName"><br>
+      MaterialGroupName:  <input type="text" name="materialgName"><br>
       MaterialId:  <input type="text" name="materialId"><br>
        ItemCode: <input type="text" name="itemCode" ><br>
       ItemName:  <input type="text" name="itemName" ><br>

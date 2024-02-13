@@ -13,11 +13,20 @@ public class PackageRateListEntity {
 	
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private Integer packagerateId;
 		
 	    private Integer packageId;
 	    private Integer ratelistId;
+	     
 	    
+	     
 	    
+		public Integer getPackagerateId() {
+			return packagerateId;
+		}
+		public void setPackagerateId(Integer packagerateId) {
+			this.packagerateId = packagerateId;
+		}
 		public Integer getPackageId() {
 			return packageId;
 		}

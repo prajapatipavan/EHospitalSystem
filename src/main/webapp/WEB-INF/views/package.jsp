@@ -10,9 +10,9 @@
     
           <h1>Add Package</h1>
     <form action="savePackage" method="post">
-        Package Name: <input type="text" name="packageName"><br>
+        Package Name: <input type="text" name="name"><br>
         Amount:<input type="text" name="amount"><br>
-        Rate Type: <input type="text" name="rateTypeId"><br>
+        Rate Type: <input type="text" name="ratetypeId"><br>
         Package Type: <input type="text" name="packageType"><br>
         <input type="submit" value="Submit">
     </form>

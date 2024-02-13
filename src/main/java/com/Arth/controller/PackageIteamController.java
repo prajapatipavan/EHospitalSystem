@@ -21,22 +21,22 @@ public class PackageIteamController {
 	
 	@GetMapping("/packageiteam")
 	public String department() {
-		return "/packageiteam";
+		return "/PackageIteam";
 	}
 	
 	@PostMapping("/savepackageiteam")
 	public String savepackageiteam(PackageIteamEntity piteam) {
 		repositry.save(piteam);
-		return "redirect:/Packageiteamlist";
+		return "Appoinment";
 	}
 	
 
-	@GetMapping("/Packageiteamlist")
+	/*@GetMapping("/Packageiteamlist")
 	public String departmentlist(Model model) {
 		List<PackageIteamEntity> piteam = repositry.findAll();
 		 model.addAttribute("piteam",piteam);
 		
 		return "/Packageiteamlist";
-	}
+	}*/
 
 }

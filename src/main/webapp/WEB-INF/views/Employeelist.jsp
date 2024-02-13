@@ -45,7 +45,7 @@
          <td> ${p. password} </td>
          <td> ${p.dateOfJoining  } </td>
          <td> ${p.qualification } </td>
-         <td> ${p. role } </td>
+         <td> ${p. roleId } </td>
          <td> ${p.aadharCardPath } </td>
          <td> ${p. panCardPath } </td>
          <td> ${p.qualificationDocPath } </td>

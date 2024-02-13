@@ -30,15 +30,15 @@ public class PackageRateListController {
 	@PostMapping("/savepackageratelist")
 	public String savematerial(PackageRateListEntity pratelist) {
 		repositry.save(pratelist);
-		return "redirect:/packageratelist";
+		return "Appoinment";
 	}
 	
 
-	@GetMapping("/packageratelist")
+	/*@GetMapping("/packageratelist")
 	public String packageratelist(Model model) {
 		List<PackageRateListEntity> packagerlist = repositry.findAll();
 		 model.addAttribute("packagerlist",packagerlist);
 		return "/packageRatelist";
-	}
+	}*/
 
 }

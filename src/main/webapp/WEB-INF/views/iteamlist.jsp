@@ -31,14 +31,14 @@
         
         <tr>
         <td> ${p.itemId} </td>
-         <td> ${p.materialId } </td>
-          <td> ${p.MaterialGroupName} </td>
-          <td> ${p.itemCode } </td>
-         <td> ${p.itemName } </td>
-          <td> ${p.alternateName } </td>
-          <td> ${p.shortName } </td>
-         <td> ${p.gstRate  } </td>
-          <td> ${p. HsnCode } </td>
+         <td> ${p.materialId} </td>
+          <td> ${p.materialgName} </td>
+          <td> ${p.itemCode} </td>
+         <td> ${p.itemName} </td>
+          <td> ${p.alternateName} </td>
+          <td> ${p.shortName} </td>
+         <td> ${p.gstRate} </td>
+          <td> ${p.hsnCode} </td>
           <td> ${p.price} </td>
          
           

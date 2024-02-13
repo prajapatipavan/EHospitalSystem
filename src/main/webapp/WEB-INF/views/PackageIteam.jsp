@@ -10,10 +10,11 @@
 
       <form action="savepackageiteam" method="post">
       
-         package:<input type="text" name="packageid">
+         package:<input type="text" name="packageId">
         
-         iteam:<input type="text" name="iteamid"> 
-      
+         iteam:<input type="text" name="iteamId"> 
+       
+       <input type="submit">
       
       </form>
          

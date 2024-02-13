@@ -13,12 +13,10 @@ public class PackageIteamEntity {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Integer packageiteamId;
-   
-    private Integer packageId;
+     private Integer packageId; 
+     private Integer itemId;
     
-    private Integer itemId;
-    
-    
+     
     
 
 	public Integer getPackageiteamId() {
