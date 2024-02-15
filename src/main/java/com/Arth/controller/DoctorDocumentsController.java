@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.DepartmentEntity;
 import com.Arth.Entity.DoctorDocumentsEntity;
@@ -48,6 +49,14 @@ public class DoctorDocumentsController {
 		 model.addAttribute("docdoctor", docdoctor);
 		
 		return "/DoctorDocumentslist";
+	}
+	
+	@GetMapping("/deletedoctordoc")
+	public String deletedoctordoc(@RequestParam("id") Integer doctorDocumentsId ) {
+		
+		   repositry.deleteById(doctorDocumentsId);
+		
+		return "redirect:/DoctorDocumentslist";
 	}
 	
 

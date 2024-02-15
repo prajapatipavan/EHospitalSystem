@@ -28,7 +28,7 @@
         <tr>
         <td> ${p.roleId } </td>
          <td> ${p.rolename} </td>
-        
+        <td><a href="deleterole?id=${p.roleId}">DELETE</a></td>
           
            
         

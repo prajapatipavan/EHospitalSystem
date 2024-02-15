@@ -17,6 +17,8 @@
         <td>  departmentId </td>
          <td>  departmentName </td>
          <td> active </td>
+          
+           <td> ACtion </td>
         
         </tr>
    
@@ -26,6 +28,7 @@
         <td> ${p.departmentId } </td>
          <td> ${p.departmentName } </td>
           <td> ${p.active } </td>
+          <td><a href="deletedepartment?id=${p.departmentId}">DELETE</a></td>
           
            
         

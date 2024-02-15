@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.AppointmentStatusEntity;
 import com.Arth.Entity.DepartmentEntity;
@@ -39,5 +40,12 @@ public class AppoinmentStatusController {
 		return "/AppoinmentStauslist";
 	}
 	
+	@GetMapping("/deleteappoinmentstatus")
+	public String deleteAppoinmentstatus(@RequestParam("id") Integer appoinmentStatusId ) {
+		
+		   repositry.deleteById(appoinmentStatusId );
+		
+		return "redirect:/AppoinmentStatuslist";
+	}
 
 }

@@ -14,15 +14,14 @@
         
              <select name="doctorId">
         
-                <option value="-1">----select Doctor Name----</option>
+                <option value="z">----select Doctor Name----</option>
                 
                  <c:forEach items="${dname}" var="r">
                            
                            <option value="${r.doctorId}"> ${r.firstName} <option>
                            
                            </c:forEach>  
-        
-        
+ 
                 </select><br><br>
         
         
@@ -71,8 +70,7 @@
                            </c:forEach>  
         
                 </select><br><br>
-        
-        
+                
         Appointment Status : <input type="text" name="appoinmentStatusId"><br>
         <input type="submit" value="Submit">
     </form>

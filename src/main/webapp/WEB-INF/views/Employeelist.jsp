@@ -51,6 +51,7 @@
          <td> ${p.qualificationDocPath } </td>
          <td> ${p.activeInd } </td>
          <td> ${p.contactNum } </td>
+         <td><a href="deleteemployee?id=${p.employeeId}">DELETE</a></td>
   
         </tr>
         

@@ -40,6 +40,7 @@
          <td> ${p.gstRate} </td>
           <td> ${p.hsnCode} </td>
           <td> ${p.price} </td>
+          <td><a href="deleteiteam?id=${p.itemId}">DELETE</a></td>
          
           
            

@@ -32,6 +32,7 @@
           
           <td> ${p.ratetypeId} </td>
          <td> ${p.packageType} </td>
+         <td><a href="deletepackage?id=${p.packageId}">DELETE</a></td>
           
           
            

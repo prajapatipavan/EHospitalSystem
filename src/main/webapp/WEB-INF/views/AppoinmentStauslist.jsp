@@ -16,7 +16,7 @@
        
         <td>  appoinmentStatusId </td>
         <td>  statusName </td>
-         
+          <td>  ACTION </td>
         
         
         </tr>
@@ -27,6 +27,7 @@
         
         <td> ${p.appoinmentStatusId } </td>
         <td> ${p.statusName } </td>
+        <td><a href="deleteappoinmentstatus?id=${p.appoinmentStatusId}">DELETE</a></td>
         
         
         </tr>

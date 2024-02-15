@@ -25,6 +25,7 @@
         <tr>
         <td> ${p.ratetypeId } </td>
          <td> ${p.type } </td>
+         <td><a href="deleteratetype?id=${p.ratetypeId}">DELETE</a></td>
          
           
            

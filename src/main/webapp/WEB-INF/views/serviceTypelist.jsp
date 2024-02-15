@@ -16,6 +16,7 @@
         
         <td>  serviceTypeId </td>
          <td>  type </td>
+          <td>  ACTION </td>
         
         
         </tr>
@@ -24,7 +25,8 @@
         
         <tr>
         <td> ${p.serviceTypeId } </td>
-         <td> ${p.type } </td>
+         <td> ${p.type} </td>
+         <td><a href="deleteservicetype?id=${p.serviceTypeId}">DELETE</a></td>
          
         </tr>
         

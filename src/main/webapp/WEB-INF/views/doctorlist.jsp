@@ -49,6 +49,7 @@
          <td> ${p.activeInd } </td>
           <td> ${p.joinDate  } </td>
           <td> ${p.serviceType  } </td>
+          <td><a href="deletedoctor?id=${p.doctorId}">DELETE</a></td>
           
            
         

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.DepartmentEntity;
 import com.Arth.Entity.RoleEntity;
@@ -36,6 +37,15 @@ public class Departmentcontroller {
 		 model.addAttribute("depart",depart);
 		return "/departmentlist";
 	}
+	
+	@GetMapping("/deletedepartment")
+	public String deletedepartment(@RequestParam("id") Integer departmentId ) {
+		
+		   repositry.deleteById(departmentId);
+		
+		return "redirect:/departmentlist";
+	}
+
 	
 
 }

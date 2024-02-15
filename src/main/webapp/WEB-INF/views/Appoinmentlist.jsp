@@ -22,6 +22,8 @@
          <td>  createdDate</td>
          <td>  employeeId </td>
          <td>  appoinmentStatusId </td>
+         <td>  Action</td>
+         
         
         
         </tr>
@@ -39,7 +41,7 @@
              <td> ${p.createdDate} </td>
              <td> ${p.employeeId} </td>
              <td> ${p.appoinmentStatusId} </td>
-            
+             <td><a href="deleteAppoinment?id=${p.appoinmentId}">DELETE</a></td> 
         
         </tr>
         

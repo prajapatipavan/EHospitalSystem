@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.DepartmentEntity;
 import com.Arth.Entity.Ratetype;
@@ -47,6 +48,14 @@ public class Ratelistcontroller {
 		 model.addAttribute("ratelist",ratelistlist);
 		
 		return "/ratelistlist";
+	}
+	
+	@GetMapping("/deleteratelist")
+	public String deleteratelist(@RequestParam("id") Integer ratelistId) {
+		
+		repositry.deleteById(ratelistId);
+		
+		return "redirect:/ratelistlist";
 	}
 
 }

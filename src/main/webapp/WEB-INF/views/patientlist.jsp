@@ -65,7 +65,8 @@
     <td>${p.docType}</td>
     <td>${p.remark}</td>
     <td>${p.docPath}</td>
-    <td>${p.roleId}</td>          
+    <td>${p.roleId}</td> 
+    <td><a href="deletepatient?id=${p.patientId}">DELETE</a></td>         
 
         </tr>
         

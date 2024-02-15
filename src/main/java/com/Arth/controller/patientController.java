@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.packageEntity;
 import com.Arth.Entity.patientEntity;
@@ -40,5 +41,13 @@ public class patientController {
 		 model.addAttribute("patient",patient);
 		
 		return "/patientlist";
+	}
+	
+	@GetMapping("/deletepatient")
+	public String deletepatient(@RequestParam("id") Integer patientId) {
+		
+		rpatient.deleteById(patientId);
+		
+		return "redirect:/patientlist";
 	}
 }

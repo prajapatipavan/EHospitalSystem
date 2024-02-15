@@ -26,6 +26,7 @@
         <td> ${p.doctorDocumentsId } </td>
          <td> ${p.documentName} </td>
           <td> ${p.doctorId } </td>
+          <td><a href="deletedoctordoc?id=${p.doctorDocumentsId}">DELETE</a></td>
           
            
         

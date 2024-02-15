@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +26,7 @@
         <tr>
         <td> ${p.packageId} </td>
          <td> ${p.ratelistId} </td>
+         <td><a href="deletepackageratelist?id=${p.packageId}">DELETE</a></td>
           
           
            

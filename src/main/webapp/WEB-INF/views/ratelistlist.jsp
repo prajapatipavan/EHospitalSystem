@@ -29,6 +29,7 @@
         <td> ${p.name}</td>
         <td>${p.amount}</td>
         <td>${ p.ratetypeId}</td>
+        <td><a href="deleteratelist?id=${p.ratelistId}">DELETE</a></td>
         
           
            

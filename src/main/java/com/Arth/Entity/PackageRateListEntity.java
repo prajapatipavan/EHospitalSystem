@@ -18,7 +18,7 @@ public class PackageRateListEntity {
 	    private Integer packageId;
 	    private Integer ratelistId;
 	     
-	    
+	     
 	     
 	    
 		public Integer getPackagerateId() {

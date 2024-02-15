@@ -26,6 +26,7 @@
         <td> ${p.materialId} </td>
          <td> ${p. materialName} </td>
           <td> ${p.description } </td>
+          <td><a href="deletematerial?id=${p.materialId}">DELETE</a></td>
           
            
         

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.DepartmentEntity;
 import com.Arth.Entity.Ratetype;
@@ -44,6 +45,14 @@ public class packagecontroller {
 		 model.addAttribute("packagee",packagee);
 		
 		return "/packagelist";
+	}
+	
+	@GetMapping("/deletepackage")
+	public String deletepackage(@RequestParam("id") Integer packageId) {
+		
+		   repositry.deleteById(packageId);
+		
+		return "redirect:/materiallist";
 	}
 	
 	

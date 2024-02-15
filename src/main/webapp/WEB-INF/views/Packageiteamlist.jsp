@@ -26,9 +26,10 @@
        <c:forEach items="${piteam}" var="p">
         
         <tr>
-        <td> ${p.packageiteamId} </td>
+        <td> ${p.packageIteamId} </td>
          <td> ${p.packageId} </td>
           <td> ${p.itemId} </td>
+          <td><a href="deletepackageiteam?id=${p.packageIteamId}">DELETE</a></td>
           
            
         
