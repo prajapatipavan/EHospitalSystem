@@ -9,5 +9,7 @@ import com.Arth.Entity.patientEntity;
 public interface patientrepositry extends JpaRepository<patientEntity, Integer> {
 	
 	   patientEntity findByEmailAndPassword(String email , String password);
+	   
+	   patientEntity findByEmail(String email);
 
 }

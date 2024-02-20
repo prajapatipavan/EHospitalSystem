@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "patient")
@@ -18,6 +19,8 @@ public class patientEntity {
 	 private String lastName;
 	 private String email;
 	 private String password;
+	 @Transient
+	 private String comfirmPassword;
 	 private String gender;
 	 private String dob;
 	 private String contactNum;
@@ -34,7 +37,7 @@ public class patientEntity {
 	 private String docType;
 	 private String docPath;
 	 private Integer roleId;
-	  
+	   
 	public Integer getPatientId() {
 		return patientId;
 	}
@@ -167,6 +170,12 @@ public class patientEntity {
 	}
 	public void setDocPath(String docPath) {
 		this.docPath = docPath;
+	}
+	public String getComfirmPassword() {
+		return comfirmPassword;
+	}
+	public void setComfirmPassword(String comfirmPassword) {
+		this.comfirmPassword = comfirmPassword;
 	}
 	
 	

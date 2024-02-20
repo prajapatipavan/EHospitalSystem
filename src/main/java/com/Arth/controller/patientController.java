@@ -1,8 +1,10 @@
 package com.Arth.controller;
 
+import java.awt.Paint;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,9 @@ public class patientController {
 	
 	patientrepositry rpatient;
 	
+	@Autowired
+	BCryptPasswordEncoder bCryptpass;
+	
 	@GetMapping("patientprofile")
 	public String patientprofile() {
 		
@@ -27,10 +32,21 @@ public class patientController {
 	}
 	
 	@PostMapping("/savepatient")
-   public String home(patientEntity patient) {
+   public String home(patientEntity patient,Model model) {
 		
 		
 		patient.setRoleId(5);
+		
+		if(! patient.getPassword().equals(patient.getComfirmPassword())) {
+			model.addAttribute("passerror","*password and Confirm password not same");
+			return "patient";
+		}
+		
+		String plaintext = patient.getPassword();
+		
+		String encryptpassword = bCryptpass.encode(plaintext);
+		
+		patient.setPassword(encryptpassword);
 		
 	  	rpatient.save(patient);
 	  	

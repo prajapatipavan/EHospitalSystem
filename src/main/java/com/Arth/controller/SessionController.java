@@ -3,6 +3,7 @@ package com.Arth.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,9 @@ public class SessionController {
 	
 	@Autowired
 	patientrepositry repositry;
+	
+	@Autowired
+	BCryptPasswordEncoder bCryptPass;
 	
 	@GetMapping("/")
 	public String welcome() {
@@ -52,15 +56,21 @@ public String login() {
 @PostMapping("/Athenticate")
 public String Athenticate(patientEntity patient,Model model) {
 	
-	  patientEntity loggin = repositry.findByEmailAndPassword(patient.getEmail(),patient.getPassword());
+	  patientEntity loggin = repositry.findByEmail(patient.getEmail());
 	  
 	  if (loggin == null) {
 			
 			model.addAttribute("error", "*Invalid UserName And Password");
 			return "login";
 		} else {
-			     
-				if(loggin.getRoleId()==null) {
+			
+			boolean answer = bCryptPass.matches(patient.getPassword(), loggin.getPassword());
+			
+			if (answer == false) {
+				model.addAttribute("error","Invalid Credentials");
+				return "login";
+			}
+			   else if(loggin.getRoleId()==null) {
 					
 					return "login";
 					

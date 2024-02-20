@@ -49,6 +49,12 @@
         <label>Password</label>
         <input type="password" class="form-control" name="password">
     </div>
+    <span style="color:red"> ${passerror }</span> 
+    
+    <div class="form-group">
+        <label> Comfirm-Password</label>
+        <input type="password" class="form-control" name="comfirmPassword">
+    </div>
     <div class="form-group">
         <label>Gender</label><br>
         <label><input type="radio" name="gender" value="male"> Male</label>&nbsp&nbsp
