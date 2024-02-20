@@ -15,7 +15,7 @@ public class RoleEntity {
      private Integer roleId;
 	  private String rolename;
 	  
-	 	   
+	 	    
 	
 	public Integer getRoleId() {
 		return roleId;

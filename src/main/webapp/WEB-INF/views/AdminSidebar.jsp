@@ -13,13 +13,13 @@
                     <ul>
                         <li class="menu-title">Main</li>
                         <li class="active">
-                            <a href=""><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                            <a href="Admindashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
 						<li>
-                            <a href=""><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                            <a href="doctorlist"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+                            <a href="patientlist"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>
                         <li>
                             <a href=""><i class="fa fa-calendar"></i> <span>Appointments</span></a>

@@ -29,9 +29,12 @@ public class patientController {
 	@PostMapping("/savepatient")
    public String home(patientEntity patient) {
 		
+		
+		patient.setRoleId(5);
+		
 	  	rpatient.save(patient);
-		 
-		return "redirect:/patientlist";
+	  	
+		   return "login";
 	}
 	
 	
@@ -47,7 +50,6 @@ public class patientController {
 	public String deletepatient(@RequestParam("id") Integer patientId) {
 		
 		rpatient.deleteById(patientId);
-		
 		return "redirect:/patientlist";
 	}
 }

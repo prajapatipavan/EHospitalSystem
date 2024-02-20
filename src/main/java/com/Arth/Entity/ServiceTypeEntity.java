@@ -17,6 +17,8 @@ public class ServiceTypeEntity {
    
     
 
+    
+    
 public Integer getServiceTypeId() {
 	return serviceTypeId;
 }
@@ -29,7 +31,4 @@ public String getType() {
 public void setType(String type) {
 	this.type = type;
 }
-   
-   
-
 }

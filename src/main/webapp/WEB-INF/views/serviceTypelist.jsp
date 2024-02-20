@@ -24,7 +24,7 @@
        <c:forEach items="${stype}" var="p">
         
         <tr>
-        <td> ${p.serviceTypeId } </td>
+        <td> ${p.serviceTypeId} </td>
          <td> ${p.type} </td>
          <td><a href="deleteservicetype?id=${p.serviceTypeId}">DELETE</a></td>
          

@@ -39,7 +39,7 @@ public class DoctorEntity {
     private String joinDate;
 
    
-    private Integer serviceType;
+    private Integer serviceTypeId;
 
     
 
@@ -164,14 +164,17 @@ public class DoctorEntity {
 	}
 
 
-	public Integer getServiceType() {
-		return serviceType;
+	public Integer getServiceTypeId() {
+		return serviceTypeId;
 	}
 
 
-	public void setServiceType(Integer serviceType) {
-		this.serviceType = serviceType;
+	public void setServiceTypeId(Integer serviceTypeId) {
+		this.serviceTypeId = serviceTypeId;
 	}
+
+
+	
     
     
     

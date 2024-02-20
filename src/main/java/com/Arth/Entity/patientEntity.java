@@ -32,10 +32,9 @@ public class patientEntity {
 	 private String diseases;
 	 private String registrationType;
 	 private String docType;
-	 private String remark;
 	 private String docPath;
 	 private Integer roleId;
-	 
+	  
 	public Integer getPatientId() {
 		return patientId;
 	}
@@ -156,12 +155,7 @@ public class patientEntity {
 	public void setDocType(String docType) {
 		this.docType = docType;
 	}
-	public String getRemark() {
-		return remark;
-	}
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+	
 	public Integer getRoleId() {
 		return roleId;
 	}
