@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.Arth.Entity.packageEntity;
 import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.patientrepositry;
+import com.Arth.service.Weicomemailsend;
 
 @Controller
 public class patientController {
@@ -24,6 +25,9 @@ public class patientController {
 	
 	@Autowired
 	BCryptPasswordEncoder bCryptpass;
+	
+	@Autowired
+	Weicomemailsend welcomemail;
 	
 	@GetMapping("patientprofile")
 	public String patientprofile() {
@@ -48,7 +52,13 @@ public class patientController {
 		
 		patient.setPassword(encryptpassword);
 		
+		
+		
+		welcomemail.welcomeMailSend(patient.getEmail(),patient.getFirstName());
+		
 	  	rpatient.save(patient);
+	  	
+	  	
 	  	
 		   return "login";
 	}

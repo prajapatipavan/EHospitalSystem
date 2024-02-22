@@ -86,7 +86,7 @@ public class AppoinmentController {
 	@GetMapping("/deleteAppoinment")
 	public String deleteAppoinment(@RequestParam("id") Integer appoinmentId) {
 		
-		   repositry.deleteById(appoinmentId);
+		  repositry.deleteById(appoinmentId);
 		
 		return "/Appoinmentlist";
 	}

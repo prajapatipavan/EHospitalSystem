@@ -37,6 +37,7 @@ public class patientEntity {
 	 private String docType;
 	 private String docPath;
 	 private Integer roleId;
+	 private Integer otp;
 	   
 	public Integer getPatientId() {
 		return patientId;
@@ -177,8 +178,14 @@ public class patientEntity {
 	public void setComfirmPassword(String comfirmPassword) {
 		this.comfirmPassword = comfirmPassword;
 	}
+	public Integer getOtp() {
+		return otp;
+	}
+	public void setOtp(Integer otp) {
+		this.otp = otp;
+	}
 	
-	
+	 
 	 
 	  
 	  

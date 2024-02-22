@@ -22,22 +22,17 @@
                             <a href="patientlist"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                            <a href="Appoinmentlist"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
+                            <a href=""><i class="fa fa-calendar-check-o"></i> <span>Employee</span></a>
                         </li>
                         <li>
                             <a href=""><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
                         </li>
 						<li class="submenu">
-							<a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="">Employees List</a></li>
-								<li><a href="">Leaves</a></li>
-								<li><a href="">Holidays</a></li>
-								<li><a href="">Attendance</a></li>
-							</ul>
+							<a href="#"><i class="fa fa-user"></i> <span> Doctor Documents </span> <span class="menu-arrow"></span></a>
+							
 						</li>
 							
                         <li>

@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
+    <title>Update password</title>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -31,28 +31,34 @@
         
     </div>
     
-    <span style="color:red" >${error}</span>
     
-    <form action="Athenticate" method="post" class="form-signin">
     
+    <form action="updatepassword" method="post" class="form-signin">
+    
+      <span style="color:red"> ${oeerror}</span> <br> <br>
     <div class="form-group">
         <label>Email</label>
         <input type="text" class="form-control" name="email">
     </div>
     <div class="form-group">
+        <label>OTP</label>
+        <input type="password" class="form-control" name="otp">
+    </div>
+    <div class="form-group">
         <label>Password</label>
         <input type="password" class="form-control" name="password">
     </div>
+    <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" class="form-control" name="comfirmPassword">
+    </div>
+    
+     <span style="color:red"> ${error}</span> <br> <br>
    
     
-    <div class="form-group text-center">
-        <button class="btn btn-primary account-btn" type="submit">LOGIN</button>
-    </div>
-    <div class="text-center login-link">
-        Already have an account? <a href="patientprofile">Signup</a>
-    </div><br>
-     <div class="text-center login-link">
-       <a href="forgetpassword" style="color:blue">Forget Password?</a>
+     <div class="form-group text-center">
+        <button class="btn btn-primary account-btn" type="submit">Update</button> |
+        <button class="btn btn-danger account-btn"  type="button"> <a href="login"> Cancel </a></button>
     </div>
 </form>     
                     </div>

@@ -2,6 +2,8 @@ package com.Arth.controller;
 
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.patientrepositry;
 import com.Arth.bean.signupbean;
+import com.Arth.service.Mailsender;
 
   
 
@@ -24,6 +27,9 @@ public class SessionController {
 	@Autowired
 	BCryptPasswordEncoder bCryptPass;
 	
+	@Autowired
+	Mailsender mailsender;
+	
 	@GetMapping("/")
 	public String welcome() {
 		
@@ -32,12 +38,7 @@ public class SessionController {
 	
 	
 @GetMapping("/signup")
-	
-	
 	public String signup() {
-	
-	  
-	  
 		return "signup";
 		
 	}
@@ -98,17 +99,6 @@ public String Athenticate(patientEntity patient,Model model) {
 
 }
 	 
-	
-
-
-  @GetMapping("/clac")
-  public String clac() {
-	return "clac";
-	
-}
-  
-  
-
 @PostMapping("/saveuser")
 public String login(signupbean bean) {
 	
@@ -119,11 +109,88 @@ public String login(signupbean bean) {
 	    
 	    
 	      return "login"; 
-	      
-	   
+}
+
+@GetMapping("/forgetpassword")
+public String forgetpassword() {
+	return "forgetpassword";
 	
 }
 
+@PostMapping("sendotpforgetpassword")
+ public String sendOtpForgetPassword(patientEntity pEntity) {
+	
+	patientEntity dbpatient = repositry.findByEmail(pEntity.getEmail());
+	
+	if(dbpatient==null) {
+		
+		 return "forgetpassword";
+	}else {
+		
+		int otp = (int) (Math.random() * 1000000); 
+
+		
+		System.out.println("otp => " + otp);
+		
+		mailsender.sendOtpForMail(pEntity.getEmail(),otp);
+	
+		// set otp to user's account -> db
+		dbpatient.setOtp(otp);
+
+		repositry.save(dbpatient);// userId
+		
+		return "updatepassword";
+	}
+	
+	
+	
+
+	
+	
+}
+
+
+@PostMapping("updatepassword")
+
+public String updatePassword(patientEntity patient,Model model) {
+	
+	patientEntity dbPatient =  repositry.findByEmail(patient.getEmail());
+	
+	  if(! patient.getPassword().equals(patient.getComfirmPassword())) {
+		  
+		  model.addAttribute("error","*password and confirm password must be match!!");
+		  
+		  
+		  
+		  return "updatepassword";
+	  }else {
+		
+		
+		
+		if(dbPatient==null || patient.getOtp() == -1 || dbPatient.getOtp().intValue() != patient.getOtp().intValue()) {
+			
+			model.addAttribute("oeerror","*Invalid otp and password!!");
+			return "updatepassword";
+		}
+		else {
+			
+			   String plaintext = patient.getPassword();
+			   
+			   String encryptpassword = bCryptPass.encode(plaintext);
+			   
+			    patient.setPassword(encryptpassword);
+			    
+			    patient.setOtp(-1);
+			    
+			    repositry.save(dbPatient);
+			    
+			    System.out.println(patient.getOtp());
+			    System.out.println(patient.getPassword());
+		}
+	}
+	
+	return "login";
+}
   
 
 }
