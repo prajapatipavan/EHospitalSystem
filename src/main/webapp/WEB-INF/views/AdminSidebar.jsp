@@ -25,19 +25,45 @@
                             <a href="Appoinmentlist"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-calendar-check-o"></i> <span>Employee</span></a>
+                            <a href="Employeelist"><i class="fa fa-calendar-check-o"></i> <span>Employee</span></a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                            <a href="departmentlist"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
                         </li>
-						<li class="submenu">
-							<a href="#"><i class="fa fa-user"></i> <span> Doctor Documents </span> <span class="menu-arrow"></span></a>
-							
-						</li>
+                        
+                         <li>
+                            <a href="iteamlist"><i class="fa fa-hospital-o"></i> <span>Iteams</span></a>
+                        </li>
+                         <li>
+                            <a href="materiallist"><i class="fa fa-hospital-o"></i> <span>Material</span></a>
+                        </li>
+                         <li>
+                            <a href="packagelist"><i class="fa fa-hospital-o"></i> <span>Package</span></a>
+                        </li>
+						
 							
                         <li>
-                            <a href=""><i class="fa fa-cog"></i> <span>Settings</span></a>
+                            <a href="Packageiteamlist"><i class="fa fa-cog"></i> <span>Packageiteam</span></a>
                         </li>
+                          <li>
+                            <a href="packageRatelist"><i class="fa fa-cog"></i> <span>PackageRateList</span></a>
+                        </li>
+                          <li>
+                            <a href="ratelistlist"><i class="fa fa-cog"></i> <span>Ratelist</span></a>
+                        </li>
+                        
+                         <li>
+                            <a href="ratetypelist"><i class="fa fa-cog"></i> <span>RateType</span></a>
+                        </li>
+                        
+                          <li>
+                            <a href="rolelist"><i class="fa fa-cog"></i> <span>Role</span></a>
+                        </li>
+                        
+                         <li>
+                            <a href="serviceTypelist"><i class="fa fa-cog"></i><span>ServiceType</span></a>
+                        </li>
+                        
                        
                         
                        

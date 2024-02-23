@@ -16,6 +16,8 @@ import com.Arth.Repositry.patientrepositry;
 import com.Arth.bean.signupbean;
 import com.Arth.service.Mailsender;
 
+import jakarta.servlet.http.HttpSession;
+
   
 
 @Controller
@@ -55,7 +57,7 @@ public String login() {
 }
 
 @PostMapping("/Athenticate")
-public String Athenticate(patientEntity patient,Model model) {
+public String Athenticate(patientEntity patient,Model model,HttpSession session) {
 	
 	  patientEntity loggin = repositry.findByEmail(patient.getEmail());
 	  
@@ -65,6 +67,7 @@ public String Athenticate(patientEntity patient,Model model) {
 			return "login";
 		} else {
 			
+			session.setAttribute("user", loggin);
 			boolean answer = bCryptPass.matches(patient.getPassword(), loggin.getPassword());
 			
 			if (answer == false) {
@@ -75,7 +78,7 @@ public String Athenticate(patientEntity patient,Model model) {
 					
 					return "login";
 					
-				}else if (loggin.getRoleId()==1) {
+				}else if (loggin.getRoleId()==5) {
 					
 					return "AdminDashboard";
 				}
@@ -85,7 +88,7 @@ public String Athenticate(patientEntity patient,Model model) {
 					return "FrontDesk";
 				}
 				
-                else if (loggin.getRoleId()==5) {
+                else if (loggin.getRoleId()==1) {
 					
 					return "Home";
 				}
@@ -178,19 +181,29 @@ public String updatePassword(patientEntity patient,Model model) {
 			   
 			   String encryptpassword = bCryptPass.encode(plaintext);
 			   
-			    patient.setPassword(encryptpassword);
+			    dbPatient.setPassword(encryptpassword);
 			    
-			    patient.setOtp(-1);
-			    
-			    repositry.save(dbPatient);
+			    dbPatient.setOtp(-1);
 			    
 			    System.out.println(patient.getOtp());
 			    System.out.println(patient.getPassword());
+			    
+			    repositry.save(dbPatient);
+			    
+			    
 		}
 	}
 	
 	return "login";
 }
   
+  @GetMapping("logout")
+  public String logout(HttpSession session) {
+	  
+	 session.invalidate();
+	  
+	  return "redirect:/login";
+  }
+
 
 }

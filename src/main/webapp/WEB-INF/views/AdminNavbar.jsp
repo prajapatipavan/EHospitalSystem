@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
+      <c:if test="${empty user}">
+
+	       <c:redirect url="login"/>
+     </c:if>
+
+
                    <div class="header">
 			<div class="header-left">
 				<a href="index-2.html" class="logo">
@@ -43,13 +52,13 @@
 							<img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="Admin">
 							<span class="status online"></span>
 						</span>
-						<span>Admin</span>
+						<span>${user.firstName}  ${user.lastName}</span>
                     </a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="profile.html">My Profile</a>
 						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
 						<a class="dropdown-item" href="settings.html">Settings</a>
-						<a class="dropdown-item" href="login.html">Logout</a>
+						<a class="dropdown-item" href="logout">Logout</a>
 					</div>
                 </li>
             </ul>

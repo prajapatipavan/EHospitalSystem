@@ -28,9 +28,6 @@
          <td> ${p.ratelistId} </td>
          <td><a href="deletepackageratelist?id=${p.packageId}">DELETE</a></td>
           
-          
-           
-        
         </tr>
         
         </c:forEach>

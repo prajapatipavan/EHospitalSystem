@@ -18,6 +18,16 @@
  
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
+		
+		<style>
+		
+		    .scroll{
+		    
+		          overflow-y:scroll;
+		    
+		    }
+		
+		</style>
 
 </head>
 
@@ -30,15 +40,16 @@
       
         <div class="page-wrapper">
             <div class="content">
-                <div class="row">
+                <div class="row" >
                     
                   
+                  <div class="scroll">
                   
-                   <table border="1">
+                   <table border="1"  class="table table-striped table-hover">
    
    
     <tr>
-        
+ 
      <td>patientId</td>
     <td>firstName</td>
     <td>middleName</td>
@@ -98,6 +109,7 @@
         </c:forEach>
      
      </table>
+     </div>
                 </div>
 				
 				<div class="row">

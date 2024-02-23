@@ -23,7 +23,9 @@
 <body>
     <div class="main-wrapper">
       
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
+      
+      
+     <%@include file="AdminNavbar.jsp" %>
       
       <jsp:include page="AdminSidebar.jsp"></jsp:include>
       

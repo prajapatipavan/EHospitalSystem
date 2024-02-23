@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.IteamEntity;
 import com.Arth.Entity.PackageIteamEntity;
@@ -52,6 +53,14 @@ public class PackageIteamController {
 		 model.addAttribute("piteam",piteam);
 		
 		return "/Packageiteamlist";
+	}
+	
+	@GetMapping("/deletepackageiteam")
+	public String deletePackageIteam(@RequestParam("id") Integer packageIteamId ) {
+		
+		   repositry.deleteById(packageIteamId);
+		
+		return "redirect:/Packageiteamlist";
 	}
 
 }
