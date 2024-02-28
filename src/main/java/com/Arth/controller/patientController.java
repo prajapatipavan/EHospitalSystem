@@ -1,7 +1,8 @@
 package com.Arth.controller;
 
-import java.awt.Paint;
+
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,6 +17,7 @@ import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.patientrepositry;
 import com.Arth.service.Weicomemailsend;
 
+
 @Controller
 public class patientController {
 	
@@ -27,7 +29,8 @@ public class patientController {
 	BCryptPasswordEncoder bCryptpass;
 	
 	@Autowired
-	Weicomemailsend welcomemail;
+	Weicomemailsend mailsend;
+	
 	
 	@GetMapping("patientprofile")
 	public String patientprofile() {
@@ -36,10 +39,25 @@ public class patientController {
 	}
 	
 	@PostMapping("/savepatient")
-   public String home(patientEntity patient,Model model) {
-		
-		
+   public String savePatient(patientEntity patient,Model model) {
+		 
+		         
+		               
 		patient.setRoleId(5);
+		
+		
+		  patientEntity  patientemail  =  rpatient.findByEmail(patient.getEmail());
+          
+          System.out.println(patientemail);
+          
+          if(patientemail!=null) {
+        	  
+        	  model.addAttribute("eerror","*Email Alreday Register");
+        	  
+        	  return "patient";
+          }
+          
+         
 		
 		if(! patient.getPassword().equals(patient.getComfirmPassword())) {
 			model.addAttribute("passerror","*password and Confirm password not same");
@@ -54,13 +72,13 @@ public class patientController {
 		
 		
 		
-		welcomemail.welcomeMailSend(patient.getEmail(),patient.getFirstName());
+	  mailsend.welcomeMailSend(patient.getEmail(),patient.getFirstName());
 		
 	  	rpatient.save(patient);
 	  	
 	  	
 	  	
-		   return "login";
+		   return "redirect:/login";
 	}
 	
 	
@@ -78,4 +96,36 @@ public class patientController {
 		rpatient.deleteById(patientId);
 		return "redirect:/patientlist";
 	}
+	
+	@GetMapping("/viewpatient")
+	public String viewpatient(@RequestParam("id") Integer patientId ,Model model) {
+		
+	Optional<patientEntity>  patient =  rpatient.findById(patientId);
+	
+	
+	if(patient.isPresent()) {
+		  
+		  patientEntity patiente = patient.get();
+		  model.addAttribute("patiente",patiente);
+		  
+		return "singlepatient";
+		  
+	  }else {
+		
+		  return "redirect:/patientlist";
+	}
+
+		
+	}
+	
+	@GetMapping("singlepatient")
+   public String  singlepatient() {
+		
+		return "singlepatient";
+	}		
+	
+	
+		
+		
+	
 }

@@ -46,7 +46,7 @@
                             <a href="Packageiteamlist"><i class="fa fa-cog"></i> <span>Packageiteam</span></a>
                         </li>
                           <li>
-                            <a href="packageRatelist"><i class="fa fa-cog"></i> <span>PackageRateList</span></a>
+                            <a href="packageratelist"><i class="fa fa-cog"></i> <span>PackageRateList</span></a>
                         </li>
                           <li>
                             <a href="ratelistlist"><i class="fa fa-cog"></i> <span>Ratelist</span></a>

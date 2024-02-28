@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 @Table (name = "Doctor")
 public class DoctorEntity {
 	
-	
+	 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer doctorId;
@@ -40,6 +40,8 @@ public class DoctorEntity {
 
    
     private Integer serviceTypeId;
+    
+    private Integer roleId;
 
     
 
@@ -171,6 +173,16 @@ public class DoctorEntity {
 
 	public void setServiceTypeId(Integer serviceTypeId) {
 		this.serviceTypeId = serviceTypeId;
+	}
+
+
+	public Integer getRoleId() {
+		return roleId;
+	}
+
+
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
 	}
 
 

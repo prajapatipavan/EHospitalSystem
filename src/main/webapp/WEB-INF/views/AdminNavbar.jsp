@@ -10,9 +10,9 @@
 <body>
 
 
-      <c:if test="${empty user}">
+      <c:if test="${empty doctor}">
 
-	       <c:redirect url="login"/>
+	       <c:redirect url="drlogin"/>
      </c:if>
 
 
@@ -52,13 +52,13 @@
 							<img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="Admin">
 							<span class="status online"></span>
 						</span>
-						<span>${user.firstName}  ${user.lastName}</span>
+						<span>${doctor.firstName}   ${doctor.lastName}</span>
                     </a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="profile.html">My Profile</a>
 						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
 						<a class="dropdown-item" href="settings.html">Settings</a>
-						<a class="dropdown-item" href="logout">Logout</a>
+						<a class="dropdown-item" href="drlogout">Logout</a>
 					</div>
                 </li>
             </ul>

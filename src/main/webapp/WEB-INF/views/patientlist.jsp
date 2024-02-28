@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
  
 		<script src="assets/js/html5shiv.min.js"></script>
@@ -21,11 +22,13 @@
 		
 		<style>
 		
-		    .scroll{
 		    
-		          overflow-y:scroll;
+		         table.center {
+                  margin-left: auto;
+                  margin-right: auto;
+                    }
 		    
-		    }
+		    
 		
 		</style>
 
@@ -43,36 +46,23 @@
                 <div class="row" >
                     
                   
-                  <div class="scroll">
+                  <div >
                   
-                   <table border="1"  class="table table-striped table-hover">
+                   <table border="4"  class="table table-striped table-hover" class="center">
    
    
     <tr>
  
-     <td>patientId</td>
-    <td>firstName</td>
-    <td>middleName</td>
-    <td>lastName</td>
-    <td>email</td>
-    <td>password</td>
-    <td>gender</td>
-    <td>dob</td>
-    <td>contactNum</td>
-    <td>bloodGrp</td>
-    <td>maritialStatus</td>
-    <td>address</td>
-    <td>refferdBy</td>
-    <td>country</td>
-    <td>city</td>
-    <td>state</td>
-    <td>pincode</td>
-    <td>diseases</td>
-    <td>registrationType</td>
-    <td>docType</td>
- 
-    <td>docPath</td>
-    <td>roleId</td>
+     <td>PatientId</td>
+    <td>FirstName</td>
+    <td>MiddleName</td>
+    <td>LastName</td>
+    <td>Email</td>
+    <td>Mobile No</td>
+    <td>ACTION</td>
+    <td>STATUS</td>
+   
+    
         
         </tr>
    
@@ -84,25 +74,22 @@
     <td>${p.middleName}</td>
     <td>${p.lastName}</td>
     <td>${p.email}</td>
-    <td>${p.password}</td>
-    <td>${p.gender}</td>
-    <td>${p.dob}</td>
     <td>${p.contactNum}</td>
-    <td>${p.bloodGrp}</td>
-    <td>${p.maritialStatus}</td>
-    <td>${p.address}</td>
-    <td>${p.refferdBy}</td>
-    <td>${p.country}</td>
-    <td>${p.city}</td>
-    <td>${p.state}</td>
-    <td>${p.pincode}</td>
-    <td>${p.diseases}</td>
-    <td>${p.registrationType}</td>
-    <td>${p.docType}</td>
+   
+    <td><a href="deletepatient?id=${p.patientId}" class="btn btn-danger">DELETE</a> |
+          
+   <a href="viewpatient?id=${p.patientId}" class="btn btn-primary">Profile</a></td>    
+   
   
-    <td>${p.docPath}</td>
-    <td>${p.roleId}</td> 
-    <td><a href="deletepatient?id=${p.patientId}">DELETE</a></td>         
+   
+   
+    <td> 
+    
+   
+      <a> <button id="myButton" class="btn btn-secondary">Waiting</button></a> 
+ 
+    
+    </td>
 
         </tr>
         
@@ -149,6 +136,26 @@
     <script src="assets/js/Chart.bundle.js"></script>
     <script src="assets/js/chart.js"></script>
     <script src="assets/js/app.js"></script>
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+   
+    <script>
+        // JavaScript to change button color and text permanently
+        document.getElementById('myButton').addEventListener('click', function() {
+            // Add the 'btn-success' class to change color
+            this.classList.add('btn-success');
+            // Change the button text to 'Clicked!'
+            this.innerHTML = 'onProgress!';
+            // Disable the button to prevent further clicks
+            this.disabled = true;
+        });
+    </script>
+    
+    
+    
+   
 
 </body>
 

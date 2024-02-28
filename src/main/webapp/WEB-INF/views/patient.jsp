@@ -41,6 +41,8 @@
         <label>Last Name</label>
         <input type="text" class="form-control" name="lastName">
     </div>
+    
+    <span style="color:red"> ${eerror}</span>
     <div class="form-group">
         <label>Email</label>
         <input type="text" class="form-control" name="email">

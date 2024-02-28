@@ -24,7 +24,7 @@
 <body>
     <div class="main-wrapper">
       
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
+ 
       
       <jsp:include page="AdminSidebar.jsp"></jsp:include>
       
@@ -40,7 +40,7 @@
             
             
             
-                 <table border="2" >
+                 <table border="2"  class="table table-striped table-hover">
    
    
    <tr align="center">
@@ -49,15 +49,7 @@
          <td>  firstName </td>
          <td> lastName </td>
          <td>  titleName </td>
-         <td>  qualification </td>
-         <td> specialization </td>
-         <td>  email </td>
-         <td>  password</td>
-         <td> contactNum </td>
-         <td>  gender </td>
-         <td> activeInd </td>
-         <td> joinDate </td>
-           <td> serviceType </td>
+        
             <td> ACTION </td>
         
       </tr>
@@ -66,22 +58,14 @@
         
         <tr align="center" >
         <td> ${p.doctorId } </td>
-         <td> ${p.firstName } </td>
+         <td> ${p.firstName} </td>
           <td> ${p.lastName} </td>
           
            <td> ${p.titleName } </td>
-         <td> ${p.qualification } </td>
-          <td> ${p. specialization } </td>
+         
+          <td><a href="deletedoctor?id=${p.doctorId}">DELETE</a> |
           
-           <td> ${p.email} </td>
-         <td> ${p.password } </td>
-          <td> ${p.contactNum } </td>
-          
-           <td> ${p.gender} </td>
-         <td> ${p.activeInd} </td>
-          <td> ${p.joinDate} </td>
-          <td> ${p.serviceTypeId} </td>
-          <td><a href="deletedoctor?id=${p.doctorId}">DELETE</a></td>
+           <a href="viewdoctor?id=${p.doctorId}">VIEW</a></td>
           
            
         

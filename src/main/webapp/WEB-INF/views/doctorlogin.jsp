@@ -33,7 +33,7 @@
     
     <span style="color:red" >${error}</span>
     
-    <form action="Athenticate" method="post" >
+    <form action="Athenticate1" method="post" >
     
     <div class="form-group">
         <label>Email</label>

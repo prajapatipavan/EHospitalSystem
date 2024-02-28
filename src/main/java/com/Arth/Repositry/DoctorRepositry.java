@@ -7,5 +7,8 @@ import com.Arth.Entity.DoctorEntity;
 
 @Repository
 public interface DoctorRepositry extends JpaRepository<DoctorEntity, Integer> {
+	
+	
+	DoctorEntity  findByEmail(String email);
 
 }

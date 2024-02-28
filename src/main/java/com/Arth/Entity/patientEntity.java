@@ -38,7 +38,7 @@ public class patientEntity {
 	 private String docPath;
 	 private Integer roleId;
 	 private Integer otp;
-	     
+	         
 	public Integer getPatientId() {
 		return patientId;
 	}

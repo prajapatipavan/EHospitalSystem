@@ -1,8 +1,10 @@
 package com.Arth.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +26,9 @@ public class Doctorcontroller {
 	@Autowired
 	ServiceTypeRepositry serviceTypeRepositry;
 	
+	@Autowired
+	BCryptPasswordEncoder bCryptpass;
+	
 	@GetMapping("/doctorpage")
 	public String doctorpage(Model model) {
 		
@@ -36,7 +41,16 @@ public class Doctorcontroller {
 	
 	@PostMapping("/addDoctor")
 	public String addDoctor(DoctorEntity doctor) {
+		doctor.setRoleId(1);
+		
+      String plaintext = doctor.getPassword();
+		
+		String encryptpassword = bCryptpass.encode(plaintext);
+		
+		doctor.setPassword(encryptpassword);
+		
 		repositry.save(doctor);
+		
 		return "redirect:/doctorlist";
 	}
 	
@@ -55,6 +69,27 @@ public class Doctorcontroller {
 		   repositry.deleteById(doctorId);
 		
 		return "redirect:/doctorlist";
+	}
+	
+	
+	@GetMapping("viewdoctor")
+	public String viewdoctor(@RequestParam("id") Integer doctorId,Model model) {
+		
+		   Optional<DoctorEntity> doctor  =   repositry.findById(doctorId);
+		
+		   if(doctor.isPresent()) {
+			   
+			   DoctorEntity doctors = doctor.get();
+			   model.addAttribute("doctors",doctors);
+			   
+			   return "drsingle";
+			   
+		   }else {
+			
+			   return "redirect:/doctorlist";
+		}
+		   
+	
 	}
 	
 

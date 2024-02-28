@@ -1,9 +1,5 @@
 package com.Arth.controller;
 
-
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -11,9 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.Arth.Entity.DoctorEntity;
 import com.Arth.Entity.patientEntity;
+import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.patientrepositry;
-import com.Arth.bean.signupbean;
+
 import com.Arth.service.Mailsender;
 
 import jakarta.servlet.http.HttpSession;
@@ -25,6 +23,9 @@ public class SessionController {
 	
 	@Autowired
 	patientrepositry repositry;
+	
+	@Autowired
+	DoctorRepositry dRepositry;
 	
 	@Autowired
 	BCryptPasswordEncoder bCryptPass;
@@ -56,18 +57,36 @@ public String login() {
 	
 }
 
+
+@GetMapping("/drlogin")
+
+
+public String Dlogin() {
+
+  
+  
+	return "doctorlogin";
+	
+}
+
 @PostMapping("/Athenticate")
-public String Athenticate(patientEntity patient,Model model,HttpSession session) {
+
+public String Athenticate(patientEntity patient,Model model,HttpSession session,DoctorEntity doctor) {
 	
 	  patientEntity loggin = repositry.findByEmail(patient.getEmail());
+	  System.out.println(loggin);
 	  
 	  if (loggin == null) {
 			
 			model.addAttribute("error", "*Invalid UserName And Password");
 			return "login";
+			
 		} else {
 			
-			session.setAttribute("user", loggin);
+			session.setAttribute("user",loggin);
+			
+			
+			
 			boolean answer = bCryptPass.matches(patient.getPassword(), loggin.getPassword());
 			
 			if (answer == false) {
@@ -80,7 +99,7 @@ public String Athenticate(patientEntity patient,Model model,HttpSession session)
 					
 				}else if (loggin.getRoleId()==5) {
 					
-					return "AdminDashboard";
+					return "welcome";
 				}
 				
 				else if (loggin.getRoleId()==4) {
@@ -101,18 +120,61 @@ public String Athenticate(patientEntity patient,Model model,HttpSession session)
 	
 
 }
-	 
-@PostMapping("/saveuser")
-public String login(signupbean bean) {
+
+@PostMapping("/Athenticate1")
+
+public String Athenticate(Model model,HttpSession session,DoctorEntity doctor) {
 	
-	
-	    System.out.println(bean.getName());
-	    System.out.println(bean.getEmail());
-	    System.out.println(bean.getPassword());
-	    
-	    
-	      return "login"; 
+	  DoctorEntity loggin = dRepositry.findByEmail(doctor.getEmail());
+	  System.out.println(loggin);
+	  
+	  if (loggin == null) {
+			
+			model.addAttribute("error", "*Invalid UserName And Password");
+			return "doctorlogin";
+			
+		} else {
+			
+			session.setAttribute("doctor",loggin);
+			
+			
+			
+			boolean answer = bCryptPass.matches(doctor.getPassword(), loggin.getPassword());
+			
+			if (answer == false) {
+				model.addAttribute("error","Invalid Credentials");
+				return "doctorlogin";
+			}
+			   else if(loggin.getRoleId()==null) {
+					
+					return "doctorlogin";
+					
+				}else if (loggin.getRoleId()==5) {
+					
+					return "welcome";
+				}
+				
+				else if (loggin.getRoleId()==4) {
+					
+					return "FrontDesk";
+				}
+				
+                else if (loggin.getRoleId()==2) {
+					
+					return "AdminDashboard";
+				}
+				
+				return "doctorlogin";
+			
+			
+		}
 }
+
+
+
+
+	 
+
 
 @GetMapping("/forgetpassword")
 public String forgetpassword() {
@@ -137,10 +199,10 @@ public String forgetpassword() {
 		
 		mailsender.sendOtpForMail(pEntity.getEmail(),otp);
 	
-		// set otp to user's account -> db
+		
 		dbpatient.setOtp(otp);
 
-		repositry.save(dbpatient);// userId
+		repositry.save(dbpatient);
 		
 		return "updatepassword";
 	}
@@ -203,6 +265,15 @@ public String updatePassword(patientEntity patient,Model model) {
 	 session.invalidate();
 	  
 	  return "redirect:/login";
+  }
+  
+  
+  @GetMapping("drlogout")
+  public String drlogout(HttpSession session) {
+	  
+	 session.invalidate();
+	  
+	  return "redirect:/drlogin";
   }
 
 

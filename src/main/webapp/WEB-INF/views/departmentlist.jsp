@@ -39,7 +39,7 @@
             <h4>DEPARTMENTS</h4>
             
             
-                     <table border="2">
+                     <table border="2"  class="table table-striped table-hover">
    
    
     <tr>

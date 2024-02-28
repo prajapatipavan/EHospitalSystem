@@ -38,7 +38,7 @@
             
             <h4>IteamList</h4>
             
-                <table border="1">
+                <table border="1"  class="table table-striped table-hover">
    
    
     <tr>
