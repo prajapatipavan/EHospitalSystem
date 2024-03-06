@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,40 +14,50 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
  
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
-		
-		<style>
-		
-		    
-		         table.center {
-                  margin-left: auto;
-                  margin-right: auto;
-                    }
-		    
-		    
-		
-		</style>
 
 </head>
 
 <body>
     <div class="main-wrapper">
+  <c:if test="${!empty doctor}">
       
       <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      
+      </c:if>
+      
+  <c:if test="${!empty doctor}">
+      
       <jsp:include page="AdminSidebar.jsp"></jsp:include>
+      
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerksidebar.jsp"></jsp:include>
+      
+      </c:if>
       
         <div class="page-wrapper">
             <div class="content">
-                <div class="row" >
-                    
-                  
-                  <div >
-                  
+            
+            <div class="col-sm-14 col-18 text-right m-b-90">
+             <a href="iteampage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Iteam</a>
+            </div>
+            
+            <h4>IteamList</h4>
+            
+               
+        
                    <table border="4"  class="table table-striped table-hover" class="center">
    
    
@@ -96,7 +106,12 @@
         </c:forEach>
      
      </table>
-     </div>
+
+            
+            
+                
+            
+                
                 </div>
 				
 				<div class="row">
@@ -136,26 +151,6 @@
     <script src="assets/js/Chart.bundle.js"></script>
     <script src="assets/js/chart.js"></script>
     <script src="assets/js/app.js"></script>
-     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   
-   
-    <script>
-        // JavaScript to change button color and text permanently
-        document.getElementById('myButton').addEventListener('click', function() {
-            // Add the 'btn-success' class to change color
-            this.classList.add('btn-success');
-            // Change the button text to 'Clicked!'
-            this.innerHTML = 'onProgress!';
-            // Disable the button to prevent further clicks
-            this.disabled = true;
-        });
-    </script>
-    
-    
-    
-   
 
 </body>
 

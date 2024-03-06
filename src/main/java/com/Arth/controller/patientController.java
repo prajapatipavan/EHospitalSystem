@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.Arth.Entity.clerkentity;
 import com.Arth.Entity.packageEntity;
 import com.Arth.Entity.patientEntity;
+import com.Arth.Entity.ratelistEntity;
+import com.Arth.Repositry.RatelistRipositry;
 import com.Arth.Repositry.patientrepositry;
 import com.Arth.service.Weicomemailsend;
 
@@ -24,6 +27,9 @@ public class patientController {
 	@Autowired
 	
 	patientrepositry rpatient;
+	
+	@Autowired
+	RatelistRipositry ratelistRipo;
 	
 	@Autowired
 	BCryptPasswordEncoder bCryptpass;
@@ -39,7 +45,7 @@ public class patientController {
 	}
 	
 	@PostMapping("/savepatient")
-   public String savePatient(patientEntity patient,Model model) {
+   public String savePatient(patientEntity patient,Model model,clerkentity clerk) {
 		 
 		         
 		               
@@ -72,7 +78,9 @@ public class patientController {
 		
 		
 		
-	  mailsend.welcomeMailSend(patient.getEmail(),patient.getFirstName());
+		
+		
+	 /* mailsend.welcomeMailSend(patient.getEmail(),patient.getFirstName());*/
 		
 	  	rpatient.save(patient);
 	  	
@@ -88,6 +96,15 @@ public class patientController {
 		 model.addAttribute("patient",patient);
 		
 		return "/patientlist";
+	}
+	
+	
+	@GetMapping("/patientlists")
+	public String patientlists(Model model) {
+		List<patientEntity> patient = rpatient.findAll();
+		 model.addAttribute("patient",patient);
+		
+		return "/patientlistclerk";
 	}
 	
 	@GetMapping("/deletepatient")
@@ -117,6 +134,37 @@ public class patientController {
 
 		
 	}
+	
+	@GetMapping("/viewpatientopd")
+	public String viewpatientopd(@RequestParam("id") Integer patientId ,Model model) {
+		
+	List<ratelistEntity> ratelistEntity = ratelistRipo.findAll() ;  
+	
+	  model.addAttribute("ratelist",ratelistEntity);
+		 
+		
+	Optional<patientEntity>  patient =  rpatient.findById(patientId);
+	
+	
+	
+	
+	if(patient.isPresent()) {
+		  
+		  patientEntity patiente = patient.get();
+		  model.addAttribute("patiente",patiente);
+		  
+		return "singlepatientopd";
+		  
+	  }else {
+		
+		  return "redirect:/patientlist";
+	}
+
+		
+	}
+	
+	
+	
 	
 	@GetMapping("singlepatient")
    public String  singlepatient() {

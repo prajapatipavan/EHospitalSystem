@@ -24,16 +24,36 @@
 <body>
     <div class="main-wrapper">
       
+   <c:if test="${!empty doctor}">
+      
       <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      
+      </c:if>
+      
+  <c:if test="${!empty doctor}">
+      
       <jsp:include page="AdminSidebar.jsp"></jsp:include>
+      
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerksidebar.jsp"></jsp:include>
+      
+      </c:if>
       
       
         <div class="page-wrapper">
             <div class="content">
             
             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="doctorpage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Doctor</a>
+             <a href="department" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Department</a>
             </div>
             
             <h4>DEPARTMENTS</h4>
@@ -57,7 +77,21 @@
         <tr>
         <td> ${p.departmentId } </td>
          <td> ${p.departmentName } </td>
-          <td> ${p.active } </td>
+         
+         <td>
+           <c:if test="${p.active==false}">
+
+	        <span class="custom-badge status-red">Inactive</span>
+	        
+           </c:if>
+           
+            <c:if test="${p.active==true}">
+
+	        <span class="custom-badge status-green">Active</span>
+	        
+           </c:if>
+          
+          </td>
           <td><a href="deletedepartment?id=${p.departmentId}">DELETE</a></td>
           
            

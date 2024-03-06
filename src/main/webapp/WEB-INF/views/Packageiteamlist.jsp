@@ -33,7 +33,7 @@
             <div class="content">
             
             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="doctorpage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Doctor</a>
+             <a href="packageiteam" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add PackageIteam</a>
             </div>
             
             <h4>Doctors</h4>

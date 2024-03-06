@@ -23,10 +23,7 @@
 
 <body>
     <div class="main-wrapper">
-      
-  
-      
-    <c:if test="${!empty doctor}">
+   <c:if test="${!empty doctor}">
       
       <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
@@ -54,48 +51,57 @@
         <div class="page-wrapper">
             <div class="content">
             
-            <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="doctorpage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Doctor</a>
-            </div>
+           
             
-            <h4>Doctors</h4>
+            <h4>IteamList</h4>
             
-            
-            
-                 <table border="2"  class="table table-striped table-hover">
+                <table border="1"  class="table table-striped table-hover">
    
    
-   <tr align="center">
+    <tr>
         
-         <td>  doctorId </td>
-         <td>  firstName </td>
-         <td> lastName </td>
-         <td>  titleName </td>
+         <td>  itemId </td>
+         <td>  materialId </td>
+         <td> MaterialGroupName </td>
+         <td>  itemCode </td>
+         <td>  itemName </td>
+         <td> alternateName </td>
+         <td>  shortName </td>
+         <td>  gstRate </td>
+         <td> HsnCode </td>
+          <td> price </td>
+           <td> expiredDate </td>
         
-            <td> ACTION </td>
-        
-      </tr>
+        </tr>
    
-       <c:forEach items="${doctor}" var="p">
+       <c:forEach items="${product}" var="p">
         
-        <tr align="center" >
-        <td> ${p.doctorId } </td>
-         <td> ${p.firstName} </td>
-          <td> ${p.lastName} </td>
-          
-           <td> ${p.titleName } </td>
+        <tr>
+        <td> ${p.itemId} </td>
+         <td> ${p.materialId} </td>
+          <td> ${p.materialgName} </td>
+          <td> ${p.itemCode} </td>
+         <td> ${p.itemName} </td>
+          <td> ${p.alternateName} </td>
+          <td> ${p.shortName} </td>
+         <td> ${p.gstRate} </td>
+          <td> ${p.hsnCode} </td>
+          <td> ${p.price} </td>
+          <td> ${p.expiredDate} </td>
+          <td><a href="deleteiteam?id=${p.itemId}">DELETE</a></td>
          
-          <td><a href="deletedoctor?id=${p.doctorId}">DELETE</a> |
-          
-           <a href="viewdoctor?id=${p.doctorId}">VIEW</a></td>
           
            
-        
+    
         </tr>
         
         </c:forEach>
      
      </table>
+
+            
+            
+                
             
                 
                 </div>

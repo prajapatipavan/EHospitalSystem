@@ -21,6 +21,8 @@ import com.Arth.Repositry.EmployeeRepositry;
 import com.Arth.Repositry.RatelistRipositry;
 import com.Arth.Repositry.patientrepositry;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class AppoinmentController {
@@ -48,7 +50,7 @@ public class AppoinmentController {
 	@GetMapping("/appoinment")
 	public String department(Model model) {
 		
-		List<DoctorEntity> dname	= dRepositry.findAll();
+		List<DoctorEntity> dname= dRepositry.findAll();
 		model.addAttribute("dname",dname);
 		
 		
@@ -69,14 +71,29 @@ public class AppoinmentController {
 	}
 	
 	@PostMapping("/saveappointment")
-	public String saveappointment(AppoinmentEntity appoinment) {
+	public String saveappointment(AppoinmentEntity appoinment,HttpSession session) {
+		
+
+		
+		patientEntity patient  = (patientEntity)session.getAttribute("user"); 
+		
+		  
+		
+		appoinment.setPatientId(patient.getPatientId());
+		
+		   appoinment.setAppoinmentStatusId(1);
+		
+
 		repositry.save(appoinment);
-		return "redirect:/Appoinmentlist";
+		return "redirect:/patientAppoinmentlist";
 	}
 	
 
 	@GetMapping("/Appoinmentlist")
-	public String departmentlist(Model model) {
+	public String departmentlist(Model model,HttpSession session) {
+		
+		  DoctorEntity doctor  = (DoctorEntity)session.getAttribute("doctor"); 
+		  
 		List<AppoinmentEntity> appoinment = repositry.findAll();
 		 model.addAttribute("appoinment",appoinment);
 		
@@ -85,6 +102,30 @@ public class AppoinmentController {
 	
 	@GetMapping("/deleteAppoinment")
 	public String deleteAppoinment(@RequestParam("id") Integer appoinmentId) {
+		
+		  repositry.deleteById(appoinmentId);
+		
+		return "redirect:/patientAppoinmentlist";
+	}
+	
+	@GetMapping("/deleteAppoinmenttoday")
+	public String deleteAppoinmenttoday(@RequestParam("id") Integer appoinmentId) {
+		
+		  repositry.deleteById(appoinmentId);
+		
+		return "redirect:/todayAppoinments";
+	}
+	
+	@GetMapping("/deleteAppoinmentMontly")
+	public String deleteAppoinmentMontly(@RequestParam("id") Integer appoinmentId) {
+		
+		  repositry.deleteById(appoinmentId);
+		
+		return "redirect:/MonthlyAppoinments";
+	}
+	
+	@GetMapping("/deleteAppoinmentclerk")
+	public String eleteAppoinmentclerk(@RequestParam("id") Integer appoinmentId) {
 		
 		  repositry.deleteById(appoinmentId);
 		

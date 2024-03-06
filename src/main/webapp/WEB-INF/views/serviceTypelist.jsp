@@ -24,16 +24,34 @@
 <body>
     <div class="main-wrapper">
       
-  <jsp:include page="AdminNavbar.jsp"></jsp:include>
+<c:if test="${!empty doctor}">
+      
+      <jsp:include page="AdminNavbar.jsp"></jsp:include>
+      
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      
+      </c:if>
+      
+  <c:if test="${!empty doctor}">
       
       <jsp:include page="AdminSidebar.jsp"></jsp:include>
       
+      </c:if>
       
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerksidebar.jsp"></jsp:include>
+      
+      </c:if>
         <div class="page-wrapper">
             <div class="content">
             
             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="doctorpage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Doctor</a>
+             <a href="servicetype" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add ServiceType</a>
             </div>
             
             <h4>Doctors</h4>

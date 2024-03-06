@@ -6,38 +6,53 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-                  <h2>Employee Registration</h2>
+                 <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                   
+                   
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h1>Add Employee</h1>
+                        
+                        <form action="saveEmployee" method="post">
+   First Name: <input type="text" name="firstName" class="form-control"  placeholder="First Name" required>
+    
 
-<form action="saveEmployee" method="post">
-   First Name: <input type="text" name="firstName" placeholder="First Name" required>
-    <br><br>
+ Last Name:  <input type="text" name="lastName" class="form-control"  placeholder="Last Name" required>
+    
 
- Last Name:  <input type="text" name="lastName" placeholder="Last Name" required>
-    <br><br>
-
-  Title:  <input type="text" name="titleName" placeholder="Title">
-    <br><br>
+  Title:  <input type="text" name="titleName" class="form-control"  placeholder="Title">
 
   Gender: MALE <input type="radio" name="gender" value="male">
          FEMALE <input type="radio" name="gender" value="female">
-    <br><br>
+    
  
-   Email: <input type="email" name="email" placeholder="Email" required>
-    <br><br>
+   Email: <input type="email" name="email"  class="form-control" placeholder="Email" required>
+    
 
-   Password: <input type="password" name="password" placeholder="Password" required>
-    <br><br>
+   Password: <input type="password" name="password" class="form-control"  placeholder="Password" required>
+    
 
-  Date of Joining:  <input type="date" name="dateOfJoining" placeholder="Date of Joining">
-    <br><br>
+  Date of Joining:  <input type="date" name="dateOfJoining" class="form-control"  placeholder="Date of Joining">
+    
 
-  Qualification:  <input type="text" name="qualification" placeholder="Qualification">
-    <br><br>
+  Qualification:  <input type="text" name="qualification"  class="form-control"  placeholder="Qualification">
+    
 
    Role:
-             <select name="roleId">
+             <select name="roleId" class="select">
              
                 <option value="-1">----select Role ----</option>
                 
@@ -48,26 +63,57 @@
                            </c:forEach>  
                 
              </select>
-    <br><br>
-
-  Aadhar Card Path:  <input type="text" name="aadharCardPath" placeholder="Aadhar Card Path">
-    <br><br>
-
-   Pan Card Path: <input type="text" name="panCardPath" placeholder="Pan Card Path">
-    <br><br>
-
-   Qualification Doc Path: <input type="text" name="qualificationDocPath" placeholder="Qualification Doc Path">
-    <br><br>
-    
-  Contact Number:  <input type="text" name="contactNum" placeholder="Contact Number"><br><br>
-
-  activeInd:<input type="checkbox" name="activeInd" value="true">
-    <br><br>
-
-    
     
 
-    <input type="submit" value="Submit">
+  Aadhar Card Path:  <input type="text" class="form-control"  name="aadharCardPath" placeholder="Aadhar Card Path">
+    
+
+   Pan Card Path: <input type="text" class="form-control"  name="panCardPath" placeholder="Pan Card Path">
+    
+
+   Qualification Doc Path: <input type="text" class="form-control"  name="qualificationDocPath" placeholder="Qualification Doc Path">
+    
+    
+  Contact Number:  <input type="text" class="form-control"  name="contactNum" placeholder="Contact Number"><br><br>
+
+  activeInd:<br><input type="checkbox"  name="activeInd" value="true">
+    
+
+    
+    <div class="m-t-20 text-center">
+                                <button type="submit" class="btn btn-primary submit-btn">ADD Employee</button>
+                            </div>   
+
+ 
 </form>
+   
+                    </div>
+                </div>
+            </div>
+			        </div>
+   
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+	<script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="assets/js/app.js"></script>
+	<script>
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+
+                });
+            });
+     </script>
+</body>
+
+
+<!-- add-appointment24:07-->
+</html>
+                
 </body>
 </html>

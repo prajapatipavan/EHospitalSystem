@@ -23,17 +23,36 @@
 
 <body>
     <div class="main-wrapper">
+   <c:if test="${!empty doctor}">
       
       <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      
+      </c:if>
+      
+  <c:if test="${!empty doctor}">
+      
       <jsp:include page="AdminSidebar.jsp"></jsp:include>
+      
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerksidebar.jsp"></jsp:include>
+      
+      </c:if>
       
       
         <div class="page-wrapper">
             <div class="content">
             
             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="doctorpage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Doctor</a>
+             <a href="iteampage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Iteam</a>
             </div>
             
             <h4>IteamList</h4>
@@ -53,6 +72,7 @@
          <td>  gstRate </td>
          <td> HsnCode </td>
           <td> price </td>
+           <td> expiredDate </td>
         
         </tr>
    
@@ -69,6 +89,7 @@
          <td> ${p.gstRate} </td>
           <td> ${p.hsnCode} </td>
           <td> ${p.price} </td>
+          <td> ${p.expiredDate} </td>
           <td><a href="deleteiteam?id=${p.itemId}">DELETE</a></td>
          
           

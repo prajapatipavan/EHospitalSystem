@@ -23,28 +23,25 @@
 
 <body>
     <div class="main-wrapper">
-      
-  
-      
-    <c:if test="${!empty doctor}">
+   <c:if test="${!empty doctor}">
       
       <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
       </c:if>
       
-      <c:if test="${!empty clerk}">
+      <c:if test="${!empty user}">
       
       <jsp:include page="Clerknavbar.jsp"></jsp:include>
       
       </c:if>
       
-  <c:if test="${!empty doctor}">
+     <c:if test="${!empty doctor}">
       
-      <jsp:include page="AdminSidebar.jsp"></jsp:include>
+      <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
       </c:if>
       
-      <c:if test="${!empty clerk}">
+      <c:if test="${!empty user}">
       
       <jsp:include page="Clerksidebar.jsp"></jsp:include>
       
@@ -55,47 +52,54 @@
             <div class="content">
             
             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="doctorpage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Doctor</a>
+             
             </div>
             
-            <h4>Doctors</h4>
+            <h4>Monthly APPOINMENTS</h4>
             
-            
-            
-                 <table border="2"  class="table table-striped table-hover">
+                <table border="1"  class="table table-striped table-hover">
    
    
-   <tr align="center">
-        
+    <tr>
+         <td>  appoinmentId </td>
          <td>  doctorId </td>
-         <td>  firstName </td>
-         <td> lastName </td>
-         <td>  titleName </td>
+         <td>  patientId </td>
+         <td> ratelistId </td>
+         <td>  appoinmentDate </td>
+         <td>  createdDate </td>
+         <td> employeeId </td>
+         <td>  appoinmentStatusId </td>
+          <td>  Action </td>
+       
         
-            <td> ACTION </td>
-        
-      </tr>
+        </tr>
    
-       <c:forEach items="${doctor}" var="p">
+       <c:forEach items="${appoinmentlist}" var="p">
         
-        <tr align="center" >
-        <td> ${p.doctorId } </td>
-         <td> ${p.firstName} </td>
-          <td> ${p.lastName} </td>
-          
-           <td> ${p.titleName } </td>
+        <tr>
+         <td> ${p.appoinmentId} </td>
+        <td> ${p.doctorId} </td>
+         <td> ${p.doctorId} </td>
+          <td> ${p.ratelistId} </td>
+          <td> ${p.appoinmentDate} </td>
+         <td> ${p. createdDate} </td>
+          <td> ${p.employeeId} </td>
+          <td> ${p.appoinmentStatusId } </td>
+        
+          <td><a href="deleteAppoinmentMontly?id=${p.appoinmentId}">DELETE</a></td>
          
-          <td><a href="deletedoctor?id=${p.doctorId}">DELETE</a> |
-          
-           <a href="viewdoctor?id=${p.doctorId}">VIEW</a></td>
           
            
-        
+    
         </tr>
         
         </c:forEach>
      
      </table>
+
+            
+            
+                
             
                 
                 </div>

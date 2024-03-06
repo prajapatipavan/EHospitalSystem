@@ -7,6 +7,18 @@
 
 
 <head>
+  <style type="text/css">
+  
+     .btn{
+     
+       margin-top: -20px;
+     
+       }
+  
+  </style>
+   
+  
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -23,26 +35,50 @@
 
 <body>
     <div class="main-wrapper">
+    
+    <c:if test="${!empty doctor}">
       
       <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      
+      </c:if>
+      
+  <c:if test="${!empty doctor}">
+      
       <jsp:include page="AdminSidebar.jsp"></jsp:include>
+      
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerksidebar.jsp"></jsp:include>
+      
+      </c:if>
       
       
         <div class="page-wrapper">
             <div class="content">
             
-            <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="doctorpage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Appoinment</a>
-            </div>
+          <%--  <div class="col-sm-14 col-18 text-right m-b-90"  >
+             <a href="appoinment" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Appoinment</a>
+            </div>--%> 
+            
+             
             
             <h4>AppoinmentS</h4>
             
             
-                    <table border="1"  class="table table-striped table-hover">
+           
+             
+                    <table border="1"  class="table table-striped table-hover tab" >
    
    
-    <tr>
+    <tr >
         
         
         <td>  appoinmentId </td>
@@ -54,6 +90,8 @@
          <td>  employeeId </td>
          <td>  appoinmentStatusId </td>
          <td>  Action</td>
+         <td>status</td>
+           
          
         
         
@@ -71,8 +109,35 @@
             <td> ${p.appoinmentDate} </td>
              <td> ${p.createdDate} </td>
              <td> ${p.employeeId} </td>
-             <td> ${p.appoinmentStatusId} </td>
-             <td><a href="deleteAppoinment?id=${p.appoinmentId}">DELETE</a></td> 
+              <td>  ${appoinmentStatusId} </td>
+              
+               
+                <c:if test="${!empty doctor}">
+      
+      <td><a href="deleteAppoinment?id=${p.appoinmentId}">DELETE</a></td>
+      
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+       <td><a href="deleteAppoinmentclerk?id=${p.appoinmentId}">DELETE</a></td>
+      
+      </c:if>
+      
+             
+             
+             
+             
+             <td>
+             
+            <a href="viewpatientopd?id=${p.patientId} " style="border-bottom: 1px solid red; ">OPD</a><br>
+            <a href="" style="border-bottom: 1px solid red;">OPT</a><br>
+            <a href="" style="border-bottom: 1px solid red;">DOCT</a><br>
+            <a href="" style="border-bottom: 1px solid red;">counseling</a>
+            
+              
+              </td>
+             
         
         </tr>
         
@@ -80,6 +145,7 @@
      
      </table>
             
+                
                 
                 </div>
 				

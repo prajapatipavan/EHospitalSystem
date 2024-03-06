@@ -22,12 +22,29 @@
 </head>
 
 <body>
-    <div class="main-wrapper">
+   <c:if test="${!empty doctor}">
       
       <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      
+      </c:if>
+      
+  <c:if test="${!empty doctor}">
+      
       <jsp:include page="AdminSidebar.jsp"></jsp:include>
       
+      </c:if>
+      
+      <c:if test="${!empty clerk}">
+      
+      <jsp:include page="Clerksidebar.jsp"></jsp:include>
+      
+      </c:if>
       
         <div class="page-wrapper">
             <div class="content">

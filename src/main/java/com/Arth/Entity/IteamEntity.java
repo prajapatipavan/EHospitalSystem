@@ -22,7 +22,8 @@ public class IteamEntity {
 	    private float gstRate;
 	    private String hsnCode;
 	    private double price;
-	    
+	    private String expiredDate;
+	     
 	     
 		public Integer getItemId() {
 			return itemId;
@@ -84,6 +85,12 @@ public class IteamEntity {
 		}
 		public void setPrice(double price) {
 			this.price = price;
+		}
+		public String getExpiredDate() {
+			return expiredDate;
+		}
+		public void setExpiredDate(String expiredDate) {
+			this.expiredDate = expiredDate;
 		}
 	    
 	    
