@@ -23,15 +23,17 @@
 
 <body>
     <div class="main-wrapper">
+    
   <c:if test="${!empty doctor}">
       
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
+     <%@include file="AdminNavbar.jsp" %>
       
       </c:if>
       
       <c:if test="${!empty clerk}">
       
-      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      
+      <%@include file="Clerknavbar.jsp" %>
       
       </c:if>
       
@@ -51,10 +53,10 @@
             <div class="content">
             
             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="iteampage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Iteam</a>
+             <a href="patientprofile" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Patient</a>
             </div>
             
-            <h4>IteamList</h4>
+            <h4>Patient</h4>
             
                
         

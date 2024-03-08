@@ -30,7 +30,6 @@
 </head>
 <body>
 <div class="main-wrapper">
-
     <c:if test="${!empty doctor}">
         <jsp:include page="AdminNavbar.jsp"></jsp:include>
     </c:if>
@@ -45,49 +44,7 @@
     </c:if>
     <div class="page-wrapper">
         <div class="content">
-            <h4>Appointments</h4>
-            <table border="3" id="listtable" class="table table-striped table-hover tab" >
-                <thead>
-                    <tr>
-                        <td>appoinmentId</td>
-                        <td>doctorId</td>
-                        <td>patientId</td>
-                        <td>ratelistId</td>
-                        <td>appoinmentDate</td>
-                        <td>createdDate</td>
-                        <td>employeeId</td>
-                        <td>appoinmentStatusId</td>
-                        <td>Action</td>
-                        <td>status</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${appoinment}" var="p">
-                        <tr>
-                            <td>${p.appoinmentId}</td>
-                            <td>${p.doctorId}</td>
-                            <td>${p.patientId}</td>
-                            <td>${p.ratelistId}</td>
-                            <td>${p.appoinmentDate}</td>
-                            <td>${p.createdDate}</td>
-                            <td>${p.employeeId}</td>
-                            <td>${appoinmentStatusId}</td>
-                            <c:if test="${!empty doctor}">
-                                <td><a href="deleteAppoinment?id=${p.appoinmentId}">DELETE</a></td>
-                            </c:if>
-                            <c:if test="${!empty clerk}">
-                                <td><a href="deleteAppoinmentclerk?id=${p.appoinmentId}">DELETE</a></td>
-                            </c:if>
-                            <td>
-                                <a href="viewpatientopd?id=${p.patientId}" style="border-bottom: 1px solid red;">OPD</a> |
-                                <a href="" style="border-bottom: 1px solid red;">OPT</a> |
-                                <a href="" style="border-bottom: 1px solid red;">DOCTOR</a><br>
-                                <a href="" style="border-bottom: 1px solid red;">counseling</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+           ///
         </div>
         <div class="row">
             <div class="col-12 col-md-6 col-lg-8 col-xl-8">

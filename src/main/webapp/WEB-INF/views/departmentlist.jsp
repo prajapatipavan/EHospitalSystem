@@ -60,6 +60,9 @@
             
             
                      <table border="2"  class="table table-striped table-hover">
+                     
+                     
+           <thead>           
    
    
     <tr>
@@ -71,8 +74,13 @@
            <td> ACtion </td>
         
         </tr>
+        
+        </thead>
    
        <c:forEach items="${depart}" var="p">
+       
+       
+       <tbody>
         
         <tr>
         <td> ${p.departmentId } </td>
@@ -97,6 +105,8 @@
            
         
         </tr>
+        
+        </tbody>
         
         </c:forEach>
      

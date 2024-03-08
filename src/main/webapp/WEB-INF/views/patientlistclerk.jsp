@@ -36,10 +36,10 @@
             <div class="content">
             
             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="iteampage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Iteam</a>
+             <a href="patientprofile" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Patient</a>
             </div>
             
-            <h4>IteamList</h4>
+            <h4>PatientList</h4>
             
                
         

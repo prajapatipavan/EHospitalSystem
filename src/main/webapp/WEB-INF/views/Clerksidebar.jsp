@@ -16,7 +16,7 @@
                             <a href="ClerkDashbord"><i class="fa fa-dashboard"></i> <span>Dashbord</span></a>
                         </li>
 						<li>
-                            <a href="ClerkDashbord"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                            <a href="doctorlist"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
                         </li>
                         <li>
                             <a href="patientlists"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
@@ -26,6 +26,10 @@
                         </li>
                         <li>
                             <a href="Employeelist"><i class="fa fa-calendar-check-o"></i> <span>Employee</span></a>
+                        </li>
+                        
+                         <li>
+                            <a href="Pharmacistlist"><i class="fa fa-calendar-check-o"></i> <span>Pharmacist</span></a>
                         </li>
                         <li>
                             <a href="departmentlist"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>

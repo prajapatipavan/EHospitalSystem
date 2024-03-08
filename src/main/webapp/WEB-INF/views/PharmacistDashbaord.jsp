@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,68 +23,42 @@
 <body>
     <div class="main-wrapper">
       
-      <c:if test="${!empty doctor}">
       
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
-      </c:if>
+     <%@include file="Pharmacistnavbar.jsp" %>
       
-      <c:if test="${!empty clerk}">
+      <jsp:include page="Pharmacistsidebar.jsp"></jsp:include>
       
-      <jsp:include page="Clerknavbar.jsp"></jsp:include>
-      
-      </c:if>
-      
-  <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminSidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty clerk}">
-      
-      <jsp:include page="Clerksidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
-        <div class="page-wrapper">
+            <div class="page-wrapper">
             <div class="content">
-            
-            <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="packageiteam" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add PackageIteam</a>
-            </div>
-            
-            <h4>Doctors</h4>
-            
-            
-                     <table border="1" class="table table-striped table-hover">
-   
-   
-    <tr>
-        
-        <td>packageiteamId</td>
-         <td> packageId </td>
-         <td>itemId </td>
-        
-   </tr>
-   
-       <c:forEach items="${piteam}" var="p">
-        
-        <tr>
-        <td> ${p.packageIteamId} </td>
-         <td> ${p.packageId} </td>
-          <td> ${p.itemId} </td>
-          <td><a href="deletepackageiteam?id=${p.packageIteamId}">DELETE</a></td>
-          
-           
-        
-        </tr>
-        
-        </c:forEach>
-     
-     </table>
+                <div class="row">
                 
-                </div>
+               
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                       <a href="Pharmacistitemslist">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg4"><i class="fa fa-user-md" aria-hidden="true"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3>${items.size() }</h3>
+                                <span class="widget-title4">Product<i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                   
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                     <a href="UpcomingExpireditemspharmacist">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg1"><i class="fa fa-user-md" aria-hidden="true"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3>${nextmonthexpireiteams }</h3>
+                                <span class="widget-title1">Upcoming Expired<i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                   
 				
 				<div class="row">
 					<div class="col-12 col-md-6 col-lg-8 col-xl-8">
@@ -115,7 +88,6 @@
             </div>
            
         </div>
-   
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
 	<script src="assets/js/popper.min.js"></script>

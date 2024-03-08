@@ -23,8 +23,7 @@
 
 <body>
     <div class="main-wrapper">
-      
-      <c:if test="${!empty doctor}">
+   <c:if test="${!empty doctor}">
       
       <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
@@ -33,6 +32,12 @@
       <c:if test="${!empty clerk}">
       
       <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      
+      </c:if>
+     <c:if test="${!empty pharmacist}">
+      
+     
+      <%@include file="Pharmacistnavbar.jsp" %>
       
       </c:if>
       
@@ -48,42 +53,72 @@
       
       </c:if>
       
+      <c:if test="${!empty pharmacist}">
+      
+      <jsp:include page="Pharmacistsidebar.jsp"></jsp:include>
+      
+      </c:if>
+      
+      
         <div class="page-wrapper">
             <div class="content">
             
             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="packageiteam" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add PackageIteam</a>
+             <a href="iteampage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Iteam</a>
             </div>
             
-            <h4>Doctors</h4>
+            <h4>IteamList</h4>
             
-            
-                     <table border="1" class="table table-striped table-hover">
-   
+                <table border="1"  class="table table-striped table-hover">
+    <thead>
    
     <tr>
         
-        <td>packageiteamId</td>
-         <td> packageId </td>
-         <td>itemId </td>
-        
-   </tr>
-   
-       <c:forEach items="${piteam}" var="p">
-        
-        <tr>
-        <td> ${p.packageIteamId} </td>
-         <td> ${p.packageId} </td>
-          <td> ${p.itemId} </td>
-          <td><a href="deletepackageiteam?id=${p.packageIteamId}">DELETE</a></td>
-          
-           
+         <td>  itemId </td>
+         <td>  materialId </td>
+         <td> MaterialGroupName </td>
+         <td>  itemCode </td>
+         <td>  itemName </td>
+         <td> alternateName </td>
+         <td>  shortName </td>
+         <td>  gstRate </td>
+         <td> HsnCode </td>
+          <td> price </td>
+           <td> expiredDate </td>
         
         </tr>
+   </thead>
+       <c:forEach items="${iteam}" var="p">
+        <tbody>
+        <tr>
+        <td> ${p.itemId} </td>
+         <td> ${p.materialId} </td>
+          <td> ${p.materialgName} </td>
+          <td> ${p.itemCode} </td>
+         <td> ${p.itemName} </td>
+          <td> ${p.alternateName} </td>
+          <td> ${p.shortName} </td>
+         <td> ${p.gstRate} </td>
+          <td> ${p.hsnCode} </td>
+          <td> ${p.price} </td>
+          <td> ${p.expiredDate} </td>
+          <td><a href="deleteiteam?id=${p.itemId}">DELETE</a></td>
+         
+          
+           
+    
+        </tr>
+        
+        </tbody>
         
         </c:forEach>
      
      </table>
+
+            
+            
+                
+            
                 
                 </div>
 				

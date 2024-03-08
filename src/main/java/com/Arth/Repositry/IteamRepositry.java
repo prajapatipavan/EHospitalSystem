@@ -18,6 +18,7 @@ public interface IteamRepositry extends JpaRepository<IteamEntity,Integer> {
         Integer getCurruntMonthexpireiteams(Integer month);
 
 	
+	 
 	
 	@Query(value = "select * from iteams where month(expired_date) = :month+1;",nativeQuery=true)
 	

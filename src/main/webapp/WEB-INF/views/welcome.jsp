@@ -9,13 +9,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Medilab Bootstrap Template - Index</title>
+  <title>Health Hub</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="asset/img/favicon.png" rel="icon">
-  <link href="asset/img/apple-touch-icon.png" rel="apple-touch-icon">
+ 
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -38,13 +37,7 @@
   <!-- Template Main CSS File -->
   <link href="asset/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Medilab
-  * Updated: Jan 29 2024 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  
 </head>
 
 <body>
@@ -55,8 +48,8 @@
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
-        <i class="bi bi-phone"></i> +1 5589 55488 55
+        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">ppavan.tec@gmail.com</a>
+        <i class="bi bi-phone"></i> 9512881324
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -71,7 +64,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Medilab</a></h1>
+      <h1 class="logo me-auto"><a href="index.html">Health Hub</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -146,8 +139,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1>Welcome to Medilab</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <h1>Welcome to Health Hub</h1>
+      <h2>Your centralized solution for efficient hospital management <br> and superior patient care."
+</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section><!-- End Hero -->
@@ -161,7 +155,7 @@
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
-              <h3>Why Choose Medilab?</h3>
+              <h3>Why Choose Health Hub?</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
                 Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
@@ -846,13 +840,13 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Medilab</h3>
+            <h3>Health Hub</h3>
             <p>
               A108 Adam Street <br>
               New York, NY 535022<br>
               United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Phone:</strong> 9512881324<br>
+              <strong>Email:</strong> ppavan.tec@gmail.com<br>
             </p>
           </div>
 
@@ -870,21 +864,10 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
+        
 
         </div>
       </div>
@@ -894,14 +877,14 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>Medilab</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>Health Hub</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          Designed by <a href="https://bootstrapmade.com/">Pavan Prajapati</a>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">

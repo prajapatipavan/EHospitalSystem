@@ -10,18 +10,22 @@
 <body>
         <table border="1">
    
-   
+     <thead>
     <tr>
-        
+       
        
         <td>  appoinmentStatusId </td>
         <td>  statusName </td>
           <td>  ACTION </td>
-        
+     
         
         </tr>
+        
+           </thead>
    
         <c:forEach items="${apstatus}" var="p">
+        
+        <tbody>
         
               <tr>
         
@@ -31,6 +35,7 @@
         
         
         </tr>
+        </tbody>
         
         </c:forEach>
      

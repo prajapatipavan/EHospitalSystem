@@ -23,23 +23,24 @@
 
 <body>
     <div class="main-wrapper">
-   <c:if test="${!empty doctor}">
+   <c:if test="${!empty pharmacist}">
       
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
+     
+      <%@include file="Pharmacistnavbar.jsp" %>
       
       </c:if>
       
       <c:if test="${!empty clerk}">
       
-      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      
+      <%@include file="Clerknavbar.jsp" %>
       
       </c:if>
       
-  <c:if test="${!empty doctor}">
+  <c:if test="${!empty pharmacist}">
       
-      <jsp:include page="AdminSidebar.jsp"></jsp:include>
-      
-      </c:if>
+       <jsp:include page="Pharmacistsidebar.jsp"></jsp:include> 
+   </c:if>
       
       <c:if test="${!empty clerk}">
       
@@ -53,7 +54,7 @@
             
            
             
-            <h4>IteamList</h4>
+            <h4>Next Month Expire Iteams</h4>
             
                 <table border="1"  class="table table-striped table-hover">
    

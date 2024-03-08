@@ -24,7 +24,8 @@
 <body>
     <div class="main-wrapper">
       
-      <c:if test="${!empty doctor}">
+ 
+    <c:if test="${!empty doctor}">
       
       <jsp:include page="AdminNavbar.jsp"></jsp:include>
       
@@ -52,30 +53,40 @@
             <div class="content">
             
             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="packageiteam" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add PackageIteam</a>
+             <a href="AddPharmacist" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Pharmacist</a>
             </div>
             
-            <h4>Doctors</h4>
+            <h4>Pharmacist List</h4>
             
             
-                     <table border="1" class="table table-striped table-hover">
+            
+                 
+                 <table border="1" class="table table-striped table-hover">
    
    
     <tr>
         
-        <td>packageiteamId</td>
-         <td> packageId </td>
-         <td>itemId </td>
+        <td>pharmacistId</td>
+        <td>pharmacistName</td>
+        <td> email</td>
+        <td>password</td>
+        <td>mobileNo</td>
+        <td>dateOfBirth</td>
+         <td>Action</td>
         
-   </tr>
+        </tr>
    
-       <c:forEach items="${piteam}" var="p">
+       <c:forEach items="${pharmacistlist}" var="p">
         
         <tr>
-        <td> ${p.packageIteamId} </td>
-         <td> ${p.packageId} </td>
-          <td> ${p.itemId} </td>
-          <td><a href="deletepackageiteam?id=${p.packageIteamId}">DELETE</a></td>
+        <td>${ p.pharmacistId}</td>
+        <td> ${p.pharmacistName}</td>
+        <td>${p.email}</td>
+        <td>${ p.password}</td>
+         <td>${p.mobileNo}</td>
+        <td>${ p.dateOfBirth}</td>
+        <td><a href="deletepharmacist?id=${p.pharmacistId}">DELETE</a></td>
+        
           
            
         
@@ -84,6 +95,7 @@
         </c:forEach>
      
      </table>
+            
                 
                 </div>
 				

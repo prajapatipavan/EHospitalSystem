@@ -29,38 +29,11 @@
                             <a href="departmentlist"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
                         </li>
                         
-                         <li>
-                            <a href="iteamlist"><i class="fa fa-hospital-o"></i> <span>Iteams</span></a>
-                        </li>
-                         <li>
-                            <a href="materiallist"><i class="fa fa-hospital-o"></i> <span>Material</span></a>
-                        </li>
-                         <li>
-                            <a href="packagelist"><i class="fa fa-hospital-o"></i> <span>Package</span></a>
-                        </li>
+                        
 						
 							
-                        <li>
-                            <a href="Packageiteamlist"><i class="fa fa-cog"></i> <span>Packageiteam</span></a>
-                        </li>
-                          <li>
-                            <a href="packageratelist"><i class="fa fa-cog"></i> <span>PackageRateList</span></a>
-                        </li>
-                          <li>
-                            <a href="ratelistlist"><i class="fa fa-cog"></i> <span>Ratelist</span></a>
-                        </li>
+                       
                         
-                         <li>
-                            <a href="ratetypelist"><i class="fa fa-cog"></i> <span>RateType</span></a>
-                        </li>
-                        
-                          <li>
-                            <a href="rolelist"><i class="fa fa-cog"></i> <span>Role</span></a>
-                        </li>
-                        
-                         <li>
-                            <a href="serviceTypelist"><i class="fa fa-cog"></i><span>ServiceType</span></a>
-                        </li>
                         
                        
                         

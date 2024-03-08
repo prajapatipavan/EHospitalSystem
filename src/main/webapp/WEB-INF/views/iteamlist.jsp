@@ -58,7 +58,7 @@
             <h4>IteamList</h4>
             
                 <table border="1"  class="table table-striped table-hover">
-   
+    <thead>
    
     <tr>
         
@@ -75,9 +75,9 @@
            <td> expiredDate </td>
         
         </tr>
-   
+   </thead>
        <c:forEach items="${iteam}" var="p">
-        
+        <tbody>
         <tr>
         <td> ${p.itemId} </td>
          <td> ${p.materialId} </td>
@@ -96,6 +96,8 @@
            
     
         </tr>
+        
+        </tbody>
         
         </c:forEach>
      

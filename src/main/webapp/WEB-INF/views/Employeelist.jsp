@@ -26,30 +26,19 @@
     
      
       
+   <c:if test="${!empty doctor}">
+        <jsp:include page="AdminNavbar.jsp"></jsp:include>
+    </c:if>
+    <c:if test="${!empty clerk}">
+        <jsp:include page="Clerknavbar.jsp"></jsp:include>
+    </c:if>
     <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty user}">
-      
-      <jsp:include page="Clerknavbar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminSidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty user}">
-      
-      <jsp:include page="Clerksidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
+        <jsp:include page="AdminSidebar.jsp"></jsp:include>
+    </c:if>
+    <c:if test="${!empty clerk}">
+        <jsp:include page="Clerksidebar.jsp"></jsp:include>
+    </c:if>
+    
       
         <div class="page-wrapper">
             <div class="content">
@@ -63,7 +52,7 @@
             
                      <table border="1" class="table table-striped table-hover">
    
-   
+    <thead>
     <tr>
       
        
@@ -84,8 +73,12 @@
           <td>  contactNum</td>
          
         </tr>
+        
+        </thead>
    
        <c:forEach items="${employee}" var="p">
+       
+       <tbody>
         
         <tr>
          <td> ${p.employeeId} </td>
@@ -106,6 +99,8 @@
          <td><a href="deleteemployee?id=${p.employeeId}">DELETE</a></td>
   
         </tr>
+        
+        </tbody>
         
         </c:forEach>
      
