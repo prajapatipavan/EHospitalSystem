@@ -14,7 +14,7 @@ public class EHospitalSystemApplication {
 
 	
 	@Bean
-	 public  BCryptPasswordEncoder encryptpasswordString() {
+	     public  BCryptPasswordEncoder encryptpasswordString() {
 		 
 		 BCryptPasswordEncoder bCryptpass = new BCryptPasswordEncoder();
 		 

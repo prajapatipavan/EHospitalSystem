@@ -9,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.Arth.Entity.AppoinmentEntity;
+import com.Arth.Entity.DoctorEntity;
 import com.Arth.Entity.IteamEntity;
 import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.AppoinmentRepositry;
+import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.IteamRepositry;
 import com.Arth.Repositry.patientrepositry;
 
@@ -29,6 +31,9 @@ public class ClerkController {
 	
 	@Autowired
 	IteamRepositry itemrepo;
+	
+	@Autowired
+	DoctorRepositry docRepo;
 	
 	
 	
@@ -75,7 +80,7 @@ public class ClerkController {
 		    model.addAttribute("appoinmets" ,appoinmets);
 		    
 		    
-  List<IteamEntity>  items   = itemrepo.findAll();
+        List<IteamEntity>  items   = itemrepo.findAll();
 		    
 		    model.addAttribute("items" ,items);
 		    
@@ -86,6 +91,16 @@ public class ClerkController {
 		 
 		return "ClerkDashbord";
 	}
+	
+	
+	 @GetMapping("clerkdoctorlist")
+	 public String Admindoctor(DoctorEntity doctorEntity,Model model) {
+		 
+		   List<DoctorEntity> doctor= docRepo.findAll();
+			  model.addAttribute("doctor" ,doctor);
+		 
+		 return "clerkdoctorlist";
+	 }
 	
 	@GetMapping("todayAppoinments")
 	public String todayAppoinments(AppoinmentEntity entity,Model model) {

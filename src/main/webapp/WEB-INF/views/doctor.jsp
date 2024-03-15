@@ -116,7 +116,7 @@
 
 <div class="container">
   <h2 class="text-center">Add Doctor</h2>
-   <form action="addDoctor" method="post">
+   <form action="addDoctors" method="post">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">

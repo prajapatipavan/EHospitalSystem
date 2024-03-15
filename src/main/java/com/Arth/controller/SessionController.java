@@ -7,10 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.Arth.Entity.AdminnEntity;
 import com.Arth.Entity.DoctorEntity;
 import com.Arth.Entity.PharmistEntity;
 import com.Arth.Entity.clerkentity;
 import com.Arth.Entity.patientEntity;
+import com.Arth.Repositry.AdminRepositry;
 import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.PharmacistRepositry;
 import com.Arth.Repositry.clerkRepositry;
@@ -42,6 +44,12 @@ public class SessionController {
 	
 	@Autowired
 	PharmacistRepositry pharmaRepo;
+	
+	@Autowired
+	AdminRepositry adminRepo;
+	
+	@Autowired
+	DoctorRepositry docRepo;
 	
 	@GetMapping("/")
 	public String welcome() {
@@ -79,17 +87,23 @@ public String Dlogin() {
 	
 }
 
+
+
+
 @PostMapping("/Athenticate")
-public String Athenticate(patientEntity patient, clerkentity clerk, Model model, PharmistEntity pharmacist, HttpSession session) {
+public String Athenticate(patientEntity patient, clerkentity clerk, Model model, PharmistEntity pharmacist, AdminnEntity admin, DoctorEntity doctor, HttpSession session) {
     patientEntity logginPatient = repositry.findByEmail(patient.getEmail());
     clerkentity logginClerk = clerkRepo.findByEmail(clerk.getEmail());
     PharmistEntity logginPharmacist = pharmaRepo.findByEmail(pharmacist.getEmail());
+    AdminnEntity logginAdmin = adminRepo.findByEmail(admin.getEmail());
+    DoctorEntity logginDoctor = docRepo.findByEmail(doctor.getEmail());
   
-    if (logginPatient == null && logginClerk == null && logginPharmacist == null) {
+    if (logginPatient == null && logginClerk == null && logginPharmacist == null && logginAdmin == null && logginDoctor == null) {
         model.addAttribute("error", "*Invalid UserName And Password");
         return "login";
     } else {
         if (logginPatient != null) {
+            session.setMaxInactiveInterval(10*60);
             session.setAttribute("user", logginPatient);
             boolean answer = bCryptPass.matches(patient.getPassword(), logginPatient.getPassword());
             if (!answer) {
@@ -124,67 +138,32 @@ public String Athenticate(patientEntity patient, clerkentity clerk, Model model,
             } else if (logginPharmacist.getRoleId() == 7) {
                 return "redirect:/PharmacistDashbaord";
             }
+        } else if (logginAdmin != null) {
+            session.setAttribute("admin", logginAdmin);
+            boolean answer = bCryptPass.matches(admin.getPassword(), logginAdmin.getPassword());
+            if (!answer) {
+                model.addAttribute("error", "Invalid Credentials");
+                return "login";
+            } else if (logginAdmin.getRoleId() == null) {
+                return "login";
+            } else if (logginAdmin.getRoleId() == 8) {
+                return "redirect:/AdminnDashboard";
+            }
+        } else if (logginDoctor != null) {
+            session.setAttribute("doctor", logginDoctor);
+            boolean answer = bCryptPass.matches(doctor.getPassword(), logginDoctor.getPassword());
+            if (!answer) {
+                model.addAttribute("error", "Invalid Credentials");
+                return "login";
+            } else if (logginDoctor.getRoleId() == null) {
+                return "login";
+            } else if (logginDoctor.getRoleId() == 1) {
+                return "DoctorDashboard";
+            }
         }
     }
-    return "login";
+           return "login";
 }
-
-
-
-@PostMapping("/Athenticate1")
-
-public String Athenticate(Model model,HttpSession session,DoctorEntity doctor) {
-	
-	  DoctorEntity loggin = dRepositry.findByEmail(doctor.getEmail());
-	  
-	  System.out.println(loggin);
-	  
-	  if (loggin == null) {
-			
-			model.addAttribute("error", "*Invalid UserName And Password");
-			return "doctorlogin";
-			
-		} else {
-			
-			session.setAttribute("doctor",loggin);
-			
-			
-			
-			boolean answer = bCryptPass.matches(doctor.getPassword(), loggin.getPassword());
-			
-			if (answer == false) {
-				model.addAttribute("error","Invalid Credentials");
-				return "doctorlogin";
-			}
-			   else if(loggin.getRoleId()==null) {
-					
-					return "doctorlogin";
-					
-				}else if (loggin.getRoleId()==5) {
-					
-					return "welcome";
-				}
-				
-				else if (loggin.getRoleId()==4) {
-					
-					return "FrontDesk";
-				}
-				
-                else if (loggin.getRoleId()==2) {
-					
-					return "AdminDashboard";
-				}
-				
-				return "doctorlogin";
-			
-			
-		}
-}
-
-
-
-
-	 
 
 
 @GetMapping("/forgetpassword")
@@ -194,57 +173,66 @@ public String forgetpassword() {
 }
 
 @PostMapping("sendotpforgetpassword")
- public String sendOtpForgetPassword(patientEntity pEntity,clerkentity clerk,PharmistEntity Pharmacist) {
-	
-	patientEntity dbpatient = repositry.findByEmail(pEntity.getEmail());
-	clerkentity  dbclerk  = clerkRepo.findByEmail(clerk.getEmail());
-	PharmistEntity dbPharmist = pharmaRepo.findByEmail(Pharmacist.getEmail());
-	
-	
-	System.out.println(dbPharmist);
-	
-	
-	 if (dbpatient == null && dbclerk == null && dbPharmist==null) {
-	        return "forgetpassword";
-	    } else {
-	        int otp = (int) (Math.random() * 1000000); 
-	        System.out.println("otp => " + otp);
-	        
-	        if (dbpatient != null) {
-	            mailsender.sendOtpForMail(pEntity.getEmail(), otp);
-	            dbpatient.setOtp(otp);
-	            repositry.save(dbpatient);
-	        }
-	        
-	        if (dbclerk != null) {
-	            mailsender.sendOtpForMail(clerk.getEmail(), otp);
-	            dbclerk.setOtp(otp);
-	            clerkRepo.save(dbclerk);
-	        }
-	        
-	        if (dbPharmist != null) {
-	            mailsender.sendOtpForMail(Pharmacist.getEmail(), otp);
-	            dbPharmist.setOtp(otp);
-	            pharmaRepo.save(dbPharmist);
-	        }
-	        
-	        return "updatepassword";
-	    }
-	
+public String sendOtpForgetPassword(patientEntity pEntity, clerkentity clerk, PharmistEntity Pharmacist, AdminnEntity admin, DoctorEntity doctor) {
 
-	
-	
+    patientEntity dbpatient = repositry.findByEmail(pEntity.getEmail());
+    clerkentity dbclerk = clerkRepo.findByEmail(clerk.getEmail());
+    PharmistEntity dbPharmist = pharmaRepo.findByEmail(Pharmacist.getEmail());
+    AdminnEntity dbAdmin = adminRepo.findByEmail(admin.getEmail());
+    DoctorEntity dbDoctor = docRepo.findByEmail(doctor.getEmail());
+
+    if (dbpatient == null && dbclerk == null && dbPharmist == null && dbAdmin == null && dbDoctor == null) {
+        return "forgetpassword";
+    } else {
+        int otp = (int) (Math.random() * 1000000);
+        System.out.println("otp => " + otp);
+
+        if (dbpatient != null) {
+            mailsender.sendOtpForMail(pEntity.getEmail(), otp);
+            dbpatient.setOtp(otp);
+            repositry.save(dbpatient);
+        }
+
+        if (dbclerk != null) {
+            mailsender.sendOtpForMail(clerk.getEmail(), otp);
+            dbclerk.setOtp(otp);
+            clerkRepo.save(dbclerk);
+        }
+
+        if (dbPharmist != null) {
+            mailsender.sendOtpForMail(Pharmacist.getEmail(), otp);
+            dbPharmist.setOtp(otp);
+            pharmaRepo.save(dbPharmist);
+        }
+
+        if (dbAdmin != null) {
+            mailsender.sendOtpForMail(admin.getEmail(), otp);
+            dbAdmin.setOtp(otp);
+            adminRepo.save(dbAdmin);
+        }
+
+        if (dbDoctor != null) {
+            mailsender.sendOtpForMail(doctor.getEmail(), otp);
+            dbDoctor.setOtp(otp);
+            docRepo.save(dbDoctor);
+        }
+
+        return "updatepassword";
+    }
 }
 
 
+
 @PostMapping("updatepassword")
-public String updatePassword(patientEntity patient, Model model, clerkentity clerk, PharmistEntity pharmacist) {
+public String updatePassword(patientEntity patient, Model model, clerkentity clerk, PharmistEntity pharmacist, AdminnEntity admin, DoctorEntity doctor) {
     patientEntity dbPatient = repositry.findByEmail(patient.getEmail());
     clerkentity dbClerk = clerkRepo.findByEmail(clerk.getEmail());
     PharmistEntity dbPharmacist = pharmaRepo.findByEmail(pharmacist.getEmail());
+    AdminnEntity dbAdmin = adminRepo.findByEmail(admin.getEmail());
+    DoctorEntity dbDoctor = docRepo.findByEmail(doctor.getEmail());
 
-    // Check if neither patient, clerk, nor pharmacist is found
-    if (dbPatient == null && dbClerk == null && dbPharmacist == null) {
+    // Check if neither patient, clerk, pharmacist, admin, nor doctor is found
+    if (dbPatient == null && dbClerk == null && dbPharmacist == null && dbAdmin == null && dbDoctor == null) {
         model.addAttribute("error", "*Invalid email address");
         return "updatepassword";
     }
@@ -266,6 +254,18 @@ public String updatePassword(patientEntity patient, Model model, clerkentity cle
 
     // Check if OTP and pharmacist exist
     if (dbPharmacist != null && (pharmacist.getOtp() == -1 || dbPharmacist.getOtp().intValue() != pharmacist.getOtp().intValue())) {
+        model.addAttribute("oeerror", "*Invalid OTP or email address");
+        return "updatepassword";
+    }
+
+    // Check if OTP and admin exist
+    if (dbAdmin != null && (admin.getOtp() == -1 || dbAdmin.getOtp().intValue() != admin.getOtp().intValue())) {
+        model.addAttribute("oeerror", "*Invalid OTP or email address");
+        return "updatepassword";
+    }
+
+    // Check if OTP and doctor exist
+    if (dbDoctor != null && (doctor.getOtp() == -1 || dbDoctor.getOtp().intValue() != doctor.getOtp().intValue())) {
         model.addAttribute("oeerror", "*Invalid OTP or email address");
         return "updatepassword";
     }
@@ -297,14 +297,27 @@ public String updatePassword(patientEntity patient, Model model, clerkentity cle
         pharmaRepo.save(dbPharmacist);
     }
 
+    // Update admin's password
+    if (dbAdmin != null) {
+        String plaintext = admin.getPassword();
+        String encryptpassword = bCryptPass.encode(plaintext);
+        dbAdmin.setPassword(encryptpassword);
+        dbAdmin.setOtp(-1);
+        adminRepo.save(dbAdmin);
+    }
+
+    // Update doctor's password
+    if (dbDoctor != null) {
+        String plaintext = doctor.getPassword();
+        String encryptpassword = bCryptPass.encode(plaintext);
+        dbDoctor.setPassword(encryptpassword);
+        dbDoctor.setOtp(-1);
+        docRepo.save(dbDoctor);
+    }
+
     return "login"; // Redirect to login page
 }
-
-
    
-
-
-
   @GetMapping("logout")
   public String logout(HttpSession session) {
 	  
@@ -312,10 +325,7 @@ public String updatePassword(patientEntity patient, Model model, clerkentity cle
 	  
 	  return "redirect:/login";
   }
-  
-  
- 
-  
+   
   @GetMapping("drlogout")
   public String drlogout(HttpSession session) {
 	  

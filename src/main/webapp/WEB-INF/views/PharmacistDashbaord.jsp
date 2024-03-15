@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
  
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
@@ -49,7 +50,7 @@
                     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                      <a href="UpcomingExpireditemspharmacist">
                         <div class="dash-widget">
-                            <span class="dash-widget-bg1"><i class="fa fa-user-md" aria-hidden="true"></i></span>
+                            <span class="dash-widget-bg1"><i class="fa fa-hourglass-half" aria-hidden="true"></i></span>
                             <div class="dash-widget-info text-right">
                                 <h3>${nextmonthexpireiteams }</h3>
                                 <span class="widget-title1">Upcoming Expired<i class="fa fa-check" aria-hidden="true"></i></span>

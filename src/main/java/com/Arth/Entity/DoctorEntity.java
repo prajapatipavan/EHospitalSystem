@@ -42,6 +42,8 @@ public class DoctorEntity {
     private Integer serviceTypeId;
     
     private Integer roleId;
+    
+    private Integer otp;
 
     
 
@@ -186,6 +188,17 @@ public class DoctorEntity {
 	}
 
 
+	public Integer getOtp() {
+		return otp;
+	}
+
+
+	public void setOtp(Integer otp) {
+		this.otp = otp;
+	}
+
+
+	
 	
     
     

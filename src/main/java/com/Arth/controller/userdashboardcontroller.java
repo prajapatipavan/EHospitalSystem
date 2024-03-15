@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.AppoinmentEntity;
+import com.Arth.Entity.PrescriptionEntity;
 import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.AppoinmentRepositry;
+import com.Arth.Repositry.PrescriptionRepositry;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -20,6 +22,8 @@ public class userdashboardcontroller {
 	@Autowired
 	AppoinmentRepositry aRepositry;
 	
+	@Autowired
+	PrescriptionRepositry repositry;
 	
 	@GetMapping("userdashboard")
 	public String userdashboard() {
@@ -48,6 +52,21 @@ public class userdashboardcontroller {
 		return "/Appoinmentlist";
 	}
 	
+	
+	@GetMapping("patientprescriptionlist")
+	public String patientprescriptionlist(HttpSession session,Model model) {
+		
+		
+		   patientEntity patient  = (patientEntity)session.getAttribute("user"); 
+			
+			List<PrescriptionEntity> prescription = repositry.findBypatientId(patient.getPatientId());
+			
+			model.addAttribute("prescription",prescription );
+		
+		
+		
+		return "patientprescriptionlist";
+	}
 	
 	
 	

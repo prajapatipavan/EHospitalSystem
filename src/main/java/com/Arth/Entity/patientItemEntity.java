@@ -1,5 +1,7 @@
 package com.Arth.Entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +21,37 @@ public class patientItemEntity {
 	private float price;
 	private Integer qty;
 	private float totalPrice;
+	
+	
+	
+
+	    public patientItemEntity() {
+		
+       	}
+
+
+		// Constructor with parameters
+	  /*  public PatientItemEntity(Integer patientId, Integer itemId, String date, float price, Integer qty, float totalPrice) {
+	        this.patientId = patientId;
+	        this.itemId = itemId;
+	        this.date = date;
+	        this.price = price;
+	        this.qty = qty;
+	        this.totalPrice = totalPrice;
+	    }*/
+	    
+	    
+	    public patientItemEntity(Integer patientId, Integer itemId, String date, float price, Integer qty, float totalPrice) {
+	        this.patientId = patientId;
+	        this.itemId = itemId;
+	        this.date = date;
+	        this.price = price;
+	        this.qty = qty;
+	        this.totalPrice = totalPrice;
+	    }
+	    
+	    
+	    
 	
 
 	public Integer getPatientItemId() {
@@ -76,6 +109,14 @@ public class patientItemEntity {
 	public void setTotalPrice(float totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+
+	
+	
+	
+
+	
+	
+	
 	
 	
 	

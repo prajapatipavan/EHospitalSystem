@@ -8,12 +8,14 @@ import org.springframework.stereotype.Repository;
 
 import com.Arth.Entity.AppoinmentEntity;
 import com.Arth.Entity.IteamEntity;
+import com.Arth.Entity.patientEntity;
 
 @Repository
 public interface AppoinmentRepositry  extends JpaRepository<AppoinmentEntity, Integer>{
 	
 	
 	List<AppoinmentEntity> findBypatientId(Integer patientId);
+	List<AppoinmentEntity> findByDoctorId(Integer doctorId);
 	
 	   AppoinmentEntity findByPatientId(Integer patientId);
 	

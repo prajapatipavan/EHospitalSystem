@@ -16,11 +16,15 @@
                             <a href="Admindashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
 						
-                        <li>
-                            <a href="patientlist"><i class="fa fa-wheelchair"></i> <span>Patient</span></a>
-                        </li>
+                     
                         <li>
                             <a href="patientAppoinmentlist"><i class="fa fa-calendar"></i> <span>Appointment</span></a>
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            <a href="patientprescriptionlist?id=${user.patientId}"><i class="fa fa-calendar"></i> <span>Prescription</span></a>
                         </li>
                        
                        

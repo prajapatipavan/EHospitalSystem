@@ -23,72 +23,87 @@
 
 <body>
     <div class="main-wrapper">
+    
  
       
-      <c:if test="${!empty clerk}">
+       <c:if test="${!empty admin}">
       
-      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      <jsp:include page="AdminNewnavbar.jsp"></jsp:include>
       
       </c:if>
-     <c:if test="${!empty pharmacist}">
       
      
-      <%@include file="Pharmacistnavbar.jsp" %>
+      
+      
+      <c:if test="${!empty admin}">
+      
+      <jsp:include page="AdminNewsidebar.jsp"></jsp:include>
       
       </c:if>
       
- 
+  
       
-      <c:if test="${!empty clerk}">
-      
-      <jsp:include page="Clerksidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty pharmacist}">
-      
-      <jsp:include page="Pharmacistsidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
+     
       
         <div class="page-wrapper">
             <div class="content">
-             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="addpatientitem" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add PatientItem</a>
-            </div>
-             
-           
-            <h4>IteamList</h4>
             
-             
-            <table border="1" class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>patientItemId</th>
-                        <th>patientId</th>
-                        <th>itemId</th>
-                        <th>Date</th>
-                        <th>Quantity</th>
-                        <th>Total Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${patientItem}" var="item">
-                        <tr>
-                            <td>${item.patientItemId}</td>
-                            <td>${item.patientId}</td>
-                            <td>${item.itemId}</td>
-                            <td>${item.date}</td>
-                           
-                            <td>${item.qty}</td>
-                            <td>${item.totalPrice}</td>
-                            <td><a href="deletepatientitem?id=${item.patientItemId}">Delete</a></td> 
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+            <div class="col-sm-14 col-18 text-right m-b-90">
+             <a href="patientprofile" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Patient</a>
+            </div>
+            
+            <h4>Patient</h4>
+            
+               
+        
+                   <table border="4"  class="table table-striped table-hover" class="center">
+   
+   
+    <tr>
+ 
+     <td>PatientId</td>
+    <td>FirstName</td>
+    <td>MiddleName</td>
+    <td>LastName</td>
+    <td>Email</td>
+    <td>Mobile No</td>
+    <td>ACTION</td>
+    <td>STATUS</td>
+   
+    
+        
+        </tr>
+   
+   <c:forEach items="${patients}" var="p">
+        
+        <tr>
+    <td>${p.patientId}</td>
+    <td>${p.firstName}</td>
+    <td>${p.middleName}</td>
+    <td>${p.lastName}</td>
+    <td>${p.email}</td>
+    <td>${p.contactNum}</td>
+   
+    <td><a href="deletepatient?id=${p.patientId}" class="btn btn-danger">DELETE</a> |
+          
+   <a href="viewpatient?id=${p.patientId}" class="btn btn-primary">Profile</a></td>    
+   
+  
+   
+   
+    <td> 
+    
+   
+      <a> <button id="myButton" class="btn btn-secondary">Waiting</button></a> 
+ 
+    
+    </td>
+
+        </tr>
+        
+        </c:forEach>
+     
+     </table>
 
             
             

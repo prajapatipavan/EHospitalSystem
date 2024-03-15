@@ -13,26 +13,19 @@
                     <ul>
                         <li class="menu-title">Main</li>
                         <li class="active">
-                            <a href="Admindashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                            <a href="DoctorDashboard"><i class="fa fa-dashboard"></i> <span>Dashbord</span></a>
                         </li>
 						
-                        <li>
-                            <a href="patientlist"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
-                        </li>
-                        <li>
-                            <a href="Appoinmentlist"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
-                        </li>
-                        <li>
-                            <a href="Employeelist"><i class="fa fa-calendar-check-o"></i> <span>Employee</span></a>
-                        </li>
-                        <li>
-                            <a href="departmentlist"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
-                        </li>
-                        
-                        
-						
-							
                        
+                        <li>
+                            <a href="DocAppoinmentslist"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                        </li>
+                        
+                         <li>
+                            <a href="Prescriptionlist"><i class="fa fa-calendar"></i> <span>Prescription</span></a>
+                        </li>
+                        
+                         
                         
                         
                        

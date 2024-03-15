@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,80 +23,28 @@
 <body>
     <div class="main-wrapper">
       
-  
       
-    <c:if test="${!empty doctor}">
       
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
+     <%@include file="Doctornavbar.jsp" %>
       
-      </c:if>
-      
-    
-      
-  <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminSidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty clerk}">
-      
-      <jsp:include page="Clerksidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
+      <jsp:include page="DoctorSidebar.jsp"></jsp:include>
       
         <div class="page-wrapper">
             <div class="content">
-            
-            <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="doctorpage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Doctor</a>
-            </div>
-            
-            <h4>Doctors</h4>
-            
-            
-            
-                 <table border="2"  class="table table-striped table-hover">
-    <thead>
-   
-   <tr align="center">
-        
-         <td>  doctorId </td>
-         <td>  firstName </td>
-         <td> lastName </td>
-         <td>  titleName </td>
-        
-            <td> ACTION </td>
-        
-      </tr>
-      
-      </thead>
-   
-       <c:forEach items="${doctor}" var="p">
-        
-        <tbody>
-        <tr align="center" >
-        <td> ${p.doctorId } </td>
-         <td> ${p.firstName} </td>
-          <td> ${p.lastName} </td>
-          
-           <td> ${p.titleName } </td>
-         
-          <td><a href="deletedoctor?id=${p.doctorId}">DELETE</a> |
-          
-           <a href="viewdoctor?id=${p.doctorId}">VIEW</a></td>
-          
-           
-        
-        </tr>
-        </tbody>
-        
-        </c:forEach>
-     
-     </table>
-            
-                
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <a href="">
+                        <div class="dash-widget">
+							<span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+							<div class="dash-widget-info text-right">
+								<h3>${appoinment.size()}</h3>
+								<span class="widget-title1">My Appoinments <i class="fa fa-check" aria-hidden="true"></i></span>
+							</div>
+                        </div>
+                        </a>
+                    </div>
+                   
+                   
                 </div>
 				
 				<div class="row">

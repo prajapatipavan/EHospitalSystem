@@ -68,6 +68,7 @@
          <td> HsnCode </td>
           <td> price </td>
            <td> expiredDate </td>
+           <td>Action</td>
         
         </tr>
    

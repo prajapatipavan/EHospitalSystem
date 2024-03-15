@@ -35,11 +35,11 @@ public class Doctorcontroller {
 	     List<ServiceTypeEntity> servicetype =	serviceTypeRepositry.findAll();
 	     model.addAttribute("servicetype",servicetype);
 		
-		return "/doctor";
+		return "doctor";
 	}
 	
 	
-	@PostMapping("/addDoctor")
+	@PostMapping("/addDoctors")
 	public String addDoctor(DoctorEntity doctor) {
 		doctor.setRoleId(1);
 		
@@ -60,7 +60,7 @@ public class Doctorcontroller {
 		List<DoctorEntity> doctor = repositry.findAll();
 		 model.addAttribute("doctor",doctor);
 		
-		return "/doctorlist";
+		return "doctorlist";
 	}
 	
 	@GetMapping("/deletedoctor")

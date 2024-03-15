@@ -23,72 +23,78 @@
 
 <body>
     <div class="main-wrapper">
- 
+   <c:if test="${!empty admin}">
       
-      <c:if test="${!empty clerk}">
-      
-      <jsp:include page="Clerknavbar.jsp"></jsp:include>
+      <jsp:include page="AdminNewnavbar.jsp"></jsp:include>
       
       </c:if>
-     <c:if test="${!empty pharmacist}">
       
      
-      <%@include file="Pharmacistnavbar.jsp" %>
+      
+  
+      
+      <c:if test="${!empty admin}">
+      
+      <jsp:include page="AdminNewsidebar.jsp"></jsp:include>
       
       </c:if>
       
- 
-      
-      <c:if test="${!empty clerk}">
-      
-      <jsp:include page="Clerksidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty pharmacist}">
-      
-      <jsp:include page="Pharmacistsidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
+     
       
         <div class="page-wrapper">
             <div class="content">
-             <div class="col-sm-14 col-18 text-right m-b-90">
-             <a href="addpatientitem" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add PatientItem</a>
+            
+            <div class="col-sm-14 col-18 text-right m-b-90">
+             <a href="iteampage" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Iteam</a>
             </div>
-             
-           
+            
             <h4>IteamList</h4>
             
-             
-            <table border="1" class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>patientItemId</th>
-                        <th>patientId</th>
-                        <th>itemId</th>
-                        <th>Date</th>
-                        <th>Quantity</th>
-                        <th>Total Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${patientItem}" var="item">
-                        <tr>
-                            <td>${item.patientItemId}</td>
-                            <td>${item.patientId}</td>
-                            <td>${item.itemId}</td>
-                            <td>${item.date}</td>
-                           
-                            <td>${item.qty}</td>
-                            <td>${item.totalPrice}</td>
-                            <td><a href="deletepatientitem?id=${item.patientItemId}">Delete</a></td> 
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+                <table border="1"  class="table table-striped table-hover">
+    <thead>
+   
+    <tr>
+        
+         <td>  itemId </td>
+         <td>  materialId </td>
+         <td> MaterialGroupName </td>
+         <td>  itemCode </td>
+         <td>  itemName </td>
+         <td> alternateName </td>
+         <td>  shortName </td>
+         <td>  gstRate </td>
+         <td> HsnCode </td>
+          <td> price </td>
+           <td> expiredDate </td>
+        
+        </tr>
+   </thead>
+       <c:forEach items="${items}" var="p">
+        <tbody>
+        <tr>
+        <td> ${p.itemId} </td>
+         <td> ${p.materialId} </td>
+          <td> ${p.materialgName} </td>
+          <td> ${p.itemCode} </td>
+         <td> ${p.itemName} </td>
+          <td> ${p.alternateName} </td>
+          <td> ${p.shortName} </td>
+         <td> ${p.gstRate} </td>
+          <td> ${p.hsnCode} </td>
+          <td> ${p.price} </td>
+          <td> ${p.expiredDate} </td>
+          <td><a href="deleteAdminiteam?id=${p.itemId}">DELETE</a></td>
+         
+          
+           
+    
+        </tr>
+        
+        </tbody>
+        
+        </c:forEach>
+     
+     </table>
 
             
             
