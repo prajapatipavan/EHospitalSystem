@@ -18,7 +18,7 @@ public class ratelistEntity {
     private String name;
     private float amount;
     private Integer ratetypeId;
-    private Integer departmentid;
+    private Integer departmentId;
  
  
 	public Integer getRatelistId() {
@@ -68,14 +68,14 @@ public class ratelistEntity {
 
 
 
-	public Integer getDepartmentid() {
-		return departmentid;
+	public Integer getDepartmentId() {
+		return departmentId;
 	}
 
 
 
-	public void setDepartmentid(Integer departmentid) {
-		this.departmentid = departmentid;
+	public void setDepartmentid(Integer departmentId) {
+		this.departmentId = departmentId;
 	}
 
 

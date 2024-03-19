@@ -18,6 +18,10 @@
                         <li class="">
                             <a href="patientItemlist"><i class="fa fa-dashboard"></i> <span>PatientItemList</span></a>
                         </li>
+                        
+                         <li class="">
+                            <a href="pharmistpatientlist"><i class="fa fa-dashboard"></i> <span>PatientList</span></a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -155,7 +155,7 @@
           
           
           let amount  = parseInt(document.getElementById('amount').value);
-     	 let discount =   parseInt(document.getElementById('discount').value);
+          let discount =   parseInt(document.getElementById('discount').value);
      	 	   let actualAmount = amount - discount;
      	 	   
      	 	 document.getElementById('actualAmount').value =actualAmount;  
@@ -164,8 +164,7 @@
      	 	sessionStorage.setItem('discount', discount);
      	 	sessionStorage.setItem('actualAmount', actualAmount);
      	 	
-     	 	
-     	        
+     	 		        
     }
     
     </script>

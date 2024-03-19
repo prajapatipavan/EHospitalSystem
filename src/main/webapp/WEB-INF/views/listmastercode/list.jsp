@@ -15,55 +15,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.0.0/css/buttons.dataTables.css">
 
-    <style type="text/css">
-        /* CSS to position the print, CSV, and PDF buttons */
-        #listtable_wrapper .dt-buttons {
-            position: relative;
-            float: right;
-            margin-right: 10px; /* Adjust the spacing between buttons */
-        }
-
-        #listtable_wrapper .dt-buttons button {
-            margin-right: 5px; /* Adjust the spacing between buttons */
-        }
-    </style>
+   
 </head>
 <body>
-<div class="main-wrapper">
-    <c:if test="${!empty doctor}">
-        <jsp:include page="AdminNavbar.jsp"></jsp:include>
-    </c:if>
-    <c:if test="${!empty clerk}">
-        <jsp:include page="Clerknavbar.jsp"></jsp:include>
-    </c:if>
-    <c:if test="${!empty doctor}">
-        <jsp:include page="AdminSidebar.jsp"></jsp:include>
-    </c:if>
-    <c:if test="${!empty clerk}">
-        <jsp:include page="Clerksidebar.jsp"></jsp:include>
-    </c:if>
-    <div class="page-wrapper">
-        <div class="content">
-           ///
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-8 col-xl-8">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 col-xl-4">
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-8 col-xl-8">
-                    <div class="card">
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="assets/js/jquery-3.2.1.min.js"></script>

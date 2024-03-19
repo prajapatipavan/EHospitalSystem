@@ -67,9 +67,7 @@
                             <c:if test="${!empty doctor}">
                                 <td><a href="deleteAppoinment?id=${p.appoinmentId}">DELETE</a></td>
                             </c:if>
-                            <c:if test="${!empty clerk}">
-                                <td><a href="deleteAppoinmentclerk?id=${p.appoinmentId}">DELETE</a></td>
-                            </c:if>
+                            
                             <td>
                                 <a href="viewpatientopd?id=${p.patientId}" style="border-bottom: 1px solid red;">OPD</a> |
                                 <a href="" style="border-bottom: 1px solid red;">OPT</a> |

@@ -131,5 +131,35 @@ public class AppoinmentController {
 		
 		return "/Appoinmentlist";
 	}
+	
+	/*----------------- Edit Appoinment--------------*/
+	
+	@GetMapping("/patientAppoinmentEdit")
+	public String  EdituserAppoinment(@RequestParam("id") Integer appoinmentId,Model model) {
+		
+		List<DoctorEntity> dname= dRepositry.findAll();
+		model.addAttribute("dname",dname);
+		
+		
+		
+		List<patientEntity> pname	= patientrepositry.findAll();
+		model.addAttribute("pname",pname);
+		
+		
+		
+		List<ratelistEntity> ratelistname	= ratelistRipositry.findAll();
+		model.addAttribute("ratelistname",ratelistname);
+		
+		
+		List<EmployeeEntity> eName	= eRepositry.findAll();
+		model.addAttribute("eName",eName);
+		
+		     AppoinmentEntity  appoinment= repositry.findById(appoinmentId).get();
+		     model.addAttribute("appoinment",appoinment);
+		     System.out.println(appoinment);
+		
+		return "/patientAppoinmentEdit";
+	}
+	
 
 }

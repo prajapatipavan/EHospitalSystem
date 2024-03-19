@@ -15,6 +15,10 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.0.0/css/buttons.dataTables.css">
+    
  
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
@@ -25,11 +29,7 @@
     <div class="main-wrapper">
       
  
-    <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
-      
-      </c:if>
+   
       
       <c:if test="${!empty clerk}">
       
@@ -37,11 +37,7 @@
       
       </c:if>
       
-  <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminSidebar.jsp"></jsp:include>
-      
-      </c:if>
+ 
       
       <c:if test="${!empty clerk}">
       
@@ -61,8 +57,8 @@
             
             
                  
-                 <table border="1" class="table table-striped table-hover">
-   
+                 <table border="1" id="listtable"  class="table table-striped table-hover">
+     <thead>
    
     <tr>
         
@@ -75,6 +71,9 @@
          <td>Action</td>
         
         </tr>
+        
+        </thead>
+        <tbody>
    
        <c:forEach items="${pharmacistlist}" var="p">
         
@@ -93,6 +92,7 @@
         </tr>
         
         </c:forEach>
+        </tbody>
      
      </table>
             
@@ -136,6 +136,49 @@
     <script src="assets/js/Chart.bundle.js"></script>
     <script src="assets/js/chart.js"></script>
     <script src="assets/js/app.js"></script>
+     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.html5.min.js"></script>
+    
+    <script type="text/javascript">
+        new DataTable('#listtable', {
+            layout: {
+                bottomStart: {
+                    buttons: [
+                        {
+                            extend: 'print',
+                            text: 'Print',
+                            exportOptions: {
+                                columns: ':visible'
+                            }
+                        },
+                        {
+                            extend: 'csv',
+                            text: 'CSV',
+                            exportOptions: {
+                                columns: ':visible'
+                            }
+                        },
+                        {
+                            extend: 'pdf',
+                            text: 'PDF',
+                            exportOptions: {
+                                columns: ':visible'
+                            }
+                        }
+                    ]
+                }
+            }
+        });
+    </script>
 
 </body>
 

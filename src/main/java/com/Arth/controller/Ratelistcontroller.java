@@ -13,6 +13,8 @@ import com.Arth.Entity.DepartmentEntity;
 import com.Arth.Entity.Ratetype;
 import com.Arth.Entity.packageEntity;
 import com.Arth.Entity.ratelistEntity;
+import com.Arth.Repositry.DepartmentRepositry;
+import com.Arth.Repositry.MaterialRepositry;
 import com.Arth.Repositry.PackageRepositry;
 import com.Arth.Repositry.RatelistRipositry;
 import com.Arth.Repositry.RatetypeRipositry;
@@ -26,12 +28,18 @@ public class Ratelistcontroller {
 	@Autowired
 	RatetypeRipositry raterepo;
 	
+	@Autowired
+	DepartmentRepositry drepositry;
+	
 	@GetMapping("/ratelist")
 	public String ratelist(Model model) {
 		
 	List<Ratetype> ratetype =	raterepo.findAll();
 	model.addAttribute("ratetype", ratetype);
-		 
+	
+	List<DepartmentEntity> department =	drepositry.findAll();
+	model.addAttribute("department", department );
+
 		return "/ratelist";
 		
 	}
@@ -56,6 +64,22 @@ public class Ratelistcontroller {
 		repositry.deleteById(ratelistId);
 		
 		return "redirect:/ratelistlist";
+	}
+
+	
+	@GetMapping("/Editratelist")
+	public String Editratelist(@RequestParam("id") Integer ratelistId,Model model) {
+		
+		  ratelistEntity ratelist =  repositry.findById(ratelistId).get();
+	         model.addAttribute("ratelist",ratelist);
+
+	         List<Ratetype> ratetype =	raterepo.findAll();
+	     	model.addAttribute("ratetype", ratetype);
+	     	
+	     	List<DepartmentEntity> department =	drepositry.findAll();
+	    	model.addAttribute("department", department );
+		
+		return "Editratelist";
 	}
 
 }

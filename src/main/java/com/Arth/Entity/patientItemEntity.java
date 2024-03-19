@@ -23,7 +23,7 @@ public class patientItemEntity {
 	private float totalPrice;
 	
 	
-	
+	  
 
 	    public patientItemEntity() {
 		

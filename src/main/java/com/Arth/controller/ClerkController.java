@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.AppoinmentEntity;
 import com.Arth.Entity.DoctorEntity;
@@ -142,4 +143,14 @@ public class ClerkController {
 		return "UpcomingExpireditem";
 	}
 
+	
+	@GetMapping("deleteAppoinmentclerks")
+	public String deleteAppoinmentclerks(@RequestParam("id") Integer appoinmentId) {
+		
+		  appoinmentRepo.deleteById(appoinmentId);
+		
+		return "redirect:/Appoinmentlist";
+		
+		
+	}
 }

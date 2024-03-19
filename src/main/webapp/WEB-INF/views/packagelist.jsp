@@ -24,30 +24,25 @@
 <body>
     <div class="main-wrapper">
       
-  <c:if test="${!empty doctor}">
+   <c:if test="${!empty clerk}">
+        <jsp:include page="Clerknavbar.jsp"></jsp:include>
+    </c:if>
+    
+      <c:if test="${!empty admin}">
+         <%@include file="AdminNewnavbar.jsp" %>
+    </c:if>
+   
+    <c:if test="${!empty clerk}">
+        <jsp:include page="Clerksidebar.jsp"></jsp:include>
+         
       
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
+    </c:if>
+    
+     <c:if test="${!empty admin}">
+       
+         <jsp:include page="AdminNewsidebar.jsp"></jsp:include>
       
-      </c:if>
-      
-      <c:if test="${!empty clerk}">
-      
-      <jsp:include page="Clerknavbar.jsp"></jsp:include>
-      
-      </c:if>
-      
-  <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminSidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty clerk}">
-      
-      <jsp:include page="Clerksidebar.jsp"></jsp:include>
-      
-      </c:if>
-      
+    </c:if>
       
         <div class="page-wrapper">
             <div class="content">
@@ -56,7 +51,7 @@
              <a href="package" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Package</a>
             </div>
             
-            <h4>Doctors</h4>
+            <h4>Package</h4>
             
             
                                <table border="1" class="table table-striped table-hover">
@@ -68,8 +63,8 @@
          <td>  name </td>
          <td> amount </td>
          <td> ratetypeId </td>
-        
          <td> packageType </td>
+         <td>Action</td>
         
         </tr>
    
@@ -82,7 +77,10 @@
           
           <td> ${p.ratetypeId} </td>
          <td> ${p.packageType} </td>
-         <td><a href="deletepackage?id=${p.packageId}">DELETE</a></td>
+         <td><a href="deletepackage?id=${p.packageId}">DELETE</a> | 
+           <a href="Editpackage?id=${p.packageId}">Edit</a>
+         
+         </td>
           
           
            

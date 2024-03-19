@@ -16,9 +16,10 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
+
                  <div class="page-wrapper">
                  
-                  <c:if test="${!empty clerk}">
+                 <c:if test="${!empty clerk}">
         <jsp:include page="Clerknavbar.jsp"></jsp:include>
     </c:if>
     
@@ -37,7 +38,6 @@
          <jsp:include page="AdminNewsidebar.jsp"></jsp:include>
       
     </c:if>
-                 
             <div class="content">
                 <div class="row">
                    
@@ -45,18 +45,20 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h1>Add ROLE</h1>
+                        <h1>EDIT Material</h1>
    
-          <form action="rolelists" method="post">
-              
-                  Role:<input type="text" name="rolename" class="form-control">
-              
-              
-                 <div class="m-t-20 text-center">
-                                <button type="submit" class="btn btn-primary submit-btn">Create ROLE</button>
+     <form action="addmeterial" method="post">
+       MaterialName:<input type="text" name="materialName" class="form-control" value=${material.materialName} ><br>
+      Description:  <input type="text" name="description" class="form-control" value=${material.description} ><br>
+      
+       <input type="hidden" name="materialId" value="${material.materialId}"/>
+        
+     <div class="m-t-20 text-center">
+                     <button type="submit" class="btn btn-primary submit-btn">UPDATE MATERIAL</button>
                             </div>
-               
-              </form>
+        
+    </form>  
+   
                     </div>
                 </div>
             </div>

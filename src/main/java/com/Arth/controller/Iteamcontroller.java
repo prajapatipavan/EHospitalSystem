@@ -52,5 +52,19 @@ public class Iteamcontroller {
 		return "redirect:/iteamlist";
 	}
 	
+	
+	@GetMapping("/Edititeam")
+	public String Edititeam(@RequestParam("id") Integer itemId,Model model ) {
+		
+		       IteamEntity item =  repositry.findById(itemId).get();
+		       model.addAttribute("item",item);
+		       
+		       List<MaterialEntity> materialName =	mRepositry.findAll();
+		   	  model.addAttribute("materialName", materialName);
+		       
+		
+		return "Edititem";
+	}
+	
 
 }

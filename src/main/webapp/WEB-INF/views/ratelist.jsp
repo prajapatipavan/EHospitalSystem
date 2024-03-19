@@ -17,6 +17,26 @@
 </head>
 <body>
                  <div class="page-wrapper">
+                 
+                  <c:if test="${!empty clerk}">
+        <jsp:include page="Clerknavbar.jsp"></jsp:include>
+    </c:if>
+    
+      <c:if test="${!empty admin}">
+         <%@include file="AdminNewnavbar.jsp" %>
+    </c:if>
+   
+    <c:if test="${!empty clerk}">
+        <jsp:include page="Clerksidebar.jsp"></jsp:include>
+         
+      
+    </c:if>
+    
+     <c:if test="${!empty admin}">
+       
+         <jsp:include page="AdminNewsidebar.jsp"></jsp:include>
+      
+    </c:if>
             <div class="content">
                 <div class="row">
                    
@@ -40,6 +60,17 @@
                            </c:forEach>   
                    
                              </select>
+                             
+                     Department:<select name="departmentId" class="select">
+                   
+                    <option value="-1">------select Department-------- <option>
+                           <c:forEach items="${department}" var="r">
+                           
+                           <option value="${r.departmentId}"> ${r.departmentName} <option>
+                           
+                           </c:forEach>   
+                   
+                             </select>         
               
               <div class="m-t-20 text-center">
                                 <button type="submit" class="btn btn-primary submit-btn">ADD RateList</button>

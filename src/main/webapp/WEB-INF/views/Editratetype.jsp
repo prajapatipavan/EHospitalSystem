@@ -17,27 +17,6 @@
 </head>
 <body>
                  <div class="page-wrapper">
-                 
-                  <c:if test="${!empty clerk}">
-        <jsp:include page="Clerknavbar.jsp"></jsp:include>
-    </c:if>
-    
-      <c:if test="${!empty admin}">
-         <%@include file="AdminNewnavbar.jsp" %>
-    </c:if>
-   
-    <c:if test="${!empty clerk}">
-        <jsp:include page="Clerksidebar.jsp"></jsp:include>
-         
-      
-    </c:if>
-    
-     <c:if test="${!empty admin}">
-       
-         <jsp:include page="AdminNewsidebar.jsp"></jsp:include>
-      
-    </c:if>
-                 
             <div class="content">
                 <div class="row">
                    
@@ -45,18 +24,17 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h1>Add ROLE</h1>
+                        <h1>Edit RateType</h1>
    
-          <form action="rolelists" method="post">
-              
-                  Role:<input type="text" name="rolename" class="form-control">
-              
-              
-                 <div class="m-t-20 text-center">
-                                <button type="submit" class="btn btn-primary submit-btn">Create ROLE</button>
+  <form action="saveRateType" method="post">
+        Type Name: <input type="text" name="type" class="form-control" value="${ratetype.type}"><br>
+        
+         <input type="hidden" name="ratetypeId" value="${ratetype.ratetypeId}"/>
+        
+        <div class="m-t-20 text-center">
+                                <button type="submit" class="btn btn-primary submit-btn">Update RateType</button>
                             </div>
-               
-              </form>
+    </form>
                     </div>
                 </div>
             </div>

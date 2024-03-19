@@ -48,5 +48,17 @@ public class Materialcontroller {
 		return "redirect:/materiallist";
 	}
 	
+	@GetMapping("/Editmaterial")
+	public String Editmaterial(@RequestParam("id") Integer materialId,Model model ) {
+		
+		
+		               MaterialEntity   material =  mrepositry.findById(materialId).get();
+		               
+		                model.addAttribute("material",material);
+		
+		
+		return "Editmaterial";
+	}
+	
 
 }

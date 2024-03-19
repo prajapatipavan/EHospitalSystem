@@ -22,11 +22,7 @@
 </head>
 
 <body>
-   <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
-      
-      </c:if>
+  
       
       <c:if test="${!empty clerk}">
       
@@ -34,11 +30,7 @@
       
       </c:if>
       
-  <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminSidebar.jsp"></jsp:include>
-      
-      </c:if>
+ 
       
       <c:if test="${!empty clerk}">
       

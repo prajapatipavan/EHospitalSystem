@@ -23,29 +23,11 @@
 
 <body>
     <div class="main-wrapper">
-   <c:if test="${!empty doctor}">
+  
       
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty user}">
-      
-      <jsp:include page="Clerknavbar.jsp"></jsp:include>
-      
-      </c:if>
-      
-     <c:if test="${!empty doctor}">
-      
-      <jsp:include page="AdminNavbar.jsp"></jsp:include>
-      
-      </c:if>
-      
-      <c:if test="${!empty user}">
+     <%@include file="Clerknavbar.jsp" %>
       
       <jsp:include page="Clerksidebar.jsp"></jsp:include>
-      
-      </c:if>
       
       
         <div class="page-wrapper">
@@ -98,10 +80,7 @@
      </table>
 
             
-            
-                
-            
-                
+        
                 </div>
 				
 				<div class="row">

@@ -13,11 +13,13 @@ import com.Arth.Entity.DoctorEntity;
 import com.Arth.Entity.IteamEntity;
 import com.Arth.Entity.PaymentsEntity;
 import com.Arth.Entity.PharmistEntity;
+import com.Arth.Entity.ServiceTypeEntity;
 import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.IteamRepositry;
 import com.Arth.Repositry.PaymentsRepositry;
 import com.Arth.Repositry.PharmacistRepositry;
+import com.Arth.Repositry.ServiceTypeRepositry;
 import com.Arth.Repositry.patientrepositry;
 
 @Controller
@@ -37,6 +39,9 @@ public class AdminController {
 	
 	@Autowired
 	IteamRepositry itemrepo;
+	
+	@Autowired
+	ServiceTypeRepositry serviceTypeRepositry;
 	
 	
 	 @GetMapping("AdminnDashboard")
@@ -95,7 +100,20 @@ public class AdminController {
 		   
 	
 	}
+	 
+	 
+	 @GetMapping("Admindoctoredit")
+	 public String Admindoctoredit(@RequestParam("id") Integer doctorId,Model model) {
 		 
+		   DoctorEntity doctors  =doctorRepo.findById(doctorId).get();
+		   
+		   model.addAttribute("doctors",doctors);
+		   
+		   List<ServiceTypeEntity> servicetype =	serviceTypeRepositry.findAll();
+		     model.addAttribute("servicetype",servicetype);
+		   
+		 return "Admindoctoredit";
+	 }
 		
 	 
 	 

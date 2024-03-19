@@ -48,5 +48,17 @@ public class Ratetypecontroller {
 		
 		return "redirect:/ratetypelist";
 	}
+	
+	@GetMapping("/Editratetype")
+	public String Editratetype(@RequestParam("id") Integer ratelistId,Model model) {
+		
+		       Ratetype ratetype=  repositry.findById(ratelistId).get();
+		         model.addAttribute("ratetype",ratetype);
+		         
+		        
+		         
+		         
+		return "Editratetype";
+	}
 
 }

@@ -20,14 +20,55 @@
                         </li>
                          <li class="active">
                             <a href="Adminpatients"><i class="fa fa-dashboard"></i> <span>Patients</span></a>
+                            
                         </li>
-                         <li class="active">
-                            <a href="Adminpharmacist"><i class="fa fa-dashboard"></i> <span>Pharmacist</span></a>
+                        
+                          <li>
+                            <a href="Appoinmentlist"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
                         </li>
-                         <li class="active">
+                        
+                          <li class="active">
                             <a href="AdminPayments"><i class="fa fa-dashboard"></i> <span>Payments</span></a>
                         </li>
 						
+                       
+                         <li>
+                            <a href="Employeelist"><i class="fa fa-calendar-check-o"></i> <span>Employee</span></a>
+                        </li>
+                         
+                         <li>
+                            <a href="departmentlist"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                        </li>
+                        
+                         <li>
+                            <a href="iteamlist"><i class="fa fa-hospital-o"></i> <span>Iteams</span></a>
+                        </li>
+                         <li>
+                            <a href="materiallist"><i class="fa fa-hospital-o"></i> <span>Material</span></a>
+                        </li>
+                         <li>
+                            <a href="packagelist"><i class="fa fa-hospital-o"></i> <span>Package</span></a>
+                        </li>
+						
+							
+                        <li>
+                            <a href="Packageiteamlist"><i class="fa fa-cog"></i> <span>Packageiteam</span></a>
+                        </li>
+                          <li>
+                            <a href="packageratelist"><i class="fa fa-cog"></i> <span>PackageRateList</span></a>
+                        </li>
+                          <li>
+                            <a href="ratelistlist"><i class="fa fa-cog"></i> <span>Ratelist</span></a>
+                        </li>
+                        
+                         <li>
+                            <a href="ratetypelist"><i class="fa fa-cog"></i> <span>RateType</span></a>
+                        </li>
+                           <li>
+                            <a href="rolelist"><i class="fa fa-cog"></i> <span>ROLE</span></a>
+                        </li>
+                        
+                      
                       
 						
 							

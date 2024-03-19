@@ -20,9 +20,16 @@
 <body>
     <div class="main-wrapper">
       
-         <%@include file="AdminNavbar.jsp" %>
-      
-      <jsp:include page="AdminSidebar.jsp"></jsp:include>
+     
+     
+    <c:if test="${!empty clerk}">
+        <jsp:include page="Clerknavbar.jsp"></jsp:include>
+    </c:if>
+    
+    <c:if test="${!empty clerk}">
+        <jsp:include page="Clerksidebar.jsp"></jsp:include>
+    </c:if>   
+     
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">

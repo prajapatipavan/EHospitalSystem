@@ -45,6 +45,16 @@ public class Departmentcontroller {
 		
 		return "redirect:/departmentlist";
 	}
+	
+	@GetMapping("/Editdepartment")
+	public String Editepartment(@RequestParam("id") Integer departmentId,Model model ) {
+		
+		     DepartmentEntity department =   repositry.findById(departmentId).get();
+		     model.addAttribute("department",department);
+		
+		
+		return "Editdepartment";
+	}
 
 	
 

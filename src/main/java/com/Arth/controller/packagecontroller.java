@@ -55,7 +55,18 @@ public class packagecontroller {
 		return "redirect:/materiallist";
 	}
 	
-	
+	@GetMapping("/Editpackage")
+	public String Editpackage(@RequestParam("id") Integer packageId,Model model) {
+		
+		        packageEntity  packagee =  repositry.findById(packageId).get();
+		         model.addAttribute("packagee",packagee);
+		         
+		         List<Ratetype> ratetyep	= raterepositry.findAll();
+		     	model.addAttribute("ratetype",ratetyep);
+		         
+		         
+		return "Editpackage";
+	}
 	
 
 }

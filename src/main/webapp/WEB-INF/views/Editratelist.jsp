@@ -17,27 +17,6 @@
 </head>
 <body>
                  <div class="page-wrapper">
-                 
-                  <c:if test="${!empty clerk}">
-        <jsp:include page="Clerknavbar.jsp"></jsp:include>
-    </c:if>
-    
-      <c:if test="${!empty admin}">
-         <%@include file="AdminNewnavbar.jsp" %>
-    </c:if>
-   
-    <c:if test="${!empty clerk}">
-        <jsp:include page="Clerksidebar.jsp"></jsp:include>
-         
-      
-    </c:if>
-    
-     <c:if test="${!empty admin}">
-       
-         <jsp:include page="AdminNewsidebar.jsp"></jsp:include>
-      
-    </c:if>
-                 
             <div class="content">
                 <div class="row">
                    
@@ -45,15 +24,38 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h1>Add ROLE</h1>
+                        <h1>Edit Ratelist</h1>
    
-          <form action="rolelists" method="post">
+    <form action="ratelists" method="post">
               
-                  Role:<input type="text" name="rolename" class="form-control">
+                  Name:<input type="text" name="name" class="form-control" value=${ratelist.name}>
+                   Amount:<input type="text" name="amount" class="form-control" value=${ratelist.amount}>
+                   RateType:<select name="ratetypeId" class="select">
+                   
+                    <option value="-1">------select RateType-------- <option>
+                           <c:forEach items="${ratetype}" var="r">
+                           
+                           <option value="${r.ratetypeId}"  ${r.ratetypeId== ratelist.ratetypeId?"selected":""}> ${r.type} <option>
+                           
+                           </c:forEach>   
+                   
+                             </select>
+                             
+                     Department:<select name="departmentId" class="select">
+                   
+                    <option value="-1">------select Department-------- <option>
+                           <c:forEach items="${department}" var="r">
+                           
+                           <option value="${r.departmentId}" ${r.departmentId == ratelist.departmentId?"selected":""}> ${r.departmentName} <option>
+                           
+                           </c:forEach>   
+                   
+                             </select>   
+                             
+                              <input type="hidden" name="ratelistId" value="${ratelist.ratelistId }"/>      
               
-              
-                 <div class="m-t-20 text-center">
-                                <button type="submit" class="btn btn-primary submit-btn">Create ROLE</button>
+              <div class="m-t-20 text-center">
+                                <button type="submit" class="btn btn-primary submit-btn">Update RateList</button>
                             </div>
                
               </form>

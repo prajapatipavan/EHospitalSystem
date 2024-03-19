@@ -52,7 +52,7 @@
             <div class="content">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h4 class="page-title">Add Appointment</h4>
+                        <h4 class="page-title" >Add Appointment</h4>
                     </div>
                    
                 </div>
@@ -68,7 +68,7 @@
                 
                  <c:forEach items="${dname}" var="r">
                            
-                       <option value="${r.doctorId}"> ${r.firstName} <option>
+                       <option value="${r.doctorId}"  ${r.doctorId == appoinment.doctorId?"selected":""} > ${r.firstName} <option>
                          
                     
                  </c:forEach>  
@@ -78,22 +78,21 @@
         
         Patient : 
         
-          
-          
-         <select name="patientId" class="select">
+          <select name="patientId" class="select">
         
                 <option value="-1">----select Patient Name----</option>
                 
                  <c:forEach items="${pname}" var="r">
                            
-                           <option value="${r.patientId}"> ${r.firstName} <option>
+                           <option value="${r.patientId}" ${r.patientId == appoinment.patientId?"selected":""}> ${r.firstName} <option>
                            
                            </c:forEach>  
         
         
                 </select><br><br>
         
-                
+        
+                </select><br><br>
         Rate List : 
         
         <select name="ratelistId" class="select">
@@ -110,8 +109,8 @@
                 </select><br><br>
         
         
-        Appointment Date: <input type="date" class="form-control" name="appoinmentDate"><br>
-        Created Date: <input type="date"  class="form-control" name="createdDate"><br>
+        Appointment Date: <input type="date" class="form-control" name="appoinmentDate" value="${appoinment.appoinmentDate}"><br>
+        Created Date: <input type="date"  class="form-control" name="createdDate" value="${appoinment.createdDate}"><br>
         Created BY Employee Name: 
         
          <select name="employeeId" class="select">
@@ -126,10 +125,10 @@
         
                 </select><br><br>
                 
-               
+                <input type="hidden" name="appoinmentId" value="${appoinment.appoinmentId}"/>
                 
                  <div class="m-t-20 text-center">
-                                <button type="submit" class="btn btn-primary submit-btn">Create Appointment</button>
+                                <button type="submit" class="btn btn-primary submit-btn">Update Appointment</button>
                             </div>
                         </form>
                     </div>

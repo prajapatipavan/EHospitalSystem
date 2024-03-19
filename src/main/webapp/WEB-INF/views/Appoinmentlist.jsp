@@ -31,17 +31,25 @@
 <body>
 <div class="main-wrapper">
 
-    <c:if test="${!empty doctor}">
-        <jsp:include page="AdminNavbar.jsp"></jsp:include>
-    </c:if>
+   
     <c:if test="${!empty clerk}">
         <jsp:include page="Clerknavbar.jsp"></jsp:include>
     </c:if>
-    <c:if test="${!empty doctor}">
-        <jsp:include page="AdminSidebar.jsp"></jsp:include>
+    
+      <c:if test="${!empty admin}">
+         <%@include file="AdminNewnavbar.jsp" %>
     </c:if>
+   
     <c:if test="${!empty clerk}">
         <jsp:include page="Clerksidebar.jsp"></jsp:include>
+        
+      
+    </c:if>
+    
+     <c:if test="${!empty admin}">
+       
+         <jsp:include page="AdminNewsidebar.jsp"></jsp:include>
+      
     </c:if>
     <div class="page-wrapper">
         <div class="content">
@@ -72,12 +80,10 @@
                             <td>${p.createdDate}</td>
                             <td>${p.employeeId}</td>
                             <td>${appoinmentStatusId}</td>
-                            <c:if test="${!empty doctor}">
-                                <td><a href="deleteAppoinment?id=${p.appoinmentId}">DELETE</a></td>
-                            </c:if>
-                            <c:if test="${!empty clerk}">
-                                <td><a href="deleteAppoinmentclerk?id=${p.appoinmentId}">DELETE</a></td>
-                            </c:if>
+                            
+                   
+                                <td><a href="deleteAppoinmentclerks?id=${p.appoinmentId}">DELETE</a></td>
+                      
                             <td>
                                 <a href="viewpatientopd?id=${p.patientId}" style="border-bottom: 1px solid red;">OPD</a> |
                                 <a href="" style="border-bottom: 1px solid red;">OPT</a> |
