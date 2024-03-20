@@ -75,6 +75,7 @@ public class AppoinmentController {
 		
 
 		
+		
 		patientEntity patient  = (patientEntity)session.getAttribute("user"); 
 		
 		  

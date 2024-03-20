@@ -8,6 +8,8 @@
 </head>
 <body>
                           <div class="sidebar" id="sidebar">
+              <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: 305px;">
+    <div class="sidebar-inner slimscroll" style="overflow: hidden; width: 100%; height: 305px;">            
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
@@ -16,10 +18,10 @@
                             <a href="AdminnDashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
                          <li class="active">
-                            <a href="Admindoctor"><i class="fa fa-dashboard"></i> <span>Doctor</span></a>
+                            <a href="Admindoctor"><i class="fa fa-user-md"></i> <span>Doctor</span></a>
                         </li>
                          <li class="active">
-                            <a href="Adminpatients"><i class="fa fa-dashboard"></i> <span>Patients</span></a>
+                            <a href="Adminpatients"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                             
                         </li>
                         
@@ -28,7 +30,7 @@
                         </li>
                         
                           <li class="active">
-                            <a href="AdminPayments"><i class="fa fa-dashboard"></i> <span>Payments</span></a>
+                            <a href="AdminPayments"><i class="fa fa-money"></i> <span>Payments</span></a>
                         </li>
 						
                        
@@ -41,31 +43,31 @@
                         </li>
                         
                          <li>
-                            <a href="iteamlist"><i class="fa fa-hospital-o"></i> <span>Iteams</span></a>
+                            <a href="iteamlist"><i class="fa fa-list-alt"></i> <span>Iteams</span></a>
                         </li>
                          <li>
-                            <a href="materiallist"><i class="fa fa-hospital-o"></i> <span>Material</span></a>
+                            <a href="materiallist"><i class="fa fa-plus-square"></i> <span>Material</span></a>
                         </li>
                          <li>
-                            <a href="packagelist"><i class="fa fa-hospital-o"></i> <span>Package</span></a>
+                            <a href="packagelist"><i class="fa fa-gift"></i> <span>Package</span></a>
                         </li>
 						
 							
                         <li>
-                            <a href="Packageiteamlist"><i class="fa fa-cog"></i> <span>Packageiteam</span></a>
+                            <a href="Packageiteamlist"><i class="fa fa-gift"></i> <span>Packageiteam</span></a>
                         </li>
                           <li>
-                            <a href="packageratelist"><i class="fa fa-cog"></i> <span>PackageRateList</span></a>
+                            <a href="packageratelist"><i class="fa fa-tag"></i> <span>PackageRateList</span></a>
                         </li>
                           <li>
-                            <a href="ratelistlist"><i class="fa fa-cog"></i> <span>Ratelist</span></a>
+                            <a href="ratelistlist"><i class="fa fa-stethoscope"></i> <span>Ratelist</span></a>
                         </li>
                         
                          <li>
-                            <a href="ratetypelist"><i class="fa fa-cog"></i> <span>RateType</span></a>
+                            <a href="ratetypelist"><i class="fa fa-building"></i> <span>RateType</span></a>
                         </li>
                            <li>
-                            <a href="rolelist"><i class="fa fa-cog"></i> <span>ROLE</span></a>
+                            <a href="rolelist"><i class="fa fa-key"></i><span>ROLE</span></a>
                         </li>
                         
                       
@@ -83,6 +85,8 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
 </body>
 </html>

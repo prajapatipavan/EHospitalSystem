@@ -9,12 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.Arth.Entity.AdminnEntity;
 import com.Arth.Entity.DoctorEntity;
 import com.Arth.Entity.IteamEntity;
 import com.Arth.Entity.PaymentsEntity;
 import com.Arth.Entity.PharmistEntity;
 import com.Arth.Entity.ServiceTypeEntity;
 import com.Arth.Entity.patientEntity;
+import com.Arth.Repositry.AdminRepositry;
 import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.IteamRepositry;
 import com.Arth.Repositry.PaymentsRepositry;
@@ -39,6 +41,10 @@ public class AdminController {
 	
 	@Autowired
 	IteamRepositry itemrepo;
+	
+	@Autowired
+	AdminRepositry adminRepo;
+	
 	
 	@Autowired
 	ServiceTypeRepositry serviceTypeRepositry;
@@ -172,6 +178,26 @@ public class AdminController {
 			   itemrepo.deleteById(itemId);
 			
 			return "Adminitems";
+		}
+		
+	 
+	 @GetMapping("/AdminProfile")
+		public String AdminProfile(@RequestParam("id") Integer adminId,Model model) {
+			
+		 AdminnEntity admin =  adminRepo.findById(adminId).get();
+		 model.addAttribute("admin",admin);
+			
+			return "AdminProfile";
+		}
+		
+	 
+	 @GetMapping("/AdminProfileEdit")
+		public String AdminProfileEdit(@RequestParam("id") Integer adminId,Model model) {
+			
+		 AdminnEntity admin =  adminRepo.findById(adminId).get();
+		 model.addAttribute("admin",admin);
+			
+			return "AdminProfileEdit";
 		}
 		
 	 

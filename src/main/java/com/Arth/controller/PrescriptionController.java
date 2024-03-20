@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.AppoinmentEntity;
 import com.Arth.Entity.DoctorEntity;
@@ -58,6 +59,14 @@ public class PrescriptionController {
 		
 	pRepositry.save(prescription);
 		
-		return "Prescriptionlist";
+		return "redirect:/Prescriptionlist";
+	}
+	
+	@GetMapping("deleteprecription")
+	public String eleteprecription(@RequestParam("id") Integer prescriptionId) {
+		
+		     pRepositry.deleteById(prescriptionId);
+		  
+		return "redirect:/Prescriptionlist";
 	}
 }

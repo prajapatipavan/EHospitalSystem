@@ -27,6 +27,62 @@
             margin-right: 5px; /* Adjust the spacing between buttons */
         }
     </style>
+    
+     <style type="text/css">
+        /* Custom Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+        }
+        .main {
+            padding: 20px;
+        }
+        .page-title {
+            margin-bottom: 20px;
+        }
+        .btn-add-doctor {
+            margin-bottom: 20px;
+        }
+        .table-wrapper {
+            margin-bottom: 30px;
+        }
+        /* Responsive styles */
+        @media (max-width: 767px) {
+            .btn-add-doctor {
+                float: none;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    
+  <style type="text/css">
+    /* CSS to position the print, CSV, and PDF buttons */
+    #listtable_wrapper .dt-buttons {
+        position: relative;
+        float: right;
+        margin-right: 10px; /* Adjust the spacing between buttons */
+    }
+
+    #listtable_wrapper .dt-buttons button {
+        margin-right: 5px; /* Adjust the spacing between buttons */
+    }
+    
+    /* Adjust button styling */
+    .btn.btn-rounded {
+        border-radius: 50px;
+        position: relative;
+        top: -10px;
+        border: 1px solid #ccc; /* Add border */
+        padding: 10px 20px; /* Add padding */
+    }
+
+    /* Add border and shadow to main class */
+    .content {
+        border: 1px solid #ccc; /* Add border */
+        padding: 50px; /* Add padding */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    }
+</style>
 </head>
 <body>
 <div class="main-wrapper">
@@ -79,7 +135,15 @@
                             <td>${p.appoinmentDate}</td>
                             <td>${p.createdDate}</td>
                             <td>${p.employeeId}</td>
-                            <td>${appoinmentStatusId}</td>
+                          <td align="center"> 
+                          
+                             <c:if test="${p.appoinmentStatusId==1}">
+                               
+                                    <span class="custom-badge status-green">Confirmid</span>
+                             
+                             </c:if>
+                          
+                           </td>
                             
                    
                                 <td><a href="deleteAppoinmentclerks?id=${p.appoinmentId}">DELETE</a></td>

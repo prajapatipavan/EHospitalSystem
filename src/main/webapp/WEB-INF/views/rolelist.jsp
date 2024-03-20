@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+     <link rel="stylesheet" type="text/css" href="css11.css">
      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.0.0/css/buttons.dataTables.css">
@@ -31,6 +32,8 @@
             margin-right: 5px; /* Adjust the spacing between buttons */
         }
     </style>
+    
+    
  
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
@@ -65,7 +68,7 @@
              <a href="newrole" class="btn btn-primary btn-rounded float-right" ><i class="fa fa-plus"></i> Add Role</a>
             </div>
             
-            <h4>Doctors</h4>
+            <h4>ADD Role</h4>
             
             
             

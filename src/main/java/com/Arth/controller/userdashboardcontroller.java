@@ -13,6 +13,7 @@ import com.Arth.Entity.PrescriptionEntity;
 import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.AppoinmentRepositry;
 import com.Arth.Repositry.PrescriptionRepositry;
+import com.Arth.Repositry.patientrepositry;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -24,6 +25,9 @@ public class userdashboardcontroller {
 	
 	@Autowired
 	PrescriptionRepositry repositry;
+	
+	@Autowired
+	patientrepositry patientRepo;
 	
 	@GetMapping("userdashboard")
 	public String userdashboard() {
@@ -49,7 +53,7 @@ public class userdashboardcontroller {
 		
 		  aRepositry.deleteById(appoinmentId);
 		
-		return "/Appoinmentlist";
+		return "redirect:/patientAppoinmentlist";
 	}
 	
 	
@@ -59,7 +63,7 @@ public class userdashboardcontroller {
 		
 		   patientEntity patient  = (patientEntity)session.getAttribute("user"); 
 			
-			List<PrescriptionEntity> prescription = repositry.findBypatientId(patient.getPatientId());
+			List<PrescriptionEntity> prescription = repositry.findByPatientIdtoprecription(patient.getPatientId());
 			
 			model.addAttribute("prescription",prescription );
 		
@@ -68,6 +72,15 @@ public class userdashboardcontroller {
 		return "patientprescriptionlist";
 	}
 	
+	
+	@GetMapping("patientprofiles")
+	public String patientprofile(@RequestParam("id") Integer patientId,Model model) {
+		
+	    patientEntity	patiente =  patientRepo.findById(patientId).get();    
+	    model.addAttribute("patiente",patiente);
+		
+		return "patientprofile";
+	}
 	
 	
 

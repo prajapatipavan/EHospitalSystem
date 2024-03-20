@@ -108,6 +108,8 @@
         
         
                 </select><br><br>
+                
+                
         
         
         Appointment Date: <input type="date" class="form-control" name="appoinmentDate"><br>

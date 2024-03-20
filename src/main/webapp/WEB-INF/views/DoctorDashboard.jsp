@@ -33,12 +33,25 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <a href="">
+                    <a href="DocAppoinmentslist">
                         <div class="dash-widget">
-							<span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+							<span class="dash-widget-bg1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
 							<div class="dash-widget-info text-right">
 								<h3>${appoinment.size()}</h3>
 								<span class="widget-title1">My Appoinments <i class="fa fa-check" aria-hidden="true"></i></span>
+							</div>
+                        </div>
+                        
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <a href="todaydoctorAppoinments">
+                        <div class="dash-widget">
+							<span class="dash-widget-bg2"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+							<div class="dash-widget-info text-right">
+								<h3>${appoinmentlist.size()}</h3>
+								<span class="widget-title2">Today My Appoinment <i class="fa fa-check" ></i></span>
 							</div>
                         </div>
                         </a>

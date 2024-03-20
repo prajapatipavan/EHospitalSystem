@@ -1,5 +1,6 @@
 package com.Arth.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class DoctorDashbordController {
 	@Autowired
 	AppoinmentRepositry repositry;
 	
+	
+	   
+	
+	
+	
 	@GetMapping("DoctorDashboard")
 	public String DoctorDashboard(Model model ,HttpSession session) {
 		
@@ -28,6 +34,14 @@ public class DoctorDashbordController {
 		List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
 		
 		model.addAttribute("appoinment",appoinments);
+		
+		
+		LocalDate l = LocalDate.now();
+		   Integer DayOfMonth  = l.getDayOfMonth();
+		   
+	 	
+	             List<AppoinmentEntity> appoinmentlist = repositry.getCurrentDayAppointmentByDoctor(DayOfMonth,doctor.getDoctorId());
+	              model.addAttribute("appoinmentlist",appoinmentlist);
 		
 		return "DoctorDashboard";
 	}
@@ -41,6 +55,11 @@ public String Appoinmentslistdoc(Model model,HttpSession session) {
 			List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
 			
 			model.addAttribute("appoinment",appoinments);
+			
+			
+			
+			
+			
 		
 		
 		

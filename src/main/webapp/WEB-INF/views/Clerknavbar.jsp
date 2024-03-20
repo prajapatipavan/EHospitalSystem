@@ -14,6 +14,8 @@
 
 	       <c:redirect url="login"/>
      </c:if>
+     
+     
 
 
                    <div class="header">
@@ -55,9 +57,8 @@
 						<span>${clerk.email} </span>
                     </a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="profile.html">My Profile</a>
-						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-						<a class="dropdown-item" href="settings.html">Settings</a>
+						<a class="dropdown-item" href="">My Profile</a>
+						
 						<a class="dropdown-item" href="logout">Logout</a>
 					</div>
                 </li>

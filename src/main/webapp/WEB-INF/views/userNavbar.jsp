@@ -10,6 +10,12 @@
 <body>
 
 
+<c:if test="${empty user}">
+
+	<c:redirect url="login" />
+</c:if>
+
+
                    <div class="header">
 			<div class="header-left">
 				<a href="index-2.html" class="logo">
@@ -49,21 +55,14 @@
 						<span>${user.firstName}   ${user.lastName}</span>
                     </a>
 					<div class="dropdown-menu">
+						<a class="dropdown-item" href="patientprofiles?id=${user.patientId}">Your Profile</a>
+						<a class="dropdown-item" href="editprofile?id=${user.patientId}">Edit Profile</a>
 						
-						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-						<a class="dropdown-item" href="settings.html">Settings</a>
 						<a class="dropdown-item" href="logout">Logout</a>
 					</div>
                 </li>
             </ul>
-            <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
-                </div>
+           
             </div>
         </div>
 </body>

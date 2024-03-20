@@ -53,14 +53,14 @@
     <form action="savePrescription" method="post">
         <div class="form-group">
             <label for="patientName">Patient Name:</label>
-             <select name="appoinmentId" class="form-group">
+             <select name="patientId" class="form-group">
         
                 <option value="z">----select Patient Id----</option>
                   
                 
                  <c:forEach items="${appoinment}" var="r">
                            
-                       <option value="${r.appoinmentId}"> ${r.patientId} <option>
+                       <option value="${r.patientId}"> ${r.patientId} <option>
                          
                     
                  </c:forEach>  
@@ -69,12 +69,10 @@
         </div>
         <div class="form-group">
             <label for="medicine">Medicine:</label>
-            <input type="text" id="medicine" name="medicine" class="form-control" required>
+          
+             <textarea id="medicine" name="medicine" class="form-control" rows="3" required></textarea>
         </div>
-        <div class="form-group">
-            <label for="dosage">Dosage:</label>
-            <input type="text" id="dosage" name="dosage" class="form-control" required>
-        </div>
+       
         <div class="form-group">
             <label for="instructions">Instructions:</label>
             <textarea id="instructions" name="instructions" class="form-control" rows="3" required></textarea>

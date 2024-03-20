@@ -1,5 +1,6 @@
 package com.Arth.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,9 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.Arth.Entity.AppoinmentEntity;
 import com.Arth.Entity.DoctorEntity;import com.Arth.Entity.ServiceTypeEntity;
+import com.Arth.Entity.patientEntity;
+import com.Arth.Repositry.AppoinmentRepositry;
 import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.ServiceTypeRepositry;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class Doctorcontroller {
@@ -25,6 +31,9 @@ public class Doctorcontroller {
 	
 	@Autowired
 	ServiceTypeRepositry serviceTypeRepositry;
+	
+	@Autowired
+    AppoinmentRepositry appoinmentRepo;
 	
 	@Autowired
 	BCryptPasswordEncoder bCryptpass;
@@ -90,6 +99,23 @@ public class Doctorcontroller {
 		}
 		   
 	
+	}
+	
+	@GetMapping("/todaydoctorAppoinments")
+	public String deletedoctor(HttpSession session,Model model ) {
+		
+		DoctorEntity doctor = (DoctorEntity)session.getAttribute("doctor");
+		
+		
+		LocalDate l = LocalDate.now();
+		   Integer DayOfMonth  = l.getDayOfMonth();
+		   
+	 	
+	             List<AppoinmentEntity> appoinmentlist = appoinmentRepo.getCurrentDayAppointmentByDoctor(DayOfMonth,doctor.getDoctorId());
+	              model.addAttribute("appoinmentlist",appoinmentlist);
+		
+		
+		return "todaydoctorAppoinments";
 	}
 	
 

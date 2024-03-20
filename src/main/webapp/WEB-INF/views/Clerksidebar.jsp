@@ -29,35 +29,35 @@
                         </li>
                         
                          <li>
-                            <a href="Pharmacistlist"><i class="fa fa-calendar-check-o"></i> <span>Pharmacist</span></a>
+                            <a href="Pharmacistlist"><i class="fas fa-user-md"></i> <span>Pharmacist</span></a>
                         </li>
                         <li>
                             <a href="departmentlist"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
                         </li>
                         
                          <li>
-                            <a href="iteamlist"><i class="fa fa-hospital-o"></i> <span>Iteams</span></a>
+                            <a href="iteamlist"><i class="fa fa-list-alt"></i>  <span>Iteams</span></a>
                         </li>
                          <li>
-                            <a href="materiallist"><i class="fa fa-hospital-o"></i> <span>Material</span></a>
+                            <a href="materiallist"><i class="fa fa-plus-square"></i> <span>Material</span></a>
                         </li>
                          <li>
-                            <a href="packagelist"><i class="fa fa-hospital-o"></i> <span>Package</span></a>
+                            <a href="packagelist"><i class="fa fa-gift"></i> <span>Package</span></a>
                         </li>
 						
 							
                         <li>
-                            <a href="Packageiteamlist"><i class="fa fa-cog"></i> <span>Packageiteam</span></a>
+                            <a href="Packageiteamlist"><i class="fa fa-gift"></i> <span>Packageiteam</span></a>
                         </li>
                           <li>
-                            <a href="packageratelist"><i class="fa fa-cog"></i> <span>PackageRateList</span></a>
+                            <a href="packageratelist"><i class="fa fa-stethoscope"></i> <span>PackageRateList</span></a>
                         </li>
                           <li>
                             <a href="ratelistlist"><i class="fa fa-cog"></i> <span>Ratelist</span></a>
                         </li>
                         
                          <li>
-                            <a href="ratetypelist"><i class="fa fa-cog"></i> <span>RateType</span></a>
+                            <a href="ratetypelist"><i class="fa fa-building"></i><span>RateType</span></a>
                         </li>
                         
                          

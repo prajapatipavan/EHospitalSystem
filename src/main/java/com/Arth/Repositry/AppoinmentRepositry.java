@@ -26,6 +26,10 @@ public interface AppoinmentRepositry  extends JpaRepository<AppoinmentEntity, In
 	  List<AppoinmentEntity> getCurruntDayAppointPatient(Integer DayofMonth);
  
  
+ @Query(value = "SELECT * FROM appoinment where DayofMonth(appoinment_date) = :dayOfMonth AND doctor_id = :doctorId", nativeQuery = true)
+ List<AppoinmentEntity> getCurrentDayAppointmentByDoctor(Integer dayOfMonth, Integer doctorId);
+
+ 
  @Query(value = "select * from appoinment where month(appoinment_date) = :month",nativeQuery=true)
 	
  List<AppoinmentEntity> getCurruntMonthAppointPatient(Integer month);

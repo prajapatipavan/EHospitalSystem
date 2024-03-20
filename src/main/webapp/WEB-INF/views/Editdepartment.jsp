@@ -19,25 +19,19 @@
                  <div class="page-wrapper">
                  
                  
-                   <c:if test="${!empty clerk}">
-        <jsp:include page="Clerknavbar.jsp"></jsp:include>
-    </c:if>
+       
     
-      <c:if test="${!empty admin}">
-         <%@include file="AdminNewnavbar.jsp" %>
-    </c:if>
-   
-    <c:if test="${!empty clerk}">
-        <jsp:include page="Clerksidebar.jsp"></jsp:include>
-         
       
-    </c:if>
+         <%@include file="AdminNewnavbar.jsp" %>
     
-     <c:if test="${!empty admin}">
+   
+  
+    
+     
        
          <jsp:include page="AdminNewsidebar.jsp"></jsp:include>
       
-    </c:if>
+    
       
             <div class="content">
                 <div class="row">
