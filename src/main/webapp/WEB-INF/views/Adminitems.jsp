@@ -55,17 +55,17 @@
    
     <tr>
         
-         <td>  itemId </td>
-         <td>  materialId </td>
+         <td>  ItemId </td>
+         <td>  MaterialId </td>
          <td> MaterialGroupName </td>
-         <td>  itemCode </td>
-         <td>  itemName </td>
-         <td> alternateName </td>
-         <td>  shortName </td>
-         <td>  gstRate </td>
+         <td>  ItemCode </td>
+         <td>  ItemName </td>
+         <td> AlternateName </td>
+         <td>  ShortName </td>
+         <td>  GSTRate </td>
          <td> HsnCode </td>
-          <td> price </td>
-           <td> expiredDate </td>
+          <td> Price </td>
+           <td> ExpiredDate </td>
         
         </tr>
    </thead>

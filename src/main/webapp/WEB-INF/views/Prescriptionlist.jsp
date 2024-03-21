@@ -51,11 +51,11 @@
             <table border="3" id="listtable" class="table table-striped table-hover tab" >
                 <thead>
                     <tr>
-                        <td>prescriptionId</td>
-                        <td>patientId</td>
-                        <td>medicine</td>
+                        <td>PrescriptionId</td>
+                        <td>PatientId</td>
+                        <td>Medicine</td>
                        
-                        <td>instructions</td>
+                        <td>Instructions</td>
                         
                         <td>Action</td>
                        

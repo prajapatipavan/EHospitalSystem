@@ -18,55 +18,53 @@ import com.Arth.Repositry.RatetypeRipositry;
 
 @Controller
 public class packagecontroller {
-	
+
 	@Autowired
 	PackageRepositry repositry;
 	@Autowired
-	 RatetypeRipositry raterepositry;
-	
+	RatetypeRipositry raterepositry;
+
 	@GetMapping("/package")
 	public String packagee(Model model) {
-		
-	List<Ratetype> ratetyep	= raterepositry.findAll();
-	model.addAttribute("ratetype",ratetyep);
+
+		List<Ratetype> ratetyep = raterepositry.findAll();
+		model.addAttribute("ratetype", ratetyep);
 		return "/package";
-		
+
 	}
-	
+
 	@PostMapping("/savePackage")
 	public String home(packageEntity packagee) {
 		repositry.save(packagee);
 		return "redirect:/packagelist";
 	}
-	
+
 	@GetMapping("/packagelist")
 	public String departmentlist(Model model) {
 		List<packageEntity> packagee = repositry.findAll();
-		 model.addAttribute("packagee",packagee);
-		
+		model.addAttribute("packagee", packagee);
+
 		return "/packagelist";
 	}
-	
+
 	@GetMapping("/deletepackage")
 	public String deletepackage(@RequestParam("id") Integer packageId) {
-		
-		   repositry.deleteById(packageId);
-		
+
+		repositry.deleteById(packageId);
+
 		return "redirect:/materiallist";
 	}
-	
+
 	@GetMapping("/Editpackage")
-	public String Editpackage(@RequestParam("id") Integer packageId,Model model) {
-		
-		        packageEntity  packagee =  repositry.findById(packageId).get();
-		         model.addAttribute("packagee",packagee);
-		         
-		         List<Ratetype> ratetyep	= raterepositry.findAll();
-		     	model.addAttribute("ratetype",ratetyep);
-		         
-		         
+	public String Editpackage(@RequestParam("id") Integer packageId, Model model) {
+
+		packageEntity packagee = repositry.findById(packageId).get();
+		model.addAttribute("packagee", packagee);
+
+		List<Ratetype> ratetyep = raterepositry.findAll();
+		model.addAttribute("ratetype", ratetyep);
+
 		return "Editpackage";
 	}
-	
 
 }

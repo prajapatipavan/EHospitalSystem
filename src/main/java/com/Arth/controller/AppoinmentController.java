@@ -23,144 +23,120 @@ import com.Arth.Repositry.patientrepositry;
 
 import jakarta.servlet.http.HttpSession;
 
-
 @Controller
 public class AppoinmentController {
-	
+
 	@Autowired
 	AppoinmentRepositry repositry;
-	
-	
+
 	@Autowired
 	DoctorRepositry dRepositry;
-	
-	
+
 	@Autowired
 	patientrepositry patientrepositry;
-	
-	
+
 	@Autowired
 	RatelistRipositry ratelistRipositry;
-	
-	
+
 	@Autowired
 	EmployeeRepositry eRepositry;
-	
-	
+
 	@GetMapping("/appoinment")
 	public String department(Model model) {
-		
-		List<DoctorEntity> dname= dRepositry.findAll();
-		model.addAttribute("dname",dname);
-		
-		
-		
-		List<patientEntity> pname	= patientrepositry.findAll();
-		model.addAttribute("pname",pname);
-		
-		
-		
-		List<ratelistEntity> ratelistname	= ratelistRipositry.findAll();
-		model.addAttribute("ratelistname",ratelistname);
-		
-		
-		List<EmployeeEntity> eName	= eRepositry.findAll();
-		model.addAttribute("eName",eName);
-		
+
+		List<DoctorEntity> dname = dRepositry.findAll();
+		model.addAttribute("dname", dname);
+
+		List<patientEntity> pname = patientrepositry.findAll();
+		model.addAttribute("pname", pname);
+
+		List<ratelistEntity> ratelistname = ratelistRipositry.findAll();
+		model.addAttribute("ratelistname", ratelistname);
+
+		List<EmployeeEntity> eName = eRepositry.findAll();
+		model.addAttribute("eName", eName);
+
 		return "/Appoinment";
 	}
-	
-	@PostMapping("/saveappointment")
-	public String saveappointment(AppoinmentEntity appoinment,HttpSession session) {
-		
 
-		
-		
-		patientEntity patient  = (patientEntity)session.getAttribute("user"); 
-		
-		  
-		
+	@PostMapping("/saveappointment")
+	public String saveappointment(AppoinmentEntity appoinment, HttpSession session) {
+
+		patientEntity patient = (patientEntity) session.getAttribute("user");
+
 		appoinment.setPatientId(patient.getPatientId());
-		
-		   appoinment.setAppoinmentStatusId(1);
-		
+
+		appoinment.setAppoinmentStatusId(1);
 
 		repositry.save(appoinment);
 		return "redirect:/patientAppoinmentlist";
 	}
-	
 
 	@GetMapping("/Appoinmentlist")
-	public String departmentlist(Model model,HttpSession session) {
-		
-		  DoctorEntity doctor  = (DoctorEntity)session.getAttribute("doctor"); 
-		  
+	public String departmentlist(Model model, HttpSession session) {
+
+		DoctorEntity doctor = (DoctorEntity) session.getAttribute("doctor");
+
 		List<AppoinmentEntity> appoinment = repositry.findAll();
-		 model.addAttribute("appoinment",appoinment);
-		
+		model.addAttribute("appoinment", appoinment);
+
 		return "/Appoinmentlist";
 	}
-	
+
 	@GetMapping("/deleteAppoinment")
 	public String deleteAppoinment(@RequestParam("id") Integer appoinmentId) {
-		
-		  repositry.deleteById(appoinmentId);
-		
+
+		repositry.deleteById(appoinmentId);
+
 		return "redirect:/patientAppoinmentlist";
 	}
-	
+
 	@GetMapping("/deleteAppoinmenttoday")
 	public String deleteAppoinmenttoday(@RequestParam("id") Integer appoinmentId) {
-		
-		  repositry.deleteById(appoinmentId);
-		
+
+		repositry.deleteById(appoinmentId);
+
 		return "redirect:/todayAppoinments";
 	}
-	
+
 	@GetMapping("/deleteAppoinmentMontly")
 	public String deleteAppoinmentMontly(@RequestParam("id") Integer appoinmentId) {
-		
-		  repositry.deleteById(appoinmentId);
-		
+
+		repositry.deleteById(appoinmentId);
+
 		return "redirect:/MonthlyAppoinments";
 	}
-	
+
 	@GetMapping("/deleteAppoinmentclerk")
 	public String eleteAppoinmentclerk(@RequestParam("id") Integer appoinmentId) {
-		
-		  repositry.deleteById(appoinmentId);
-		
+
+		repositry.deleteById(appoinmentId);
+
 		return "/Appoinmentlist";
 	}
-	
+
 	/*----------------- Edit Appoinment--------------*/
-	
+
 	@GetMapping("/patientAppoinmentEdit")
-	public String  EdituserAppoinment(@RequestParam("id") Integer appoinmentId,Model model) {
-		
-		List<DoctorEntity> dname= dRepositry.findAll();
-		model.addAttribute("dname",dname);
-		
-		
-		
-		List<patientEntity> pname	= patientrepositry.findAll();
-		model.addAttribute("pname",pname);
-		
-		
-		
-		List<ratelistEntity> ratelistname	= ratelistRipositry.findAll();
-		model.addAttribute("ratelistname",ratelistname);
-		
-		
-		List<EmployeeEntity> eName	= eRepositry.findAll();
-		model.addAttribute("eName",eName);
-		
-		     AppoinmentEntity  appoinment= repositry.findById(appoinmentId).get();
-		     model.addAttribute("appoinment",appoinment);
-		     System.out.println(appoinment);
-		
+	public String EdituserAppoinment(@RequestParam("id") Integer appoinmentId, Model model) {
+
+		List<DoctorEntity> dname = dRepositry.findAll();
+		model.addAttribute("dname", dname);
+
+		List<patientEntity> pname = patientrepositry.findAll();
+		model.addAttribute("pname", pname);
+
+		List<ratelistEntity> ratelistname = ratelistRipositry.findAll();
+		model.addAttribute("ratelistname", ratelistname);
+
+		List<EmployeeEntity> eName = eRepositry.findAll();
+		model.addAttribute("eName", eName);
+
+		AppoinmentEntity appoinment = repositry.findById(appoinmentId).get();
+		model.addAttribute("appoinment", appoinment);
+		System.out.println(appoinment);
+
 		return "/patientAppoinmentEdit";
 	}
-	
 
 }

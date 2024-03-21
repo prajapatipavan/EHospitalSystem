@@ -17,54 +17,39 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class DoctorDashbordController {
-	
+
 	@Autowired
 	AppoinmentRepositry repositry;
-	
-	
-	   
-	
-	
-	
+
 	@GetMapping("DoctorDashboard")
-	public String DoctorDashboard(Model model ,HttpSession session) {
-		
-		DoctorEntity doctor = (DoctorEntity)session.getAttribute("doctor");
-		
+	public String DoctorDashboard(Model model, HttpSession session) {
+
+		DoctorEntity doctor = (DoctorEntity) session.getAttribute("doctor");
+
 		List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
-		
-		model.addAttribute("appoinment",appoinments);
-		
-		
+
+		model.addAttribute("appoinment", appoinments);
+
 		LocalDate l = LocalDate.now();
-		   Integer DayOfMonth  = l.getDayOfMonth();
-		   
-	 	
-	             List<AppoinmentEntity> appoinmentlist = repositry.getCurrentDayAppointmentByDoctor(DayOfMonth,doctor.getDoctorId());
-	              model.addAttribute("appoinmentlist",appoinmentlist);
-		
+		Integer DayOfMonth = l.getDayOfMonth();
+
+		List<AppoinmentEntity> appoinmentlist = repositry.getCurrentDayAppointmentByDoctor(DayOfMonth,
+				doctor.getDoctorId());
+		model.addAttribute("appoinmentlist", appoinmentlist);
+
 		return "DoctorDashboard";
 	}
-	
-	
+
 	@GetMapping("DocAppoinmentslist")
-public String Appoinmentslistdoc(Model model,HttpSession session) {
-		
-		DoctorEntity doctor = (DoctorEntity)session.getAttribute("doctor");
-		
-			List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
-			
-			model.addAttribute("appoinment",appoinments);
-			
-			
-			
-			
-			
-		
-		
-		
+	public String Appoinmentslistdoc(Model model, HttpSession session) {
+
+		DoctorEntity doctor = (DoctorEntity) session.getAttribute("doctor");
+
+		List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
+
+		model.addAttribute("appoinment", appoinments);
+
 		return "DocAppoinmentslist";
 	}
-	
 
 }

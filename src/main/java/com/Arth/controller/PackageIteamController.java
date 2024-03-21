@@ -18,48 +18,47 @@ import com.Arth.Repositry.PackageiteamRepositry;
 
 @Controller
 public class PackageIteamController {
-	
+
 	@Autowired
 	PackageiteamRepositry repositry;
-	
+
 	@Autowired
 	PackageRepositry pRepositry;
-	
+
 	@Autowired
 	IteamRepositry iRepositry;
-	
+
 	@GetMapping("/packageiteam")
 	public String department(Model model) {
-		
-	List<packageEntity> pName =	pRepositry.findAll();
-	model.addAttribute("pName", pName);
-	
-	List<IteamEntity> iName = iRepositry.findAll();
-	model.addAttribute("iName",iName);
-		
+
+		List<packageEntity> pName = pRepositry.findAll();
+		model.addAttribute("pName", pName);
+
+		List<IteamEntity> iName = iRepositry.findAll();
+		model.addAttribute("iName", iName);
+
 		return "/PackageIteam";
 	}
-	
+
 	@PostMapping("/savepackageiteam")
 	public String savepackageiteam(PackageIteamEntity piteam) {
 		repositry.save(piteam);
 		return "redirect:/Packageiteamlist";
 	}
-	
 
 	@GetMapping("/Packageiteamlist")
 	public String departmentlist(Model model) {
 		List<PackageIteamEntity> piteam = repositry.findAll();
-		 model.addAttribute("piteam",piteam);
-		
+		model.addAttribute("piteam", piteam);
+
 		return "/Packageiteamlist";
 	}
-	
+
 	@GetMapping("/deletepackageiteam")
-	public String deletePackageIteam(@RequestParam("id") Integer packageIteamId ) {
-		
-		   repositry.deleteById(packageIteamId);
-		
+	public String deletePackageIteam(@RequestParam("id") Integer packageIteamId) {
+
+		repositry.deleteById(packageIteamId);
+
 		return "redirect:/Packageiteamlist";
 	}
 

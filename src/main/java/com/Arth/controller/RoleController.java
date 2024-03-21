@@ -14,37 +14,35 @@ import com.Arth.Repositry.RoleRepositry;
 
 @Controller
 public class RoleController {
-	
+
 	@Autowired
 	RoleRepositry repositry;
-	
+
 	@GetMapping("/newrole")
 	public String newrole() {
 		return "/role";
 	}
-	
+
 	@PostMapping("/rolelists")
 	public String rolelits(RoleEntity role) {
 		repositry.save(role);
 		return "redirect:/rolelist";
 	}
-	
+
 	@GetMapping("/rolelist")
 	public String rolelist(Model model) {
-		 List<RoleEntity> roles = repositry.findAll();
-		 model.addAttribute("roles",roles);
-		 
+		List<RoleEntity> roles = repositry.findAll();
+		model.addAttribute("roles", roles);
+
 		return "/rolelist";
 	}
-	
+
 	@GetMapping("/deleterole")
 	public String deleteRole(@RequestParam("id") Integer roleId) {
-		
+
 		repositry.deleteById(roleId);
-		
+
 		return "redirect:/rolelist";
 	}
-	
-	
 
 }

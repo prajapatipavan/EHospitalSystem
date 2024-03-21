@@ -23,116 +23,100 @@ import com.Arth.Repositry.patientItemRepositry;
 
 @Controller
 public class PharmacistController {
-	
+
 	@Autowired
 	PharmacistRepositry pharmRepo;
-	
+
 	@Autowired
 	IteamRepositry itemrepo;
-	
+
 	@Autowired
 	patientItemRepositry patientitemRepo;
-	
-	
-	
+
 	@GetMapping("AddPharmacist")
 	public String Pharmacist() {
-		
-		
+
 		return "Pharmacist";
-		
+
 	}
 
-	 @GetMapping("PharmacistDashbaord")
-	 public String PharmacistDashbaord(Model model) {
-		 
+	@GetMapping("PharmacistDashbaord")
+	public String PharmacistDashbaord(Model model) {
 
-			LocalDate localDate = LocalDate.now();
-			Integer month = localDate.getMonth().getValue();
-		 
-		 List<IteamEntity>  items   = itemrepo.findAll();
-		    
-		    model.addAttribute("items" ,items);
-		    
-		    
-		    Integer nextmonthexpireiteams = itemrepo.getCurruntMonthexpireiteams(month);
-			 model.addAttribute("nextmonthexpireiteams",nextmonthexpireiteams);	    
-		 
-		 return "PharmacistDashbaord";
-	 }
-	
-	
+		LocalDate localDate = LocalDate.now();
+		Integer month = localDate.getMonth().getValue();
+
+		List<IteamEntity> items = itemrepo.findAll();
+
+		model.addAttribute("items", items);
+
+		Integer nextmonthexpireiteams = itemrepo.getCurruntMonthexpireiteams(month);
+		model.addAttribute("nextmonthexpireiteams", nextmonthexpireiteams);
+
+		return "PharmacistDashbaord";
+	}
+
 	@PostMapping("savepharmacist")
 	public String savepharmacist(PharmistEntity pharmEntity) {
-		
+
 		pharmEntity.setRoleId(7);
 		pharmRepo.save(pharmEntity);
-		
+
 		return "redirect:/Pharmacistlist";
 	}
-	
+
 	@GetMapping("Pharmacistlist")
 	public String Pharmacistlist(Model model) {
-		  
-		  List<PharmistEntity>  pharmacistlist    =   pharmRepo.findAll();
-		   model.addAttribute("pharmacistlist", pharmacistlist) ; 
-		
+
+		List<PharmistEntity> pharmacistlist = pharmRepo.findAll();
+		model.addAttribute("pharmacistlist", pharmacistlist);
+
 		return "Pharmacistlist";
 	}
-	
+
 	@GetMapping("Pharmacistitemslist")
 	public String Pharmacistitemslist(Model model) {
-		
-	   List<IteamEntity> iteam =  itemrepo.findAll();
-	   
-	   model.addAttribute("iteam",iteam);
-		
+
+		List<IteamEntity> iteam = itemrepo.findAll();
+
+		model.addAttribute("iteam", iteam);
+
 		return "Pharmacistitemslist";
 	}
-	
-	
+
 	@GetMapping("UpcomingExpireditemspharmacist")
 	public String UpcomingExpireditem(Model model) {
-		
+
 		LocalDate l = LocalDate.now();
-		   Integer month  = l.getMonth().getValue();
-		   
-	 	
-	             List<IteamEntity> product = itemrepo.getupcommingMonthitems(month);
-	              model.addAttribute("product",product);
-		
+		Integer month = l.getMonth().getValue();
+
+		List<IteamEntity> product = itemrepo.getupcommingMonthitems(month);
+		model.addAttribute("product", product);
+
 		return "UpcomingExpireditemspharmacist";
 	}
-	
-	
+
 	@GetMapping("pharmistpatientlist")
 	public String pharmistpatientlist(Model model) {
-		
-		
-		  List<patientItemEntity>  patientItems =  patientitemRepo.findAll();
-		    
-		   // model.addAttribute("patientItem",patientItem);
-		  
-		  
-	        
-	        model.addAttribute("patientItem", patientItems);
-		    
 
-			 
-		
+		List<patientItemEntity> patientItems = patientitemRepo.findAll();
+
+		// model.addAttribute("patientItem",patientItem);
+
+		model.addAttribute("patientItem", patientItems);
+
 		return "pharmistpatientlist";
 	}
-	
+
 	@GetMapping("viewpatientitems")
-	public String viewpatientitem(@RequestParam("id") Integer patientId ,Model model) {
-		
-		          List<patientItemEntity> patient =   patientitemRepo.findByPatientId(patientId);
-		          model.addAttribute("patient", patient);
-		          
-		          System.out.println(patient);
-		
+	public String viewpatientitem(@RequestParam("id") Integer patientId, Model model) {
+
+		List<patientItemEntity> patient = patientitemRepo.findByPatientId(patientId);
+		model.addAttribute("patient", patient);
+
+		System.out.println(patient);
+
 		return "viewpatientitem";
 	}
-	
-	
+
 }

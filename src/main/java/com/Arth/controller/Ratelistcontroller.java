@@ -21,64 +21,63 @@ import com.Arth.Repositry.RatetypeRipositry;
 
 @Controller
 public class Ratelistcontroller {
-	
+
 	@Autowired
 	RatelistRipositry repositry;
-	
+
 	@Autowired
 	RatetypeRipositry raterepo;
-	
+
 	@Autowired
 	DepartmentRepositry drepositry;
-	
+
 	@GetMapping("/ratelist")
 	public String ratelist(Model model) {
-		
-	List<Ratetype> ratetype =	raterepo.findAll();
-	model.addAttribute("ratetype", ratetype);
-	
-	List<DepartmentEntity> department =	drepositry.findAll();
-	model.addAttribute("department", department );
+
+		List<Ratetype> ratetype = raterepo.findAll();
+		model.addAttribute("ratetype", ratetype);
+
+		List<DepartmentEntity> department = drepositry.findAll();
+		model.addAttribute("department", department);
 
 		return "/ratelist";
-		
+
 	}
-	
+
 	@PostMapping("/ratelists")
 	public String saveratelist(ratelistEntity ratelist) {
 		repositry.save(ratelist);
 		return "redirect:/ratelistlist";
 	}
-	
+
 	@GetMapping("/ratelistlist")
 	public String ratelistlist(Model model) {
 		List<ratelistEntity> ratelistlist = repositry.findAll();
-		 model.addAttribute("ratelist",ratelistlist);
-		
+		model.addAttribute("ratelist", ratelistlist);
+
 		return "/ratelistlist";
 	}
-	
+
 	@GetMapping("/deleteratelist")
 	public String deleteratelist(@RequestParam("id") Integer ratelistId) {
-		
+
 		repositry.deleteById(ratelistId);
-		
+
 		return "redirect:/ratelistlist";
 	}
 
-	
 	@GetMapping("/Editratelist")
-	public String Editratelist(@RequestParam("id") Integer ratelistId,Model model) {
-		
-		  ratelistEntity ratelist =  repositry.findById(ratelistId).get();
-	         model.addAttribute("ratelist",ratelist);
+	public String Editratelist(@RequestParam("id") Integer ratelistId, Model model) {
 
-	         List<Ratetype> ratetype =	raterepo.findAll();
-	     	model.addAttribute("ratetype", ratetype);
-	     	
-	     	List<DepartmentEntity> department =	drepositry.findAll();
-	    	model.addAttribute("department", department );
-		
+		ratelistEntity ratelist = repositry.findById(ratelistId).get();
+		model.addAttribute("ratelist", ratelist);
+
+		List<Ratetype> ratetype = raterepo.findAll();
+		model.addAttribute("ratetype", ratetype);
+
+		List<DepartmentEntity> department = drepositry.findAll();
+		model.addAttribute("department", department);
+
 		return "Editratelist";
 	}
 

@@ -55,10 +55,10 @@
    
             <tr align="center">
         
-         <td>  doctorId </td>
-         <td>  firstName </td>
-         <td> lastName </td>
-         <td>  titleName </td>
+         <td>  DoctorId </td>
+         <td>  FirstName </td>
+         <td> LastName </td>
+         <td>  TitleName </td>
         
             <td> ACTION </td>
         

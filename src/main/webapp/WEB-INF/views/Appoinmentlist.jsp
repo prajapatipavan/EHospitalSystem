@@ -113,16 +113,16 @@
             <table border="3" id="listtable" class="table table-striped table-hover tab" >
                 <thead>
                     <tr>
-                        <td>appoinmentId</td>
-                        <td>doctorId</td>
-                        <td>patientId</td>
-                        <td>ratelistId</td>
-                        <td>appoinmentDate</td>
-                        <td>createdDate</td>
-                        <td>employeeId</td>
-                        <td>appoinmentStatusId</td>
+                        <td>AppoinmentId</td>
+                        <td>DoctorId</td>
+                        <td>PatientId</td>
+                        <td>RatelistId</td>
+                        <td>AppoinmentDate</td>
+                        <td>CreatedDate</td>
+                        <td>EmployeeId</td>
+                        <td>AppoinmentStatus</td>
                         <td>Action</td>
-                        <td>status</td>
+                        <td>Status</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -139,7 +139,7 @@
                           
                              <c:if test="${p.appoinmentStatusId==1}">
                                
-                                    <span class="custom-badge status-green">Confirmid</span>
+                                    <span class="custom-badge status-green">Confirmed</span>
                              
                              </c:if>
                           

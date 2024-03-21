@@ -20,137 +20,111 @@ import com.Arth.Repositry.patientrepositry;
 
 import jakarta.servlet.http.HttpSession;
 
-
 @Controller
 public class ClerkController {
- 
+
 	@Autowired
 	AppoinmentRepositry appoinmentRepo;
-	
+
 	@Autowired
 	patientrepositry patientrepo;
-	
+
 	@Autowired
 	IteamRepositry itemrepo;
-	
+
 	@Autowired
 	DoctorRepositry docRepo;
-	
-	
-	
-	
+
 	@GetMapping("ClerkDashbord")
-	public String ClerkDashbord(AppoinmentEntity entity,Model model,HttpSession session) {
-		
-		
+	public String ClerkDashbord(AppoinmentEntity entity, Model model, HttpSession session) {
+
 		LocalDate localDate = LocalDate.now();
 		Integer month = localDate.getMonth().getValue();
-		
-		
-		
+
 		Integer year = localDate.getYear();
-		
+
 		Integer DayOfMonth = localDate.getDayOfMonth();
 		System.out.println(year);
-		
+
 		System.out.println(DayOfMonth);
-		
-		 
-		      
-		
-		  
-		 Integer curruntMonthAppoinmet = appoinmentRepo.getCurruntMonthAppoinmentBypatientId(month);
-		 model.addAttribute("curruntMonthAppoinmet",curruntMonthAppoinmet);
-		 
-		
-		 
+
+		Integer curruntMonthAppoinmet = appoinmentRepo.getCurruntMonthAppoinmentBypatientId(month);
+		model.addAttribute("curruntMonthAppoinmet", curruntMonthAppoinmet);
+
 		Integer nextmonthexpireiteams = itemrepo.getCurruntMonthexpireiteams(month);
-		 model.addAttribute("nextmonthexpireiteams",nextmonthexpireiteams);
-	
-		 
-		 Integer curruntdayAppoinmet = appoinmentRepo.getCurruntdayAppoinment(DayOfMonth);
-		 model.addAttribute("curruntdayAppoinmet",curruntdayAppoinmet);
-		 
-		                 
-		    List<patientEntity>  patients   = patientrepo.findAll();
-		    
-		    model.addAttribute("patients" ,patients);
-		    
-           List<AppoinmentEntity>  appoinmets   = appoinmentRepo.findAll();
-		    
-		    model.addAttribute("appoinmets" ,appoinmets);
-		    
-		    
-        List<IteamEntity>  items   = itemrepo.findAll();
-		    
-		    model.addAttribute("items" ,items);
-		    
-		    
-		 
-		 System.out.println(curruntMonthAppoinmet);
-		 
-		 
+		model.addAttribute("nextmonthexpireiteams", nextmonthexpireiteams);
+
+		Integer curruntdayAppoinmet = appoinmentRepo.getCurruntdayAppoinment(DayOfMonth);
+		model.addAttribute("curruntdayAppoinmet", curruntdayAppoinmet);
+
+		List<patientEntity> patients = patientrepo.findAll();
+
+		model.addAttribute("patients", patients);
+
+		List<AppoinmentEntity> appoinmets = appoinmentRepo.findAll();
+
+		model.addAttribute("appoinmets", appoinmets);
+
+		List<IteamEntity> items = itemrepo.findAll();
+
+		model.addAttribute("items", items);
+
+		System.out.println(curruntMonthAppoinmet);
+
 		return "ClerkDashbord";
 	}
-	
-	
-	 @GetMapping("clerkdoctorlist")
-	 public String Admindoctor(DoctorEntity doctorEntity,Model model) {
-		 
-		   List<DoctorEntity> doctor= docRepo.findAll();
-			  model.addAttribute("doctor" ,doctor);
-		 
-		 return "clerkdoctorlist";
-	 }
-	
+
+	@GetMapping("clerkdoctorlist")
+	public String Admindoctor(DoctorEntity doctorEntity, Model model) {
+
+		List<DoctorEntity> doctor = docRepo.findAll();
+		model.addAttribute("doctor", doctor);
+
+		return "clerkdoctorlist";
+	}
+
 	@GetMapping("todayAppoinments")
-	public String todayAppoinments(AppoinmentEntity entity,Model model) {
-		
+	public String todayAppoinments(AppoinmentEntity entity, Model model) {
+
 		LocalDate l = LocalDate.now();
-		   Integer DayOfMonth  = l.getDayOfMonth();
-		   
-	 	
-	             List<AppoinmentEntity> appoinmentlist = appoinmentRepo.getCurruntDayAppointPatient(DayOfMonth);
-	              model.addAttribute("appoinmentlist",appoinmentlist);
-		
+		Integer DayOfMonth = l.getDayOfMonth();
+
+		List<AppoinmentEntity> appoinmentlist = appoinmentRepo.getCurruntDayAppointPatient(DayOfMonth);
+		model.addAttribute("appoinmentlist", appoinmentlist);
+
 		return "todayAppoinments";
 	}
-	
-	
+
 	@GetMapping("MonthlyAppoinments")
-	public String MonthlyAppoinments(AppoinmentEntity entity,Model model) {
-		
+	public String MonthlyAppoinments(AppoinmentEntity entity, Model model) {
+
 		LocalDate l = LocalDate.now();
-		   Integer month  = l.getMonth().getValue();
-		   
-	 	
-	             List<AppoinmentEntity> appoinmentlist = appoinmentRepo.getCurruntMonthAppointPatient(month);
-	              model.addAttribute("appoinmentlist",appoinmentlist);
-		
+		Integer month = l.getMonth().getValue();
+
+		List<AppoinmentEntity> appoinmentlist = appoinmentRepo.getCurruntMonthAppointPatient(month);
+		model.addAttribute("appoinmentlist", appoinmentlist);
+
 		return "todayAppoinments";
 	}
-	
+
 	@GetMapping("UpcomingExpireditem")
-	public String UpcomingExpireditem(AppoinmentEntity entity,Model model) {
-		
+	public String UpcomingExpireditem(AppoinmentEntity entity, Model model) {
+
 		LocalDate l = LocalDate.now();
-		   Integer month  = l.getMonth().getValue();
-		   
-	 	
-	             List<IteamEntity> product = itemrepo.getupcommingMonthitems(month);
-	              model.addAttribute("product",product);
-		
+		Integer month = l.getMonth().getValue();
+
+		List<IteamEntity> product = itemrepo.getupcommingMonthitems(month);
+		model.addAttribute("product", product);
+
 		return "UpcomingExpireditem";
 	}
 
-	
 	@GetMapping("deleteAppoinmentclerks")
 	public String deleteAppoinmentclerks(@RequestParam("id") Integer appoinmentId) {
-		
-		  appoinmentRepo.deleteById(appoinmentId);
-		
+
+		appoinmentRepo.deleteById(appoinmentId);
+
 		return "redirect:/Appoinmentlist";
-		
-		
+
 	}
 }

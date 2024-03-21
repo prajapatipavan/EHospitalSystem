@@ -16,55 +16,51 @@ import com.Arth.Repositry.MaterialRepositry;
 
 @Controller
 public class Iteamcontroller {
-	
+
 	@Autowired
 	IteamRepositry repositry;
-	
+
 	@Autowired
 	MaterialRepositry mRepositry;
-	
+
 	@GetMapping("/iteampage")
 	public String iteamPage(Model model) {
-	List<MaterialEntity> materialName =	mRepositry.findAll();
-	model.addAttribute("materialName", materialName);
+		List<MaterialEntity> materialName = mRepositry.findAll();
+		model.addAttribute("materialName", materialName);
 		return "/iteam";
 	}
-	
+
 	@PostMapping("/addItem")
 	public String addItem(IteamEntity iteam) {
 		repositry.save(iteam);
 		return "redirect:/iteamlist";
 	}
-	
 
 	@GetMapping("/iteamlist")
 	public String departmentlist(Model model) {
 		List<IteamEntity> iteam = repositry.findAll();
-		 model.addAttribute("iteam",iteam);
+		model.addAttribute("iteam", iteam);
 		return "/iteamlist";
 	}
-	
+
 	@GetMapping("/deleteiteam")
-	public String deleteiteam(@RequestParam("id") Integer itemId ) {
-		
-		   repositry.deleteById(itemId);
-		
+	public String deleteiteam(@RequestParam("id") Integer itemId) {
+
+		repositry.deleteById(itemId);
+
 		return "redirect:/iteamlist";
 	}
-	
-	
+
 	@GetMapping("/Edititeam")
-	public String Edititeam(@RequestParam("id") Integer itemId,Model model ) {
-		
-		       IteamEntity item =  repositry.findById(itemId).get();
-		       model.addAttribute("item",item);
-		       
-		       List<MaterialEntity> materialName =	mRepositry.findAll();
-		   	  model.addAttribute("materialName", materialName);
-		       
-		
+	public String Edititeam(@RequestParam("id") Integer itemId, Model model) {
+
+		IteamEntity item = repositry.findById(itemId).get();
+		model.addAttribute("item", item);
+
+		List<MaterialEntity> materialName = mRepositry.findAll();
+		model.addAttribute("materialName", materialName);
+
 		return "Edititem";
 	}
-	
 
 }

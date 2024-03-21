@@ -17,10 +17,10 @@
                         <li class="active">
                             <a href="AdminnDashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
-                         <li class="active">
+                         <li >
                             <a href="Admindoctor"><i class="fa fa-user-md"></i> <span>Doctor</span></a>
                         </li>
-                         <li class="active">
+                         <li >
                             <a href="Adminpatients"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                             
                         </li>
@@ -29,14 +29,23 @@
                             <a href="Appoinmentlist"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
                         </li>
                         
-                          <li class="active">
+                        
+                          </li>
+                        
+                          <li>
+                            <a href="AppoinmentStatuslist"><i class="fa fa-calendar"></i> <span>AppoinmentStatus</span></a>
+                        </li>
+                        
+                     
+                        
+                          <li >
                             <a href="AdminPayments"><i class="fa fa-money"></i> <span>Payments</span></a>
                         </li>
 						
                        
-                         <li>
+                       <!--  /* <li>
                             <a href="Employeelist"><i class="fa fa-calendar-check-o"></i> <span>Employee</span></a>
-                        </li>
+                        </li>*/ -->
                          
                          <li>
                             <a href="departmentlist"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>

@@ -15,47 +15,43 @@ import com.Arth.Repositry.DepartmentRepositry;
 
 @Controller
 public class Departmentcontroller {
-	
+
 	@Autowired
 	DepartmentRepositry repositry;
-	
+
 	@GetMapping("/department")
 	public String department() {
 		return "/department";
 	}
-	
+
 	@PostMapping("/saveDepartment")
-	public String saveDepartment (DepartmentEntity department) {
+	public String saveDepartment(DepartmentEntity department) {
 		repositry.save(department);
 		return "redirect:/departmentlist";
 	}
-	
 
 	@GetMapping("/departmentlist")
 	public String departmentlist(Model model) {
 		List<DepartmentEntity> depart = repositry.findAll();
-		 model.addAttribute("depart",depart);
+		model.addAttribute("depart", depart);
 		return "/departmentlist";
 	}
-	
+
 	@GetMapping("/deletedepartment")
-	public String deletedepartment(@RequestParam("id") Integer departmentId ) {
-		
-		   repositry.deleteById(departmentId);
-		
+	public String deletedepartment(@RequestParam("id") Integer departmentId) {
+
+		repositry.deleteById(departmentId);
+
 		return "redirect:/departmentlist";
 	}
-	
+
 	@GetMapping("/Editdepartment")
-	public String Editepartment(@RequestParam("id") Integer departmentId,Model model ) {
-		
-		     DepartmentEntity department =   repositry.findById(departmentId).get();
-		     model.addAttribute("department",department);
-		
-		
+	public String Editepartment(@RequestParam("id") Integer departmentId, Model model) {
+
+		DepartmentEntity department = repositry.findById(departmentId).get();
+		model.addAttribute("department", department);
+
 		return "Editdepartment";
 	}
-
-	
 
 }

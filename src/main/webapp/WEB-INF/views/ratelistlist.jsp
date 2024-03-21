@@ -68,12 +68,12 @@
        <thead>
     <tr>
         
-        <td>ratelistId</td>
-        <td>name</td>
-        <td>amount</td>
-        <td>ratetypeId</td>
-        <td>departmentId</td>
-          <td>Action</td>
+        <TD>RATELISTID</TD>
+        <TD>NAME</TD>
+        <TD>AMOUNT</TD>
+        <TD>RATETYPEID</TD>
+        <TD>DEPARTMENTID</TD>
+          <TD>ACTION</TD>
         
         </tr>
         

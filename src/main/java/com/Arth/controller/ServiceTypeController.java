@@ -15,29 +15,27 @@ import com.Arth.Repositry.ServiceTypeRepositry;
 
 @Controller
 public class ServiceTypeController {
-	
+
 	@Autowired
 	ServiceTypeRepositry repositry;
-	
+
 	@GetMapping("/servicetype")
 	public String servicetype() {
 		return "/serviceType";
 	}
-	
+
 	@PostMapping("/servicetype")
 	public String serviceType(ServiceTypeEntity stype) {
 		repositry.save(stype);
 		return "redirect:/serviceTypelist";
 	}
-	
+
 	@GetMapping("/serviceTypelist")
 	public String serviceTypelist(Model model) {
-		 List<ServiceTypeEntity> stype = repositry.findAll();
-		 model.addAttribute("stype",stype);
-		
+		List<ServiceTypeEntity> stype = repositry.findAll();
+		model.addAttribute("stype", stype);
+
 		return "/serviceTypelist";
 	}
-	
-	
-	
+
 }

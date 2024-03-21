@@ -77,8 +77,8 @@
    
     <tr>
         
-        <td>  roleId </td>
-         <td> rolename </td>
+        <td>  RoleId </td>
+         <td> RoleName </td>
          <td> Action </td>
          
          

@@ -26,181 +26,160 @@ import com.Arth.Repositry.patientrepositry;
 
 @Controller
 public class AdminController {
-	
+
 	@Autowired
 	DoctorRepositry doctorRepo;
-	
+
 	@Autowired
 	patientrepositry patientRepo;
-	
+
 	@Autowired
 	PharmacistRepositry pharmacistrepo;
-	
+
 	@Autowired
 	PaymentsRepositry paymentRepo;
-	
+
 	@Autowired
 	IteamRepositry itemrepo;
-	
+
 	@Autowired
 	AdminRepositry adminRepo;
-	
-	
+
 	@Autowired
 	ServiceTypeRepositry serviceTypeRepositry;
-	
-	
-	 @GetMapping("AdminnDashboard")
-	 public String AdminnDashboard(DoctorEntity doctorEntity,Model model) {
-		 
-		    List<DoctorEntity> doctor= doctorRepo.findAll();
-		  model.addAttribute("doctor" ,doctor);
-		  
-		  List<patientEntity> patients= patientRepo.findAll();
-		  model.addAttribute("patients" ,patients);
-		  
-		  List<PharmistEntity> pharmacist= pharmacistrepo.findAll();
-		  model.addAttribute("pharmacist" ,pharmacist);
-		  
-		  List<PaymentsEntity> paymets= paymentRepo.findAll();
-		  model.addAttribute("paymets" ,paymets);
-		  
-		  List<IteamEntity>  items   = itemrepo.findAll();
-		    
-		    model.addAttribute("items" ,items);
-		        
-		 
-		 return "AdminNewDashboard";
-	 }
-	 
-	 
 
-	 @GetMapping("Admindoctor")
-	 public String Admindoctor(DoctorEntity doctorEntity,Model model) {
-		 
-		   List<DoctorEntity> doctor= doctorRepo.findAll();
-			  model.addAttribute("doctor" ,doctor);
-		 
-		 return "Admindoctor";
-	 }
-	 
-	
-	 
-	 
-	 @GetMapping("viewadmindoctor")
-	 public String  viewadmindoctor(@RequestParam("id") Integer doctorId,Model model) {
-		 
-		   Optional<DoctorEntity> doctor  =doctorRepo.findById(doctorId);
-			
-		   if(doctor.isPresent()) {
-			   
-			   DoctorEntity doctors = doctor.get();
-			   model.addAttribute("doctors",doctors);
-			   
-			   return "Admindoctorsingle";
-			   
-		   }else {
-			
-			   return "Admindoctor";
-		}
-		   
-	
+	@GetMapping("AdminnDashboard")
+	public String AdminnDashboard(DoctorEntity doctorEntity, Model model) {
+
+		List<DoctorEntity> doctor = doctorRepo.findAll();
+		model.addAttribute("doctor", doctor);
+
+		List<patientEntity> patients = patientRepo.findAll();
+		model.addAttribute("patients", patients);
+
+		List<PharmistEntity> pharmacist = pharmacistrepo.findAll();
+		model.addAttribute("pharmacist", pharmacist);
+
+		List<PaymentsEntity> paymets = paymentRepo.findAll();
+		model.addAttribute("paymets", paymets);
+
+		List<IteamEntity> items = itemrepo.findAll();
+
+		model.addAttribute("items", items);
+
+		return "AdminNewDashboard";
 	}
-	 
-	 
-	 @GetMapping("Admindoctoredit")
-	 public String Admindoctoredit(@RequestParam("id") Integer doctorId,Model model) {
-		 
-		   DoctorEntity doctors  =doctorRepo.findById(doctorId).get();
-		   
-		   model.addAttribute("doctors",doctors);
-		   
-		   List<ServiceTypeEntity> servicetype =	serviceTypeRepositry.findAll();
-		     model.addAttribute("servicetype",servicetype);
-		   
-		 return "Admindoctoredit";
-	 }
-		
-	 
-	 
-	 @GetMapping("Adminpatients")
-	 public String Adminpatients(patientEntity patientEntity,Model model) {
-		 
-		   List<patientEntity> patients= patientRepo.findAll();
-			  model.addAttribute("patients" ,patients);
-		 
-		 return "Adminpatients";
-	 }
-	 
-	 @GetMapping("Adminpharmacist")
-	 public String Adminpharmacist(PharmistEntity pharmistEntity,Model model) {
-		 
-		   List<PharmistEntity> pharmacist= pharmacistrepo.findAll();
-			  model.addAttribute("pharmacist" ,pharmacist);
-		 
-		 return "Adminpharmacist"; 
-	 }
-	 
-	 
-	 @GetMapping("AdminPayments")
-	 public String AdminPayments(PharmistEntity pharmistEntity,Model model) {
-		 
-		  List<PaymentsEntity> paymets= paymentRepo.findAll();
-		  model.addAttribute("paymets" ,paymets);
-		 
-		 return "AdminPayments"; 
-	 }
-	 
-	 
-	 @GetMapping("deleteAdminPayments")
-	 public String deleteAdminPayments(@RequestParam("id")Integer paymentId,Model model) {
-		 
-		        paymentRepo.deleteById(paymentId);
-		 
-		 return "redirect:/AdminPayments"; 
-	 }
-	 
-	
-	 
-	 @GetMapping("Adminitems")
-	 public String  Adminitems(PharmistEntity pharmistEntity,Model model) {
-		 
-		 List<IteamEntity>  items   = itemrepo.findAll();
-		    
-		    model.addAttribute("items" ,items);
-		 
-		 return "Adminitems"; 
-	 }
-	 
-	 @GetMapping("/deleteAdminiteam")
-		public String deleteiteam(@RequestParam("id") Integer itemId ) {
-			
-			   itemrepo.deleteById(itemId);
-			
-			return "Adminitems";
+
+	@GetMapping("Admindoctor")
+	public String Admindoctor(DoctorEntity doctorEntity, Model model) {
+
+		List<DoctorEntity> doctor = doctorRepo.findAll();
+		model.addAttribute("doctor", doctor);
+
+		return "Admindoctor";
+	}
+
+	@GetMapping("viewadmindoctor")
+	public String viewadmindoctor(@RequestParam("id") Integer doctorId, Model model) {
+
+		Optional<DoctorEntity> doctor = doctorRepo.findById(doctorId);
+
+		if (doctor.isPresent()) {
+
+			DoctorEntity doctors = doctor.get();
+			model.addAttribute("doctors", doctors);
+
+			return "Admindoctorsingle";
+
+		} else {
+
+			return "Admindoctor";
 		}
-		
-	 
-	 @GetMapping("/AdminProfile")
-		public String AdminProfile(@RequestParam("id") Integer adminId,Model model) {
-			
-		 AdminnEntity admin =  adminRepo.findById(adminId).get();
-		 model.addAttribute("admin",admin);
-			
-			return "AdminProfile";
-		}
-		
-	 
-	 @GetMapping("/AdminProfileEdit")
-		public String AdminProfileEdit(@RequestParam("id") Integer adminId,Model model) {
-			
-		 AdminnEntity admin =  adminRepo.findById(adminId).get();
-		 model.addAttribute("admin",admin);
-			
-			return "AdminProfileEdit";
-		}
-		
-	 
-	 
+
+	}
+
+	@GetMapping("Admindoctoredit")
+	public String Admindoctoredit(@RequestParam("id") Integer doctorId, Model model) {
+
+		DoctorEntity doctors = doctorRepo.findById(doctorId).get();
+
+		model.addAttribute("doctors", doctors);
+
+		List<ServiceTypeEntity> servicetype = serviceTypeRepositry.findAll();
+		model.addAttribute("servicetype", servicetype);
+
+		return "Admindoctoredit";
+	}
+
+	@GetMapping("Adminpatients")
+	public String Adminpatients(patientEntity patientEntity, Model model) {
+
+		List<patientEntity> patients = patientRepo.findAll();
+		model.addAttribute("patients", patients);
+
+		return "Adminpatients";
+	}
+
+	@GetMapping("Adminpharmacist")
+	public String Adminpharmacist(PharmistEntity pharmistEntity, Model model) {
+
+		List<PharmistEntity> pharmacist = pharmacistrepo.findAll();
+		model.addAttribute("pharmacist", pharmacist);
+
+		return "Adminpharmacist";
+	}
+
+	@GetMapping("AdminPayments")
+	public String AdminPayments(PharmistEntity pharmistEntity, Model model) {
+
+		List<PaymentsEntity> paymets = paymentRepo.findAll();
+		model.addAttribute("paymets", paymets);
+
+		return "AdminPayments";
+	}
+
+	@GetMapping("deleteAdminPayments")
+	public String deleteAdminPayments(@RequestParam("id") Integer paymentId, Model model) {
+
+		paymentRepo.deleteById(paymentId);
+
+		return "redirect:/AdminPayments";
+	}
+
+	@GetMapping("Adminitems")
+	public String Adminitems(PharmistEntity pharmistEntity, Model model) {
+
+		List<IteamEntity> items = itemrepo.findAll();
+
+		model.addAttribute("items", items);
+
+		return "Adminitems";
+	}
+
+	@GetMapping("/deleteAdminiteam")
+	public String deleteiteam(@RequestParam("id") Integer itemId) {
+
+		itemrepo.deleteById(itemId);
+
+		return "Adminitems";
+	}
+
+	@GetMapping("/AdminProfile")
+	public String AdminProfile(@RequestParam("id") Integer adminId, Model model) {
+
+		AdminnEntity admin = adminRepo.findById(adminId).get();
+		model.addAttribute("admin", admin);
+
+		return "AdminProfile";
+	}
+
+	@GetMapping("/AdminProfileEdit")
+	public String AdminProfileEdit(@RequestParam("id") Integer adminId, Model model) {
+
+		AdminnEntity admin = adminRepo.findById(adminId).get();
+		model.addAttribute("admin", admin);
+
+		return "AdminProfileEdit";
+	}
 
 }

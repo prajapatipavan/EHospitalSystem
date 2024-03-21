@@ -21,52 +21,47 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PrescriptionController {
-	
+
 	@Autowired
 	PrescriptionRepositry pRepositry;
-	
-	
-	
+
 	@Autowired
 	AppoinmentRepositry repositry;
-	
-	@GetMapping("Prescriptionpage")
-     public String Prescription(HttpSession session,Model model) {
-		
-		 DoctorEntity doctor  = (DoctorEntity)session.getAttribute("doctor"); 
-		
-	   List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
-			
-			model.addAttribute("appoinment",appoinments);
-		
-		  return "Prescriptionpage";
-	}
 
+	@GetMapping("Prescriptionpage")
+	public String Prescription(HttpSession session, Model model) {
+
+		DoctorEntity doctor = (DoctorEntity) session.getAttribute("doctor");
+
+		List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
+
+		model.addAttribute("appoinment", appoinments);
+
+		return "Prescriptionpage";
+	}
 
 	@GetMapping("Prescriptionlist")
-     public String Prescriptionlist(Model model) {
-		
-		
-		 List<PrescriptionEntity>    prescription = pRepositry.findAll();
-		  model.addAttribute("prescription" ,prescription) ;
-		
+	public String Prescriptionlist(Model model) {
+
+		List<PrescriptionEntity> prescription = pRepositry.findAll();
+		model.addAttribute("prescription", prescription);
+
 		return "Prescriptionlist";
 	}
-	
-	
+
 	@PostMapping("savePrescription")
 	public String savePrescription(PrescriptionEntity prescription) {
-		
-	pRepositry.save(prescription);
-		
+
+		pRepositry.save(prescription);
+
 		return "redirect:/Prescriptionlist";
 	}
-	
+
 	@GetMapping("deleteprecription")
 	public String eleteprecription(@RequestParam("id") Integer prescriptionId) {
-		
-		     pRepositry.deleteById(prescriptionId);
-		  
+
+		pRepositry.deleteById(prescriptionId);
+
 		return "redirect:/Prescriptionlist";
 	}
 }

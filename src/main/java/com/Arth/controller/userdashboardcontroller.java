@@ -19,70 +19,60 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class userdashboardcontroller {
-	
+
 	@Autowired
 	AppoinmentRepositry aRepositry;
-	
+
 	@Autowired
 	PrescriptionRepositry repositry;
-	
+
 	@Autowired
 	patientrepositry patientRepo;
-	
+
 	@GetMapping("userdashboard")
 	public String userdashboard() {
 		return "userdashboard";
 	}
-	
+
 	@GetMapping("patientAppoinmentlist")
 	public String patientAppoinmentlist(Model model, HttpSession session) {
-		
-		
-     patientEntity patient  = (patientEntity)session.getAttribute("user"); 
-		
-		List<AppoinmentEntity> appoinments = aRepositry.findBypatientId(patient.getPatientId());
-		
-		model.addAttribute("appoinment",appoinments);
 
-		
+		patientEntity patient = (patientEntity) session.getAttribute("user");
+
+		List<AppoinmentEntity> appoinments = aRepositry.findBypatientId(patient.getPatientId());
+
+		model.addAttribute("appoinment", appoinments);
+
 		return "patientAppoinmentlist";
 	}
-	
+
 	@GetMapping("/deleteuserAppoinment")
 	public String deleteAppoinment(@RequestParam("id") Integer appoinmentId) {
-		
-		  aRepositry.deleteById(appoinmentId);
-		
+
+		aRepositry.deleteById(appoinmentId);
+
 		return "redirect:/patientAppoinmentlist";
 	}
-	
-	
+
 	@GetMapping("patientprescriptionlist")
-	public String patientprescriptionlist(HttpSession session,Model model) {
-		
-		
-		   patientEntity patient  = (patientEntity)session.getAttribute("user"); 
-			
-			List<PrescriptionEntity> prescription = repositry.findByPatientIdtoprecription(patient.getPatientId());
-			
-			model.addAttribute("prescription",prescription );
-		
-		
-		
+	public String patientprescriptionlist(HttpSession session, Model model) {
+
+		patientEntity patient = (patientEntity) session.getAttribute("user");
+
+		List<PrescriptionEntity> prescription = repositry.findByPatientIdtoprecription(patient.getPatientId());
+
+		model.addAttribute("prescription", prescription);
+
 		return "patientprescriptionlist";
 	}
-	
-	
+
 	@GetMapping("patientprofiles")
-	public String patientprofile(@RequestParam("id") Integer patientId,Model model) {
-		
-	    patientEntity	patiente =  patientRepo.findById(patientId).get();    
-	    model.addAttribute("patiente",patiente);
-		
+	public String patientprofile(@RequestParam("id") Integer patientId, Model model) {
+
+		patientEntity patiente = patientRepo.findById(patientId).get();
+		model.addAttribute("patiente", patiente);
+
 		return "patientprofile";
 	}
-	
-	
-
 
 }
