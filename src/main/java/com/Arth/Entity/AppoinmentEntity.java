@@ -16,7 +16,7 @@ public class AppoinmentEntity {
 
 	private Integer doctorId;
 	private Integer patientId;
-
+    
 	private Integer ratelistId;
 	private String appoinmentDate;
 	private String createdDate;
@@ -87,4 +87,7 @@ public class AppoinmentEntity {
 		this.appoinmentStatusId = appoinmentStatusId;
 	}
 
+	
+
+	
 }

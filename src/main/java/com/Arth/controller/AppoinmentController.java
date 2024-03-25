@@ -20,7 +20,9 @@ import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.EmployeeRepositry;
 import com.Arth.Repositry.RatelistRipositry;
 import com.Arth.Repositry.patientrepositry;
+import com.Arth.service.appoinmentmail;
 
+import jakarta.mail.Session;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -40,14 +42,19 @@ public class AppoinmentController {
 
 	@Autowired
 	EmployeeRepositry eRepositry;
+	
+	@Autowired
+	appoinmentmail mappoinment;
 
 	@GetMapping("/appoinment")
-	public String department(Model model) {
+	public String department(Model model,HttpSession session) {
 
 		List<DoctorEntity> dname = dRepositry.findAll();
 		model.addAttribute("dname", dname);
 
-		List<patientEntity> pname = patientrepositry.findAll();
+		 patientEntity patient = (patientEntity) session.getAttribute("user");
+		
+		List<patientEntity> pname = patientrepositry.findBypatientId(patient.getPatientId());
 		model.addAttribute("pname", pname);
 
 		List<ratelistEntity> ratelistname = ratelistRipositry.findAll();
@@ -67,6 +74,15 @@ public class AppoinmentController {
 		appoinment.setPatientId(patient.getPatientId());
 
 		appoinment.setAppoinmentStatusId(1);
+		
+		
+		String appointmentDetails = "Date: " + appoinment.getAppoinmentDate() + "\n" +
+                "Patient Name: " + patient.getFirstName() + " " + patient.getLastName() + "\n" ;
+                
+		
+		mappoinment.sendappoinmentForMail(patient.getEmail(), appointmentDetails);
+		
+		System.out.println(patient.getEmail());
 
 		repositry.save(appoinment);
 		return "redirect:/patientAppoinmentlist";
@@ -75,10 +91,13 @@ public class AppoinmentController {
 	@GetMapping("/Appoinmentlist")
 	public String departmentlist(Model model, HttpSession session) {
 
-		DoctorEntity doctor = (DoctorEntity) session.getAttribute("doctor");
+		
 
 		List<AppoinmentEntity> appoinment = repositry.findAll();
+		
 		model.addAttribute("appoinment", appoinment);
+		
+		System.out.println();
 
 		return "/Appoinmentlist";
 	}
@@ -138,5 +157,19 @@ public class AppoinmentController {
 
 		return "/patientAppoinmentEdit";
 	}
-
+  /* --------------------------calander wise appoinment-------------------------------------------*/
+	
+	@GetMapping("appoinmentlists")
+	public String appoinmentlists(@RequestParam("date") String appoinmentDate,Model model ) {
+		
+		
+		
+		    List<AppoinmentEntity>  appoinmet = repositry.Appoinmentdatewisepatient(appoinmentDate);
+		    
+		     model.addAttribute("appoinmet",appoinmet);
+		    
+		
+		return "appoinmentlists";
+	}
+	
 }

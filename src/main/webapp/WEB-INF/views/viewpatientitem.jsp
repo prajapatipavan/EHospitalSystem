@@ -70,6 +70,7 @@
 							<td>PatientId</td>
 							<td>Date</td>
 							<td>itemId</td>
+							<td>qty</td>
 
 
 						</tr>
@@ -84,6 +85,7 @@
 								<td>${p.patientId}</td>
 								<td>${p.date}</td>
 								<td>${p.itemId}</td>
+								<td>${p.qty}</td>
 
 
 

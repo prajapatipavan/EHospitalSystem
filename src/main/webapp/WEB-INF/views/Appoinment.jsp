@@ -86,7 +86,7 @@
                 
                  <c:forEach items="${pname}" var="r">
                            
-                           <option value="${r.patientId}"> ${r.firstName} <option>
+                           <option value="${r.patientId}"> ${r.firstName} ${r.lastName} <option>
                            
                            </c:forEach>  
         
@@ -112,8 +112,8 @@
                 
         
         
-        Appointment Date: <input type="date" class="form-control" name="appoinmentDate"><br>
-        Created Date: <input type="date"  class="form-control" name="createdDate"><br>
+        Appointment Date: <input type="date" class="form-control" name="appoinmentDate" id="datepicker" id="datepicker"><br>
+        Created Date: <input type="date"  class="form-control" name="createdDate" id="datepicker1"><br>
         Created BY Employee Name: 
         
          <select name="employeeId" class="select">
@@ -156,6 +156,36 @@
                 });
             });
      </script>
+     
+     
+     <script>
+  // Get today's date
+  var today = new Date();
+
+  var lastDayOfMonth = new Date(today.getFullYear(), today.getMonth()+1 ,24);
+  
+  // Get the datepicker input element
+  var datePickerInput = document.getElementById("datepicker");
+  
+  // Set the min attribute to today's date in the format YYYY-MM-DD
+  datePickerInput.setAttribute("min", today.toISOString().split('T')[0]);
+  datePickerInput.setAttribute("max", lastDayOfMonth.toISOString().split('T')[0]);
+</script>
+
+
+<script>
+  // Get today's date
+  var today = new Date().toISOString().split('T')[0];
+
+  //var lastDayOfMonth = new Date(today.getFullYear(), today.getMonth()+1 ,today.getDate);
+  
+  // Get the datepicker input element
+  var datePickerInput = document.getElementById("datepicker1");
+  
+  // Set the min attribute to today's date in the format YYYY-MM-DD
+  datePickerInput.setAttribute("min", today);
+  datePickerInput.setAttribute("max", today);
+</script>
 </body>
 
 

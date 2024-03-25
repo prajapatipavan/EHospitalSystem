@@ -44,7 +44,7 @@
                 <thead>
                 <tr>
                     <th>patientId</th>
-                    <th>Action</th>
+                    <th align="center">Action</th>
                 </tr>
                 </thead>
                 <tbody>

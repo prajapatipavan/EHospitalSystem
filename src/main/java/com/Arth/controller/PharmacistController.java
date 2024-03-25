@@ -99,7 +99,12 @@ public class PharmacistController {
 	@GetMapping("pharmistpatientlist")
 	public String pharmistpatientlist(Model model) {
 
+		//List<patientItemEntity> patientItems = patientitemRepo.findByuniqpatientId();
+		
+		
 		List<patientItemEntity> patientItems = patientitemRepo.findAll();
+		
+		
 
 		// model.addAttribute("patientItem",patientItem);
 

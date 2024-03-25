@@ -101,7 +101,15 @@
             <td> ${p.appoinmentDate} </td>
              <td> ${p.createdDate} </td>
  
-             <td align="center"> ${p.appoinmentStatusId} </td>
+              <td align="center"> 
+                          
+                             <c:if test="${p.appoinmentStatusId==1}">
+                               
+                                    <span class="custom-badge status-green">Confirmed</span>
+                             
+                             </c:if>
+                          
+                           </td>
              <td><a href="deleteuserAppoinment?id=${p.appoinmentId}">DELETE</a>
              
              |

@@ -39,6 +39,11 @@
 </head>
 <body>
 	<div class="main-wrapper">
+	
+	  <c:if test="${empty doctor}">
+
+	       <c:redirect url="login"/>
+     </c:if>
 
 		<%@include file="Doctornavbar.jsp"%>
 
@@ -47,22 +52,8 @@
 		<div class="page-wrapper">
 			<div class="content">
 				<h4>Appointments</h4>
-			<a id="dateselect">	<input type="date" id="datepicker" name="appoinmentDate"></a>
 			
-			
-			 <script>
-
-        document.getElementById("datepicker").addEventListener("change",function(){
-
-                    let selectedDate= document.getElementById("datepicker").value;
-
-                    let link = document.getElementById("dateselect");
-
-                    link.href="docappoinmentscelnder?date="+selectedDate;
-
-
-        });
-    </script>
+   
 			
 			
 				<table border="3" id="listtable"

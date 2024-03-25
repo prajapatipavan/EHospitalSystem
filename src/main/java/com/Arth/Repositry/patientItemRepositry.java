@@ -16,7 +16,9 @@ public interface patientItemRepositry extends JpaRepository<patientItemEntity, I
 	    List<patientItemEntity> findByPatientId(Integer patientId);
 	
 	     
+	   @Query(value = "select distinct patient_id from patient_item",nativeQuery = true)
 	   
+	      List<patientItemEntity> findByuniqpatientId();
 	
 	
 

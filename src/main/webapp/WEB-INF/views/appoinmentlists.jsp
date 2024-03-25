@@ -111,17 +111,7 @@
         <div class="content">
             <h4>Appointments</h4>
             
-       <input type="date" id="datepicker" name="appoinmentDate">  <a id="appointmentLink" >Find</a>
- 
-    
-     <script>
-        document.getElementById("datepicker").addEventListener("change", function() {
-            var selectedDate = document.getElementById("datepicker").value;
-            var link = document.getElementById("appointmentLink");
-            link.href = "appoinmentlists?date=" + selectedDate;
-        });
-    </script>
-   
+           
             <table border="3" id="listtable" class="table table-striped table-hover tab" >
                 <thead>
                     <tr>
@@ -138,7 +128,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${appoinment}" var="p">
+                    <c:forEach items="${appoinmet}" var="p">
                         <tr>
                             <td>${p.appoinmentId}</td>
                             <td>${p.doctorId}</td>

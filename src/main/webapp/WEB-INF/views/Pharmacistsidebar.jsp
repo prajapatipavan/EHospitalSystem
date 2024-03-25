@@ -16,11 +16,11 @@
                             <a href="PharmacistDashbaord"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
                         <li class="">
-                            <a href="patientItemlist"><i class="fa fa-dashboard"></i> <span>PatientItemList</span></a>
+                            <a href="patientItemlist"><i class="fa fa-wheelchair"></i> <span>PatientItemList</span></a>
                         </li>
                         
                          <li class="">
-                            <a href="pharmistpatientlist"><i class="fa fa-dashboard"></i> <span>PatientList</span></a>
+                            <a href="pharmistpatientlist"><i class="fa fa-user"></i> <span>PatientList</span></a>
                         </li>
                     </ul>
                 </div>

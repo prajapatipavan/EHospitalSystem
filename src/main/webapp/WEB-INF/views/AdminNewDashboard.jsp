@@ -68,7 +68,7 @@
                     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                     <a href="AdminPayments">
                         <div class="dash-widget">
-                            <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                            <span class="dash-widget-bg4"><i class="fa fa-money" aria-hidden="true"></i></span>
                             <div class="dash-widget-info text-right">
                                 <h3>${paymets.size()}</h3>
                                 <span class="widget-title4">Payments<i class="fa fa-check" aria-hidden="true"></i></span>
@@ -80,7 +80,7 @@
                      <a href="Adminitems">
                         <div class="dash-widget">
                        
-                            <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                            <span class="dash-widget-bg4"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
                             <div class="dash-widget-info text-right">
                                 <h3>${items.size()}</h3>
                                 <span class="widget-title4">Items<i class="fa fa-check" aria-hidden="true"></i></span>

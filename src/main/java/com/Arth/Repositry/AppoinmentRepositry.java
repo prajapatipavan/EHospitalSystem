@@ -14,7 +14,7 @@ import com.Arth.Entity.patientEntity;
 public interface AppoinmentRepositry  extends JpaRepository<AppoinmentEntity, Integer>{
 	
 	
-	List<AppoinmentEntity> findBypatientId(Integer patientId);
+	
 	List<AppoinmentEntity> findByDoctorId(Integer doctorId);
 	
 	   AppoinmentEntity findByPatientId(Integer patientId);
@@ -24,6 +24,14 @@ public interface AppoinmentRepositry  extends JpaRepository<AppoinmentEntity, In
  @Query(value = "select * from appoinment where DayofMonth(appoinment_date) = :DayofMonth",nativeQuery=true)
 	
 	  List<AppoinmentEntity> getCurruntDayAppointPatient(Integer DayofMonth);
+ 
+ 
+ @Query(value = "SELECT d.first_name, a.* FROM appoinment a JOIN doctor d ON d.doctor_id = a.doctor_id  where patient_id=:patientId", nativeQuery = true)
+	
+ List<AppoinmentEntity> findBypatientId(Integer patientId);
+ 
+ @Query(value=" select * from appoinment where DATE(appoinment_date)=:appoinmentDate",nativeQuery = true)
+      List<AppoinmentEntity> Appoinmentdatewisepatient(String appoinmentDate);
  
  
  @Query(value = "SELECT * FROM appoinment where DayofMonth(appoinment_date) = :dayOfMonth AND doctor_id = :doctorId", nativeQuery = true)
