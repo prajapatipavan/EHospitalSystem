@@ -79,7 +79,7 @@ public class SessionController {
 
 	@PostMapping("/Athenticate")
 	public String Athenticate(patientEntity patient, clerkentity clerk, Model model, PharmistEntity pharmacist,
-			AdminnEntity admin, DoctorEntity doctor, HttpSession session) {
+		AdminnEntity admin, DoctorEntity doctor, HttpSession session) {
 		patientEntity logginPatient = repositry.findByEmail(patient.getEmail());
 		clerkentity logginClerk = clerkRepo.findByEmail(clerk.getEmail());
 		PharmistEntity logginPharmacist = pharmaRepo.findByEmail(pharmacist.getEmail());
@@ -147,7 +147,7 @@ public class SessionController {
 				} else if (logginDoctor.getRoleId() == null) {
 					return "login";
 				} else if (logginDoctor.getRoleId() == 1) {
-					return "DoctorDashboard";
+					return "redirect:/DoctorDashboard";
 				}
 			}
 		}
@@ -316,12 +316,6 @@ public class SessionController {
 		return "redirect:/login";
 	}
 
-	@GetMapping("drlogout")
-	public String drlogout(HttpSession session) {
-
-		session.invalidate();
-
-		return "redirect:/drlogin";
-	}
+	
 
 }

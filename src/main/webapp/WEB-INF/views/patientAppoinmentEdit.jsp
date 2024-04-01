@@ -68,7 +68,7 @@
                 
                  <c:forEach items="${dname}" var="r">
                            
-                       <option value="${r.doctorId}"  ${r.doctorId == appoinment.doctorId?"selected":""} > ${r.firstName} <option>
+                       <option value="${r.doctorId}"  ${r.doctorId == appoinment.doctorId?"selected":""} > ${r.firstName} </option>
                          
                     
                  </c:forEach>  
@@ -84,7 +84,7 @@
                 
                  <c:forEach items="${pname}" var="r">
                            
-                           <option value="${r.patientId}" ${r.patientId == appoinment.patientId?"selected":""}> ${r.firstName} <option>
+                           <option value="${r.patientId}" ${r.patientId == appoinment.patientId?"selected":""}> ${r.firstName}  ${r.lastName} </option>
                            
                            </c:forEach>  
         
@@ -101,7 +101,7 @@
                 
                  <c:forEach items="${ratelistname}" var="r">
                            
-                           <option value="${r.ratelistId}"> ${r.name} <option>
+                           <option value="${r.ratelistId}" ${r.ratelistId == appoinment.ratelistId ?"selected":""}> ${r.name} </option>
                            
                            </c:forEach>  
         
@@ -110,20 +110,7 @@
         
         
         Appointment Date: <input type="date" class="form-control" name="appoinmentDate" value="${appoinment.appoinmentDate}"><br>
-        Created Date: <input type="date"  class="form-control" name="createdDate" value="${appoinment.createdDate}"><br>
-        Created BY Employee Name: 
-        
-         <select name="employeeId" class="select">
-        
-                <option value="-1">----select Employee Name----</option>
-                
-                 <c:forEach items="${eName}" var="r">
-                           
-                           <option value="${r.employeeId}"> ${r.firstName} <option>
-                           
-                           </c:forEach>  
-        
-                </select><br><br>
+       
                 
                 <input type="hidden" name="appoinmentId" value="${appoinment.appoinmentId}"/>
                 

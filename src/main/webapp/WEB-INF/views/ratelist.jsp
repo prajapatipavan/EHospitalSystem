@@ -48,32 +48,32 @@
    
     <form action="ratelists" method="post">
               
-                  Name:<input type="text" name="name" class="form-control">
+                   Name:<input type="text" name="name" class="form-control">
                    Amount:<input type="text" name="amount" class="form-control">
                    RateType:<select name="ratetypeId" class="select">
                    
                     <option value="-1">------select RateType-------- <option>
-                           <c:forEach items="${ratetype}" var="r">
+                            <c:forEach items="${ratetype}" var="r">
                            
-                           <option value="${r.ratetypeId}"> ${r.type} <option>
+                            <option value="${r.ratetypeId}"> ${r.type} <option>
                            
-                           </c:forEach>   
+                            </c:forEach>   
                    
-                             </select>
+                            </select>
                              
-                     Department:<select name="departmentId" class="select">
+                    Department:<select name="departmentId" class="select">
                    
                     <option value="-1">------select Department-------- <option>
-                           <c:forEach items="${department}" var="r">
+                            <c:forEach items="${department}" var="r">
                            
-                           <option value="${r.departmentId}"> ${r.departmentName} <option>
+                            <option value="${r.departmentId}"> ${r.departmentName} <option>
                            
-                           </c:forEach>   
+                            </c:forEach>   
                    
                              </select>         
               
               <div class="m-t-20 text-center">
-                                <button type="submit" class="btn btn-primary submit-btn">ADD RateList</button>
+                             <button type="submit" class="btn btn-primary submit-btn">ADD RateList</button>
                             </div>
                
               </form>

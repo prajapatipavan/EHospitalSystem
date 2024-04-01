@@ -15,6 +15,7 @@ import com.Arth.Entity.packageEntity;
 import com.Arth.Repositry.DepartmentRepositry;
 import com.Arth.Repositry.PackageRepositry;
 import com.Arth.Repositry.RatetypeRipositry;
+import com.Arth.dto.packagedto;
 
 @Controller
 public class packagecontroller {
@@ -41,7 +42,7 @@ public class packagecontroller {
 
 	@GetMapping("/packagelist")
 	public String departmentlist(Model model) {
-		List<packageEntity> packagee = repositry.findAll();
+		List<packagedto> packagee = repositry.findbyallpacakege();
 		model.addAttribute("packagee", packagee);
 
 		return "/packagelist";

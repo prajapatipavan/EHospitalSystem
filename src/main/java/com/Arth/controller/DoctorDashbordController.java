@@ -13,6 +13,7 @@ import com.Arth.Entity.AppoinmentEntity;
 import com.Arth.Entity.DoctorEntity;
 import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.AppoinmentRepositry;
+import com.Arth.dto.Appoinmentdto;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -27,14 +28,14 @@ public class DoctorDashbordController {
 
 		DoctorEntity doctor = (DoctorEntity) session.getAttribute("doctor");
 
-		List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
+		List<AppoinmentEntity> appoinments = repositry.findBydoctorId(doctor.getDoctorId());
 
 		model.addAttribute("appoinment", appoinments);
 
 		LocalDate l = LocalDate.now();
 		Integer DayOfMonth = l.getDayOfMonth();
 
-		List<AppoinmentEntity> appoinmentlist = repositry.getCurrentDayAppointmentByDoctor(DayOfMonth,
+		List<Appoinmentdto> appoinmentlist = repositry.getCurrentDayAppointmentByDoctor(DayOfMonth,
 				doctor.getDoctorId());
 		model.addAttribute("appoinmentlist", appoinmentlist);
 
@@ -46,7 +47,7 @@ public class DoctorDashbordController {
 
 		DoctorEntity doctor = (DoctorEntity) session.getAttribute("doctor");
 
-		List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
+		List<Appoinmentdto> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
 
 		model.addAttribute("appoinment", appoinments);
 
@@ -57,7 +58,7 @@ public class DoctorDashbordController {
 	@GetMapping("docappoinmentscelnder")
 	public String docappoinmentscelnder(@RequestParam("date")String appoinmentDate,Model model ) {
 		
-		             List<AppoinmentEntity>  appoinment = repositry.Appoinmentdatewisepatient(appoinmentDate);
+		             List<Appoinmentdto>  appoinment = repositry.Appoinmentdatewisepatient(appoinmentDate);
 		             model.addAttribute("appoinment",appoinment);
 		
 		

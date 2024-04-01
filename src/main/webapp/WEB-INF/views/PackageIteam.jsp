@@ -71,7 +71,7 @@
                 
                  <c:forEach items="${iName}" var="i">
                            
-                           <option value="${iteamid}"> ${i.itemName} <option>
+                           <option value="${itemId}"> ${i.itemName} <option>
                            
                            </c:forEach>  
         

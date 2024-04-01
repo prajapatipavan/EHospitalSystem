@@ -13,10 +13,8 @@
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
-                        <li class="menu-title">Main</li>
-                       <!--  <li class="active">
-                            <a href="userdashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
-                        </li> -->
+                        <li class="menu-title">Patient Dashboard</li>
+                      
 						
                      
                         <li>

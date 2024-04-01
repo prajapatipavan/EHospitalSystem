@@ -52,7 +52,7 @@
                 <thead>
                     <tr>
                         <td>PrescriptionId</td>
-                        <td>PatientId</td>
+                        <td>PatientName</td>
                         <td>Medicine</td>
                        
                         <td>Instructions</td>
@@ -67,7 +67,7 @@
                         <tr>
                         
                           <th>${p.prescriptionId}</th>
-                           <th>${p.patientId}</th>
+                           <th>${p.firstName} ${p.lastName}</th>
                             <th>${p.medicine}</th>
                              <th>${p.instructions}</th>
                              <td> <a href="deleteprecription?id=${p.prescriptionId}">DELETE</a> </td>

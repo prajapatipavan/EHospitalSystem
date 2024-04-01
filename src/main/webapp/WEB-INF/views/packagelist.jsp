@@ -76,7 +76,7 @@
          <td> ${p.name} </td>
           <td> ${p.amount} </td>
           
-          <td> ${p.ratetypeId} </td>
+          <td> ${p.type} </td>
          <td> ${p.packageType} </td>
          <td><a href="deletepackage?id=${p.packageId}">DELETE</a> | 
            <a href="Editpackage?id=${p.packageId}">Edit</a>

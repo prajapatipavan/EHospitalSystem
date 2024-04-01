@@ -72,7 +72,7 @@
         <TD>NAME</TD>
         <TD>AMOUNT</TD>
         <TD>RATETYPEID</TD>
-        <TD>DEPARTMENTID</TD>
+        <!-- <TD>DEPARTMENTID</TD> -->
           <TD>ACTION</TD>
         
         </tr>
@@ -83,11 +83,11 @@
        <c:forEach items="${ratelist}" var="p">
         
         <tr>
-        <td>${ p.ratelistId}</td>
+        <td>${p.ratelistId}</td>
         <td> ${p.name}</td>
         <td>${p.amount}</td>
-        <td>${p.ratetypeId}</td>
-        <td>${p.departmentId}</td>
+        <td>${p.type}</td>
+        <%-- <td>${p.departmentId}</td> --%>
         <td><a href="deleteratelist?id=${p.ratelistId}">DELETE</a> |
         
          <a href="Editratelist?id=${p.ratelistId}">Edit</a>

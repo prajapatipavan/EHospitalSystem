@@ -1,5 +1,8 @@
 package com.Arth.controller;
 
+import java.io.Console;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,7 @@ import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.EmployeeRepositry;
 import com.Arth.Repositry.RatelistRipositry;
 import com.Arth.Repositry.patientrepositry;
+import com.Arth.dto.Appoinmentdto;
 import com.Arth.service.appoinmentmail;
 
 import jakarta.mail.Session;
@@ -75,12 +79,18 @@ public class AppoinmentController {
 
 		appoinment.setAppoinmentStatusId(1);
 		
+		LocalDate todayDate = LocalDate.now();
+		
+		
+		
+		    appoinment.setCreatedDate(todayDate);
+		
 		
 		String appointmentDetails = "Date: " + appoinment.getAppoinmentDate() + "\n" +
                 "Patient Name: " + patient.getFirstName() + " " + patient.getLastName() + "\n" ;
                 
 		
-		mappoinment.sendappoinmentForMail(patient.getEmail(), appointmentDetails);
+		//mappoinment.sendappoinmentForMail(patient.getEmail(), appointmentDetails);
 		
 		System.out.println(patient.getEmail());
 
@@ -93,7 +103,7 @@ public class AppoinmentController {
 
 		
 
-		List<AppoinmentEntity> appoinment = repositry.findAll();
+		List<Appoinmentdto> appoinment = repositry.findByAll();
 		
 		model.addAttribute("appoinment", appoinment);
 		
@@ -101,13 +111,21 @@ public class AppoinmentController {
 
 		return "/Appoinmentlist";
 	}
-
+	
 	@GetMapping("/deleteAppoinment")
 	public String deleteAppoinment(@RequestParam("id") Integer appoinmentId) {
 
 		repositry.deleteById(appoinmentId);
 
 		return "redirect:/patientAppoinmentlist";
+	}
+	
+	@GetMapping("/deletedrAppoinment")
+	public String deletedrAppoinment(@RequestParam("id") Integer appoinmentId) {
+
+		repositry.deleteById(appoinmentId);
+
+		return "redirect:/DocAppoinmentslist";
 	}
 
 	@GetMapping("/deleteAppoinmenttoday")
@@ -137,13 +155,15 @@ public class AppoinmentController {
 	/*----------------- Edit Appoinment--------------*/
 
 	@GetMapping("/patientAppoinmentEdit")
-	public String EdituserAppoinment(@RequestParam("id") Integer appoinmentId, Model model) {
+	public String EdituserAppoinment(@RequestParam("id") Integer appoinmentId, Model model,HttpSession Session) {
 
 		List<DoctorEntity> dname = dRepositry.findAll();
 		model.addAttribute("dname", dname);
 
-		List<patientEntity> pname = patientrepositry.findAll();
-		model.addAttribute("pname", pname);
+		 patientEntity patient = (patientEntity) Session.getAttribute("user");
+			
+			List<patientEntity> pname = patientrepositry.findBypatientId(patient.getPatientId());
+			model.addAttribute("pname", pname);
 
 		List<ratelistEntity> ratelistname = ratelistRipositry.findAll();
 		model.addAttribute("ratelistname", ratelistname);
@@ -164,7 +184,7 @@ public class AppoinmentController {
 		
 		
 		
-		    List<AppoinmentEntity>  appoinmet = repositry.Appoinmentdatewisepatient(appoinmentDate);
+		    List<Appoinmentdto>  appoinmet = repositry.Appoinmentdatewisepatient(appoinmentDate);
 		    
 		     model.addAttribute("appoinmet",appoinmet);
 		    

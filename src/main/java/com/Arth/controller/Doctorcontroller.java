@@ -19,6 +19,7 @@ import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.AppoinmentRepositry;
 import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.ServiceTypeRepositry;
+import com.Arth.dto.Appoinmentdto;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -95,6 +96,27 @@ public class Doctorcontroller {
 		}
 
 	}
+	
+	
+	@GetMapping("viewdoctorprofile")
+	public String iewdoctorprofile(@RequestParam("id") Integer doctorId, Model model) {
+
+		Optional<DoctorEntity> doctor = repositry.findById(doctorId);
+
+		if (doctor.isPresent()) {
+
+			DoctorEntity doctors = doctor.get();
+			model.addAttribute("doctors", doctors);
+
+			return "doctorProfile";
+
+		} else {
+
+			return "redirect:/doctorlist";
+		}
+
+	}
+
 
 	@GetMapping("/todaydoctorAppoinments")
 	public String deletedoctor(HttpSession session, Model model) {
@@ -104,7 +126,7 @@ public class Doctorcontroller {
 		LocalDate l = LocalDate.now();
 		Integer DayOfMonth = l.getDayOfMonth();
 
-		List<AppoinmentEntity> appoinmentlist = appoinmentRepo.getCurrentDayAppointmentByDoctor(DayOfMonth,
+		List<Appoinmentdto> appoinmentlist = appoinmentRepo.getCurrentDayAppointmentByDoctor(DayOfMonth,
 				doctor.getDoctorId());
 		model.addAttribute("appoinmentlist", appoinmentlist);
 

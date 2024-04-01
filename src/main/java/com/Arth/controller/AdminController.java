@@ -1,5 +1,7 @@
 package com.Arth.controller;
 
+import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.Arth.Entity.AdminnEntity;
+import com.Arth.Entity.AppoinmentEntity;
 import com.Arth.Entity.DoctorEntity;
 import com.Arth.Entity.IteamEntity;
 import com.Arth.Entity.PaymentsEntity;
@@ -17,12 +20,16 @@ import com.Arth.Entity.PharmistEntity;
 import com.Arth.Entity.ServiceTypeEntity;
 import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.AdminRepositry;
+import com.Arth.Repositry.AppoinmentRepositry;
 import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.IteamRepositry;
 import com.Arth.Repositry.PaymentsRepositry;
 import com.Arth.Repositry.PharmacistRepositry;
 import com.Arth.Repositry.ServiceTypeRepositry;
 import com.Arth.Repositry.patientrepositry;
+
+import com.Arth.dto.iteamdto;
+import com.Arth.dto.paymentsdto;
 
 @Controller
 public class AdminController {
@@ -44,6 +51,9 @@ public class AdminController {
 
 	@Autowired
 	AdminRepositry adminRepo;
+	
+	@Autowired
+	AppoinmentRepositry appoinmentRepo;
 
 	@Autowired
 	ServiceTypeRepositry serviceTypeRepositry;
@@ -66,6 +76,28 @@ public class AdminController {
 		List<IteamEntity> items = itemrepo.findAll();
 
 		model.addAttribute("items", items);
+		
+		
+		List<patientEntity> patients1 = patientRepo.findbypatients();
+		model.addAttribute("patients", patients1);
+		
+		
+		
+		LocalDate l = LocalDate.now();
+		Integer month = l.getMonth().getValue();
+
+		List<AppoinmentEntity> appoinmentcount = appoinmentRepo.getCurruntMonthAppointPatient(month);
+		model.addAttribute("appoinmentcount", appoinmentcount);
+			
+		   
+		LocalDate d = LocalDate.now();
+		Integer day = d.getDayOfMonth();
+		
+		Integer appoinmentcounttoday = appoinmentRepo.getCurruntdayAppoinment(day);
+		model.addAttribute("appoinmentcounttoday", appoinmentcounttoday);
+		
+		System.out.println(appoinmentcounttoday);
+		
 
 		return "AdminNewDashboard";
 	}
@@ -132,7 +164,7 @@ public class AdminController {
 	@GetMapping("AdminPayments")
 	public String AdminPayments(PharmistEntity pharmistEntity, Model model) {
 
-		List<PaymentsEntity> paymets = paymentRepo.findAll();
+		List<paymentsdto> paymets = paymentRepo.findByAllPayemnts();
 		model.addAttribute("paymets", paymets);
 
 		return "AdminPayments";
@@ -149,7 +181,7 @@ public class AdminController {
 	@GetMapping("Adminitems")
 	public String Adminitems(PharmistEntity pharmistEntity, Model model) {
 
-		List<IteamEntity> items = itemrepo.findAll();
+		List<iteamdto> items = itemrepo.findByAllitem();
 
 		model.addAttribute("items", items);
 

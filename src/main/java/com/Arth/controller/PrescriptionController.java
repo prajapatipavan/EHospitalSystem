@@ -16,6 +16,7 @@ import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.AppoinmentRepositry;
 import com.Arth.Repositry.PrescriptionRepositry;
 import com.Arth.Repositry.patientrepositry;
+import com.Arth.dto.prescriptiondto;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -33,7 +34,7 @@ public class PrescriptionController {
 
 		DoctorEntity doctor = (DoctorEntity) session.getAttribute("doctor");
 
-		List<AppoinmentEntity> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
+		List<AppoinmentEntity> appoinments = repositry.findBydoctorId(doctor.getDoctorId());
 
 		model.addAttribute("appoinment", appoinments);
 
@@ -43,10 +44,23 @@ public class PrescriptionController {
 	@GetMapping("Prescriptionlist")
 	public String Prescriptionlist(Model model) {
 
-		List<PrescriptionEntity> prescription = pRepositry.findAll();
+		List<prescriptiondto> prescription = pRepositry.findByAllPatientIdtoprecriptiondto();
 		model.addAttribute("prescription", prescription);
 
 		return "Prescriptionlist";
+	}
+	
+	
+	@GetMapping("patientprescriptionlist")
+	public String patientprescriptionlist(HttpSession session, Model model) {
+
+		patientEntity patient = (patientEntity) session.getAttribute("user");
+
+		List<prescriptiondto> prescription = pRepositry.findByPatientIdtoprecriptiondto(patient.getPatientId());
+
+		model.addAttribute("prescription", prescription);
+
+		return "patientprescriptionlist";
 	}
 
 	@PostMapping("savePrescription")

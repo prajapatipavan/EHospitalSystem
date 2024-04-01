@@ -121,7 +121,7 @@
                         <td>RatelistId</td>
                         <td>AppoinmentDate</td>
                         <td>CreatedDate</td>
-                        <td>EmployeeId</td>
+                        
                         <td>AppoinmentStatus</td>
                         <td>Action</td>
                         <td>Status</td>
@@ -131,12 +131,11 @@
                     <c:forEach items="${appoinmet}" var="p">
                         <tr>
                             <td>${p.appoinmentId}</td>
-                            <td>${p.doctorId}</td>
-                            <td>${p.patientId}</td>
-                            <td>${p.ratelistId}</td>
-                            <td>${p.appoinmentDate}</td>
-                            <td>${p.createdDate}</td>
-                            <td>${p.employeeId}</td>
+                             <td>${p.firstName1} ${p.lastName}</td>
+								<td>${p.firstName}</td>
+								<td>${p.name}</td>
+								<td>${p.appoinmentDate}</td>
+								<td>${p.createdDate}</td>
                           <td align="center"> 
                           
                              <c:if test="${p.appoinmentStatusId==1}">

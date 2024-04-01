@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!-- profile22:59-->
@@ -23,13 +22,9 @@
       
      
      
-    <c:if test="${!empty clerk}">
-        <jsp:include page="Clerknavbar.jsp"></jsp:include>
-    </c:if>
-    
-    <c:if test="${!empty clerk}">
-        <jsp:include page="Clerksidebar.jsp"></jsp:include>
-    </c:if>   
+   	<%@include file="Doctornavbar.jsp"%>
+
+		<jsp:include page="DoctorSidebar.jsp"></jsp:include>
      
         <div class="page-wrapper">
             <div class="content">

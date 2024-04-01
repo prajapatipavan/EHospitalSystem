@@ -73,7 +73,7 @@
         <tbody>
         <tr>
         <td> ${p.itemId} </td>
-         <td> ${p.materialId} </td>
+         <td> ${p.materialName} </td>
           <td> ${p.materialgName} </td>
           <td> ${p.itemCode} </td>
          <td> ${p.itemName} </td>

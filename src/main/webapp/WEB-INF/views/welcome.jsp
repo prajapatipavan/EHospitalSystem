@@ -115,10 +115,8 @@
 					</a> <c:if test="${!empty user}">
 
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="userdashboard">My Dashboard</a> <a
-									class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-								<a class="dropdown-item" href="settings.html">Settings</a> <a
-									class="dropdown-item" href="logout">Logout</a>
+								<a class="dropdown-item" href="userdashboard">My Dashboard</a> 
+								<a class="dropdown-item" href="logout">Logout</a>
 							</div>
 
 						</c:if> <c:if test="${empty user}">

@@ -18,6 +18,7 @@ import com.Arth.Repositry.MaterialRepositry;
 import com.Arth.Repositry.PackageRepositry;
 import com.Arth.Repositry.RatelistRipositry;
 import com.Arth.Repositry.RatetypeRipositry;
+import com.Arth.dto.ratelistdto;
 
 @Controller
 public class Ratelistcontroller {
@@ -52,7 +53,7 @@ public class Ratelistcontroller {
 
 	@GetMapping("/ratelistlist")
 	public String ratelistlist(Model model) {
-		List<ratelistEntity> ratelistlist = repositry.findAll();
+		List<ratelistdto> ratelistlist = repositry.FindByratelistId();
 		model.addAttribute("ratelist", ratelistlist);
 
 		return "/ratelistlist";

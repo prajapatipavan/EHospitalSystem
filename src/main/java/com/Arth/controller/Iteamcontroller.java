@@ -13,6 +13,7 @@ import com.Arth.Entity.IteamEntity;
 import com.Arth.Entity.MaterialEntity;
 import com.Arth.Repositry.IteamRepositry;
 import com.Arth.Repositry.MaterialRepositry;
+import com.Arth.dto.iteamdto;
 
 @Controller
 public class Iteamcontroller {
@@ -38,7 +39,7 @@ public class Iteamcontroller {
 
 	@GetMapping("/iteamlist")
 	public String departmentlist(Model model) {
-		List<IteamEntity> iteam = repositry.findAll();
+		List<iteamdto> iteam = repositry.findByAllitem();
 		model.addAttribute("iteam", iteam);
 		return "/iteamlist";
 	}

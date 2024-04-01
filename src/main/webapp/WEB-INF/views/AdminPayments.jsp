@@ -61,7 +61,7 @@
     <tr>
         <th>Payment ID</th>
         <th>Patient ID</th>
-        <th>Patient Name</th>
+       
         <th>Amount</th>
         <th>Payment Type</th>
         <th>Rate List ID</th>
@@ -77,11 +77,11 @@
     <c:forEach items="${paymets}" var="payment">
         <tr>
             <td>${payment.paymentId}</td>
-            <td>${payment.patientId}</td>
-            <td>${payment.patientName}</td>
+            <td>${payment.firstName}</td>
+           
             <td>${payment.amount}</td>
             <td>${payment.paymetType}</td>
-            <td>${payment.ratelistId}</td>
+            <td>${payment.name}</td>
             <td>${payment.discount}</td>
             <td>${payment.actualAmount}</td>
             <td>${payment.reasonDiscount}</td>

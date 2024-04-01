@@ -42,11 +42,11 @@
             <table border="3" id="listtable" class="table table-striped table-hover tab" >
                 <thead>
                     <tr>
-                        <td>prescriptionId</td>
-                        <td>patientId</td>
-                        <td>medicine</td>
+                       
+                        <td>PatientName</td>
+                        <td>Medicine Details</td>
                       
-                        <td>instructions</td>
+                        <td>Instructions</td>
                         
                      
                        
@@ -57,8 +57,8 @@
                     
                         <tr>
                         
-                          <th>${p.prescriptionId}</th>
-                           <th>${p.patientId}</th>
+                         
+                           <th>${p.firstName} ${p.lastName}</th>
                             <th>${p.medicine}</th>
                              <th>${p.instructions}</th>
                         

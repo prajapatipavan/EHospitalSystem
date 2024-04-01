@@ -14,6 +14,7 @@ import com.Arth.Entity.patientEntity;
 import com.Arth.Repositry.AppoinmentRepositry;
 import com.Arth.Repositry.PrescriptionRepositry;
 import com.Arth.Repositry.patientrepositry;
+import com.Arth.dto.Appoinmentdto;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -39,8 +40,10 @@ public class userdashboardcontroller {
 
 		patientEntity patient = (patientEntity) session.getAttribute("user");
 
-		List<AppoinmentEntity> appoinments = aRepositry.findBypatientId(patient.getPatientId());
+		List<Appoinmentdto> appoinments = aRepositry.findBypatientId(patient.getPatientId());
 
+		
+		
 		model.addAttribute("appoinment", appoinments);
 
 		return "patientAppoinmentlist";
@@ -54,17 +57,7 @@ public class userdashboardcontroller {
 		return "redirect:/patientAppoinmentlist";
 	}
 
-	@GetMapping("patientprescriptionlist")
-	public String patientprescriptionlist(HttpSession session, Model model) {
-
-		patientEntity patient = (patientEntity) session.getAttribute("user");
-
-		List<PrescriptionEntity> prescription = repositry.findByPatientIdtoprecription(patient.getPatientId());
-
-		model.addAttribute("prescription", prescription);
-
-		return "patientprescriptionlist";
-	}
+	
 
 	@GetMapping("patientprofiles")
 	public String patientprofile(@RequestParam("id") Integer patientId, Model model) {
@@ -73,6 +66,18 @@ public class userdashboardcontroller {
 		model.addAttribute("patiente", patiente);
 
 		return "patientprofile";
+	}
+	
+	@GetMapping("editprofile")
+	public String editprofile(@RequestParam("id") Integer patientId,Model model) {
+		
+		
+		          patientEntity  patient = patientRepo.findById(patientId).get();
+		          model.addAttribute("patient",patient);
+		
+		
+		
+		return "editprofile";
 	}
 
 }

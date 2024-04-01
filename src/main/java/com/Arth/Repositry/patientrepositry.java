@@ -3,6 +3,7 @@ package com.Arth.Repositry;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.Arth.Entity.AppoinmentEntity;
@@ -17,6 +18,9 @@ public interface patientrepositry extends JpaRepository<patientEntity, Integer> 
 	  
 	  List<patientEntity> findBypatientId(Integer patientId);
 	  
+	  
+	  @Query(value = " SELECT * FROM patient ORDER BY patient_id DESC LIMIT 5;",nativeQuery = true)
 	
+	    List<patientEntity> findbypatients();
 
 }

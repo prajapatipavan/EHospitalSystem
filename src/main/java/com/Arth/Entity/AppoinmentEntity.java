@@ -1,10 +1,13 @@
 package com.Arth.Entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "Appoinment")
@@ -19,10 +22,16 @@ public class AppoinmentEntity {
     
 	private Integer ratelistId;
 	private String appoinmentDate;
-	private String createdDate;
+	private LocalDate createdDate;
 	private Integer employeeId;
 	private Integer appoinmentStatusId;
 
+	
+	
+	//join variable 
+	@Transient
+	private String titleName;
+	
 	public Integer getAppoinmentId() {
 		return appoinmentId;
 	}
@@ -63,12 +72,16 @@ public class AppoinmentEntity {
 		this.appoinmentDate = appoinmentDate;
 	}
 
-	public String getCreatedDate() {
+	
+
+	
+
+	public LocalDate getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(String createdDate) {
-		this.createdDate = createdDate;
+	public void setCreatedDate(LocalDate todayDate) {
+		this.createdDate = todayDate;
 	}
 
 	public Integer getEmployeeId() {
@@ -87,7 +100,17 @@ public class AppoinmentEntity {
 		this.appoinmentStatusId = appoinmentStatusId;
 	}
 
+	public String getTitleName() {
+		return titleName;
+	}
+
+	public void setTitleName(String titleName) {
+		this.titleName = titleName;
+	}
+
+	}
+
 	
 
 	
-}
+
