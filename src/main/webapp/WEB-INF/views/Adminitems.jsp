@@ -56,7 +56,7 @@
     <tr>
         
          <td>  ItemId </td>
-         <td>  MaterialId </td>
+         <td>  Material Name </td>
          <td> MaterialGroupName </td>
          <td>  ItemCode </td>
          <td>  ItemName </td>

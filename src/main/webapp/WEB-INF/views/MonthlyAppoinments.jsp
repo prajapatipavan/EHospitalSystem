@@ -60,13 +60,13 @@
        <c:forEach items="${appoinmentlist}" var="p">
         
         <tr>
-         <td> ${p.appoinmentId} </td>
-        <td> ${p.doctorId} </td>
-         <td> ${p.doctorId} </td>
-          <td> ${p.ratelistId} </td>
-          <td> ${p.appoinmentDate} </td>
-         <td> ${p. createdDate} </td>
-          <td> ${p.employeeId} </td>
+                             <td>${p.appoinmentId}</td>
+                           
+                             <td>${p.firstName1} ${p.lastName}</td>
+								<td>${p.firstName}</td>
+								<td>${p.name}</td>
+								<td>${p.appoinmentDate}</td>
+								<td>${p.createdDate}</td>
           <td> ${p.appoinmentStatusId } </td>
         
           <td><a href="deleteAppoinmentMontly?id=${p.appoinmentId}">DELETE</a></td>

@@ -66,17 +66,17 @@
    
     <tr align="center">
         
-         <td>  itemId </td>
-         <td>  materialId </td>
+         <td>  ItemId </td>
+         <td>  Material Name</td>
          <td> MaterialGroupName </td>
-         <td>  itemCode </td>
-         <td>  itemName </td>
-         <td> alternateName </td>
-         <td>  shortName </td>
-         <td>  gstRate </td>
+         <td>  ItemCode </td>
+         <td>  ItemName </td>
+         <td> AlternateName </td>
+         <td>  ShortName </td>
+         <td>  GstRate </td>
          <td> HsnCode </td>
-          <td> price </td>
-           <td> expiredDate </td>
+          <td> Price </td>
+           <td> ExpiredDate </td>
            <td>Action</td>
         
         </tr>

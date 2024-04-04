@@ -21,11 +21,17 @@ public interface AppoinmentRepositry  extends JpaRepository<AppoinmentEntity, In
 	
 	   AppoinmentEntity findByPatientId(Integer patientId);
 	
-
+	   
+	   @Query(value = "SELECT a.appoinment_id as appoinmentId, a.patient_id as patientId, " +
+		        "p.first_name as firstName, a.appoinment_status_id as appoinmentStatusId, " +
+		        "d.first_name as firstName1, d.last_Name as lastName, " +
+		        "a.appoinment_date as appoinmentDate, a.created_date as createdDate, r.name " +
+		        "FROM patient p, appoinment a, doctor d, ratelist r " +
+		        "WHERE p.patient_id = a.patient_id AND d.doctor_id = a.doctor_id " +
+		        "AND r.ratelist_id = a.ratelist_id AND DAYOFMONTH(a.appoinment_date) = :DayOfMonth",
+		        nativeQuery = true)
 	
- @Query(value = "select * from appoinment where DayofMonth(appoinment_date) = :DayofMonth",nativeQuery=true)
-	
-	  List<AppoinmentEntity> getCurruntDayAppointPatient(Integer DayofMonth);
+	     List<Appoinmentdto> findByappoinmenttoday(Integer DayOfMonth);
  
  
 // @Query(value = "SELECT d.first_name, a.* FROM appoinment a JOIN doctor d ON d.doctor_id = a.doctor_id  where patient_id=:patientId", nativeQuery = true)
@@ -83,6 +89,17 @@ public interface AppoinmentRepositry  extends JpaRepository<AppoinmentEntity, In
 	        "AND r.ratelist_id = a.ratelist_id AND DAYOFMONTH(a.appoinment_date) = :dayOfMonth",
 	        nativeQuery = true)
 	List<Appoinmentdto> getCurrentDayAppointmentByDoctor(Integer dayOfMonth, Integer doctorId);
+ 
+ 
+ @Query(value = "SELECT a.appoinment_id as appoinmentId, a.patient_id as patientId, " +
+	        "p.first_name as firstName, a.appoinment_status_id as appoinmentStatusId, " +
+	        "d.first_name as firstName1, d.last_Name as lastName, " +
+	        "a.appoinment_date as appoinmentDate, a.created_date as createdDate, r.name " +
+	        "FROM patient p, appoinment a, doctor d, ratelist r " +
+	        "WHERE p.patient_id = a.patient_id AND d.doctor_id = :doctorId " +
+	        "AND r.ratelist_id = a.ratelist_id AND month(a.appoinment_date) = :month",
+	        nativeQuery = true)
+	List<Appoinmentdto> getCurrentMonthAppointmentByDoctor(Integer month, Integer doctorId);
 
  
  
@@ -98,9 +115,16 @@ public interface AppoinmentRepositry  extends JpaRepository<AppoinmentEntity, In
 // List<AppoinmentEntity> getCurrentDayAppointmentByDoctor(Integer dayOfMonth, Integer doctorId);
 
  
- @Query(value = "select * from appoinment where month(appoinment_date) = :month",nativeQuery=true)
+ @Query(value = "SELECT a.appoinment_id as appoinmentId, a.patient_id as patientId, " +
+	        "p.first_name as firstName, a.appoinment_status_id as appoinmentStatusId, " +
+	        "d.first_name as firstName1, d.last_Name as lastName, " +
+	        "a.appoinment_date as appoinmentDate, a.created_date as createdDate, r.name " +
+	        "FROM patient p, appoinment a, doctor d, ratelist r " +
+	        "WHERE p.patient_id = a.patient_id AND d.doctor_id = a.doctor_id " +
+	        "AND r.ratelist_id = a.ratelist_id AND month(a.appoinment_date) = :month",
+	        nativeQuery = true)
 	
- List<AppoinmentEntity> getCurruntMonthAppointPatient(Integer month);
+       List<Appoinmentdto> getCurruntMonthAppointPatient(Integer month);
  
  
  

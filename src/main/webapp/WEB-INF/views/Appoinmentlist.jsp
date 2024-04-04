@@ -163,9 +163,9 @@
                       
                             <td>
                                 <a href="viewpatientopd?id=${p.patientId}" style="border-bottom: 1px solid red;">OPD</a> |
-                                <a href="" style="border-bottom: 1px solid red;">OPT</a> |
+                               
                                 <a href="" style="border-bottom: 1px solid red;">DOCTOR</a><br>
-                                <a href="" style="border-bottom: 1px solid red;">counseling</a>
+                                
                             </td>
                         </tr>
                     </c:forEach>

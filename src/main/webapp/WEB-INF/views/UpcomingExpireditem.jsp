@@ -68,7 +68,7 @@
 					<tr>
 
 						<td>ItemId</td>
-						<td>MaterialId</td>
+						<td>Material Name</td>
 						<td>MaterialGroupName</td>
 						<td>ItemCode</td>
 						<td>ItemName</td>
@@ -86,7 +86,7 @@
 
 						<tr>
 							<td>${p.itemId}</td>
-							<td>${p.materialId}</td>
+							<td>${p.materialName}</td>
 							<td>${p.materialgName}</td>
 							<td>${p.itemCode}</td>
 							<td>${p.itemName}</td>

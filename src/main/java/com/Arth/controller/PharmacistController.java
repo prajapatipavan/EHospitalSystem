@@ -20,6 +20,7 @@ import com.Arth.Entity.patientItemEntity;
 import com.Arth.Repositry.IteamRepositry;
 import com.Arth.Repositry.PharmacistRepositry;
 import com.Arth.Repositry.patientItemRepositry;
+import com.Arth.dto.iteamdto;
 
 @Controller
 public class PharmacistController {
@@ -90,7 +91,7 @@ public class PharmacistController {
 		LocalDate l = LocalDate.now();
 		Integer month = l.getMonth().getValue();
 
-		List<IteamEntity> product = itemrepo.getupcommingMonthitems(month);
+		List<iteamdto> product = itemrepo.getupcommingMonthitems(month);
 		model.addAttribute("product", product);
 
 		return "UpcomingExpireditemspharmacist";

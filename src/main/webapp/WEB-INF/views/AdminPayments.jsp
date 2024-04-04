@@ -60,11 +60,11 @@
                <thead>
     <tr>
         <th>Payment ID</th>
-        <th>Patient ID</th>
+        <th>Patient Name</th>
        
         <th>Amount</th>
         <th>Payment Type</th>
-        <th>Rate List ID</th>
+        <th>Rate List Name</th>
         <th>Discount</th>
         <th>Actual Amount</th>
         <th>Reason for Discount</th>

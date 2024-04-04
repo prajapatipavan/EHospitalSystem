@@ -61,10 +61,10 @@
         
         <td>pharmacistId</td>
         <td>pharmacistName</td>
-        <td> email</td>
+        <td> Email</td>
         <td>password</td>
-        <td>mobileNo</td>
-        <td>dateOfBirth</td>
+        <td>MobileNo</td>
+        <td>DateOfBirth</td>
          <td>Action</td>
         
         </tr>

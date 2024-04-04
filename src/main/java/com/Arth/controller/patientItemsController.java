@@ -17,6 +17,7 @@ import com.Arth.Entity.patientItemEntity;
 import com.Arth.Repositry.IteamRepositry;
 import com.Arth.Repositry.patientItemRepositry;
 import com.Arth.Repositry.patientrepositry;
+import com.Arth.dto.patientItemdto;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -76,7 +77,7 @@ public class patientItemsController {
 	@GetMapping("patientItemlist")
 	public String patientItemlist(Model model) {
 
-		List<patientItemEntity> patientItem = patientitemRepo.findAll();
+		List<patientItemdto> patientItem = patientitemRepo.findByPatientItemlist();
 
 		model.addAttribute("patientItem", patientItem);
 

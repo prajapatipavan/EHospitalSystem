@@ -27,7 +27,7 @@ import com.Arth.Repositry.PaymentsRepositry;
 import com.Arth.Repositry.PharmacistRepositry;
 import com.Arth.Repositry.ServiceTypeRepositry;
 import com.Arth.Repositry.patientrepositry;
-
+import com.Arth.dto.Appoinmentdto;
 import com.Arth.dto.iteamdto;
 import com.Arth.dto.paymentsdto;
 
@@ -86,7 +86,7 @@ public class AdminController {
 		LocalDate l = LocalDate.now();
 		Integer month = l.getMonth().getValue();
 
-		List<AppoinmentEntity> appoinmentcount = appoinmentRepo.getCurruntMonthAppointPatient(month);
+		List<Appoinmentdto> appoinmentcount = appoinmentRepo.getCurruntMonthAppointPatient(month);
 		model.addAttribute("appoinmentcount", appoinmentcount);
 			
 		   

@@ -70,9 +70,9 @@
 					<thead>
 						<tr>
 							<td>AppoinmentId</td>
-							<td>DoctorId</td>
-							<td>PatientId</td>
-							<td>RatelistId</td>
+							<td>Doctor Name</td>
+							<td>Patient Name</td>
+							<td>Ratelist Name</td>
 							<td>AppoinmentDate</td>
 							<td>CreatedDate</td>
 							

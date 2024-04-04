@@ -71,8 +71,8 @@
                 <thead>
                     <tr>
                         <th>patientItemId</th>
-                        <th>patientId</th>
-                        <th>itemId</th>
+                        <th>patient Name</th>
+                        <th>item Name</th>
                         <th>Date</th>
                         <th>Quantity</th>
                         <th>Total Price</th>
@@ -83,8 +83,8 @@
                     <c:forEach items="${patientItem}" var="item">
                         <tr>
                             <td>${item.patientItemId}</td>
-                            <td>${item.patientId}</td>
-                            <td>${item.itemId}</td>
+                            <td>${item.firstName}${item.lastName}</td>
+                            <td>${item.materialgName}</td>
                             <td>${item.date}</td>
                            
                             <td>${item.qty}</td>

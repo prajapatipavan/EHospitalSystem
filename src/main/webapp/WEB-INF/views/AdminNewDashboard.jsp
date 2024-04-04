@@ -245,7 +245,7 @@
 
         // Sample data for the second chart
         const label2 = getCurrentDateLabel(); // Get label for the current month
-        const data2 = [${appoinmentcounttoday}]; // Sample data
+        const data2 = [${appoinmentcounttoday.size()}]; // Sample data
 
         // Get the canvas element for the second chart
         const ctx2 = document.getElementById('myChart2').getContext('2d');

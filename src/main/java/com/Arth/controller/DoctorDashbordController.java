@@ -28,7 +28,7 @@ public class DoctorDashbordController {
 
 		DoctorEntity doctor = (DoctorEntity) session.getAttribute("doctor");
 
-		List<AppoinmentEntity> appoinments = repositry.findBydoctorId(doctor.getDoctorId());
+		List<Appoinmentdto> appoinments = repositry.findByDoctorId(doctor.getDoctorId());
 
 		model.addAttribute("appoinment", appoinments);
 
@@ -38,6 +38,25 @@ public class DoctorDashbordController {
 		List<Appoinmentdto> appoinmentlist = repositry.getCurrentDayAppointmentByDoctor(DayOfMonth,
 				doctor.getDoctorId());
 		model.addAttribute("appoinmentlist", appoinmentlist);
+		
+		
+		
+		LocalDate m = LocalDate.now();
+		Integer month = m.getMonth().getValue();
+		
+		List<Appoinmentdto> doctors  =  repositry.getCurrentMonthAppointmentByDoctor(month,doctor.getDoctorId());
+		
+		model.addAttribute("doctors",doctors);
+		
+		System.out.print(doctors.size());
+		
+		List<Appoinmentdto> appoinmentlists = repositry.getCurrentDayAppointmentByDoctor(DayOfMonth,
+				doctor.getDoctorId());
+		model.addAttribute("appoinment", appoinmentlists);
+		
+		
+	
+		
 
 		return "DoctorDashboard";
 	}

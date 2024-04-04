@@ -17,6 +17,8 @@ import com.Arth.Repositry.AppoinmentRepositry;
 import com.Arth.Repositry.DoctorRepositry;
 import com.Arth.Repositry.IteamRepositry;
 import com.Arth.Repositry.patientrepositry;
+import com.Arth.dto.Appoinmentdto;
+import com.Arth.dto.iteamdto;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -89,7 +91,7 @@ public class ClerkController {
 		LocalDate l = LocalDate.now();
 		Integer DayOfMonth = l.getDayOfMonth();
 
-		List<AppoinmentEntity> appoinmentlist = appoinmentRepo.getCurruntDayAppointPatient(DayOfMonth);
+		List<Appoinmentdto> appoinmentlist = appoinmentRepo.findByappoinmenttoday(DayOfMonth);
 		model.addAttribute("appoinmentlist", appoinmentlist);
 
 		return "todayAppoinments";
@@ -101,7 +103,7 @@ public class ClerkController {
 		LocalDate l = LocalDate.now();
 		Integer month = l.getMonth().getValue();
 
-		List<AppoinmentEntity> appoinmentlist = appoinmentRepo.getCurruntMonthAppointPatient(month);
+		List<Appoinmentdto> appoinmentlist = appoinmentRepo.getCurruntMonthAppointPatient(month);
 		model.addAttribute("appoinmentlist", appoinmentlist);
 
 		return "todayAppoinments";
@@ -113,7 +115,7 @@ public class ClerkController {
 		LocalDate l = LocalDate.now();
 		Integer month = l.getMonth().getValue();
 
-		List<IteamEntity> product = itemrepo.getupcommingMonthitems(month);
+		List<iteamdto> product = itemrepo.getupcommingMonthitems(month);
 		model.addAttribute("product", product);
 
 		return "UpcomingExpireditem";

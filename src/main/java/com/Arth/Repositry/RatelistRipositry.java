@@ -16,7 +16,7 @@ public interface RatelistRipositry extends JpaRepository<ratelistEntity, Integer
 	@Query(value = " select DISTINCT r.name , ra.type ,r.amount , "
 			+ "r.ratelist_id as ratelistId"
 			+ " from ratelist r ,ratetype ra "
-			+ "where ra.ratetype_id  AND r.ratetype_id ;",nativeQuery = true)
+			+ "where ra.ratetype_i=r.ratetype_id ;",nativeQuery = true)
 	
 	 List<ratelistdto> FindByratelistId();
 
